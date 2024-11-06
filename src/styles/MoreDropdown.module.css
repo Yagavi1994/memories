@@ -1,0 +1,12 @@
+.DropdownItem {
+    color: #2d2d2d;
+}
+
+.DropdownItem:hover {
+    color: #d2cb7d;
+    background-color: #2d2d2d;
+}
+
+.Icon {
+    color: #2d2d2d;
+}

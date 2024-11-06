@@ -30,14 +30,14 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
           onClick={handleEdit}
           aria-label="edit"
         >
-          <i className="fas fa-edit" />
+          <i className={`fas fa-edit ${styles.Icon}`} />
         </Dropdown.Item>
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={handleDelete}
           aria-label="delete"
         >
-          <i className="fas fa-trash-alt" />
+          <i className={`fas fa-trash-al ${styles.Icon}`} />
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
@@ -50,25 +50,25 @@ export const ProfileEditDropdown = ({ id }) => {
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
       <Dropdown.Toggle as={ThreeDots} />
       <Dropdown.Menu>
-        <Dropdown.Item
+        <Dropdown.Item className={styles.DropdownItem}
           onClick={() => history.push(`/profiles/${id}/edit`)}
           aria-label="edit-profile"
         >
-          <i className="fas fa-edit" /> edit profile
+          <i className={`fas fa-edit ${styles.Icon}`} /> Edit Profile
         </Dropdown.Item>
-        <Dropdown.Item
+        <Dropdown.Item className={styles.DropdownItem}
           onClick={() => history.push(`/profiles/${id}/edit/username`)}
           aria-label="edit-username"
         >
-          <i className="far fa-id-card" />
-          change username
+          <i className={`far fa-id-card ${styles.Icon}`} />
+          Change Username
         </Dropdown.Item>
-        <Dropdown.Item
+        <Dropdown.Item className={styles.DropdownItem}
           onClick={() => history.push(`/profiles/${id}/edit/password`)}
           aria-label="edit-password"
         >
-          <i className="fas fa-key" />
-          change password
+          <i className={`fas fa-key ${styles.Icon}`} />
+          Change Password
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
