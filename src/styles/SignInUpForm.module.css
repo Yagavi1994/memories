@@ -27,6 +27,11 @@
     text-align: center;
     display: block;
     margin: auto;
+    color: #ffffff !important;
+  }
+
+  .Link:hover {
+    color: #d2cb7d !important;
   }
   
   .Link span {

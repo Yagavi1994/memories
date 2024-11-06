@@ -25,16 +25,10 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
+          {/* Set Feed as the new Home Page */}
           <Route
             exact
             path="/"
-            render={() => (
-              <PostsPage message="No results found. Adjust the search keyword." />
-            )}
-          />
-          <Route
-            exact
-            path="/feed"
             render={() => (
               <PostsPage
                 message="No results found. Adjust the search keyword or follow a user."
