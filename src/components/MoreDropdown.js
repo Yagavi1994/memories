@@ -37,7 +37,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
           onClick={handleDelete}
           aria-label="delete"
         >
-          <i className={`fas fa-trash-al ${styles.Icon}`} />
+          <i className={`fa-solid fa-trash ${styles.Icon}`} />
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

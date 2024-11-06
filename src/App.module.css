@@ -16,6 +16,16 @@
   color: #efeef4;
 }
 
+.Comment {
+  background-color: #2d2d2d;
+  width: 75%;
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid #dadadf;
+  color: #efeef4;
+  margin-bottom: 20px;
+}
+
 .FillerImage {
   object-fit: cover;
   height: 100%;
