@@ -2,10 +2,20 @@
     background-color: #2d2d2d;
     border: 1px solid #dadadf;
     border-radius: 2px;
-    margin-bottom: 16px;
     text-align: center;
-    border-radius: 5%;
     color: #efeef4;
+    width: 75%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  /* Responsive adjustments */
+  @media screen and (max-width: 600px) {
+    .Post {
+      width: 90%;
+      height: auto;
+    }
   }
   
   .Post figure,
