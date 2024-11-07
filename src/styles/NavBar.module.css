@@ -1,6 +1,6 @@
 .NavBar {
   background-color: #2d2d2d;
-  columns: #fff;
+  color: #fff;
 }
 
 .NavLink {
@@ -8,12 +8,16 @@
   color: #fff;
 }
 
-.Active i, .Active .NavLink, .Active #dropdownMenu {
-  color: #d2cb7d !important;
+.Active NavLink {
+  color: #d2cb7d;
+}
+
+.Active i, .Active #dropdownMenu {
+  color: #d2cb7d;
 }
 
 i:hover, .NavLink:hover, #dropdownMenu:hover {
-  color: #d2cb7d !important;
+  color: #d2cb7d;
 }
 
 #dropdownItem:hover {

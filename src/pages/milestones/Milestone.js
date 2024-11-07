@@ -31,7 +31,7 @@ const Milestone = (props) => {
     updated_at,
     title,
     content,
-    // milestone_date,
+    milestone_date,
     image,
     like_id, 
     likes_count, 

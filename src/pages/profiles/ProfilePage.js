@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
 import Container from "react-bootstrap/Container";
 
 import Asset from "../../components/Asset";
@@ -21,6 +23,7 @@ import {
 import { Button, Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
+import Milestone from "../milestones/Milestone";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
@@ -28,6 +31,7 @@ import { ProfileEditDropdown } from "../../components/MoreDropdown";
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
+  const [profileMilestones, setProfileMilestones] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
@@ -41,16 +45,18 @@ function ProfilePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }, { data: profilePosts }] =
+        const [{ data: pageProfile }, { data: profilePosts }, { data: profileMilestones }] =
           await Promise.all([
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/posts/?owner__profile=${id}`),
+            axiosReq.get(`/milestones/?owner__profile=${id}`),
           ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfilePosts(profilePosts);
+        setProfileMilestones(profileMilestones);
         setHasLoaded(true);
       } catch (err) {
       }
@@ -75,6 +81,10 @@ function ProfilePage() {
             <Col xs={3} className="my-2">
               <div>{profile?.posts_count}</div>
               <div>posts</div>
+            </Col>
+            <Col xs={3} className="my-2">
+              <div>{profile?.milestones_count}</div>
+              <div>milestones</div>
             </Col>
             <Col xs={3} className="my-2">
               <div>{profile?.followers_count}</div>
@@ -134,6 +144,43 @@ function ProfilePage() {
     </>
   );
 
+  const mainProfileMilestones = (
+    <>
+      <hr />
+      <p className="text-center">{profile?.owner}'s milestones</p>
+      <hr />
+      {profileMilestones.results.length ? (
+        <InfiniteScroll
+          children={profileMilestones.results.map((milestone) => (
+            <Milestone key={milestone.id} {...milestone} setMilestones={setProfileMilestones} />
+          ))}
+          dataLength={profileMilestones.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profileMilestones.next}
+          next={() => fetchMoreData(profileMilestones, setProfileMilestones)}
+        />
+      ) : (
+        <Asset
+          src={NoResults}
+          message={`No results found, ${profile?.owner} hasn't added any milestones yet.`}
+        />
+      )}
+    </>
+  );
+
+  const profileTabs = (
+    <>
+      <Tabs defaultActiveKey="posts" id="profile-tab">
+        <Tab eventKey="posts" title={`${profile?.owner}'s posts`}>
+          {mainProfilePosts}
+        </Tab>
+        <Tab eventKey="milestones" title={`${profile?.owner}'s milestones`}>
+          {mainProfileMilestones}
+        </Tab>
+      </Tabs>
+    </>
+  );
+
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
@@ -142,7 +189,7 @@ function ProfilePage() {
           {hasLoaded ? (
             <>
               {mainProfile}
-              {mainProfilePosts}
+              {profileTabs}
             </>
           ) : (
             <Asset spinner />

@@ -28,8 +28,9 @@ function MilestoneCreateForm() {
     title: "",
     content: "",
     image: "",
+    milestone_date: "",
   });
-  const { title, content, image } = milestoneData;
+  const { title, content, image, milestone_date } = milestoneData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -58,6 +59,7 @@ function MilestoneCreateForm() {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
+    formData.append("milestone_date", milestone_date);
 
     try {
       const { data } = await axiosReq.post("/milestones/", formData);
@@ -87,7 +89,22 @@ function MilestoneCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label>Date</Form.Label>
+        <Form.Control
+          type="date"
+          name="milestone_date" // Ensure this matches the state field name
+          value={milestone_date}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.milestone_date?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Description</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}

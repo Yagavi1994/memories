@@ -63,6 +63,7 @@ const NavBar = () => {
     <>
       <NavDropdown
         id={styles.dropdownMenu}
+        activeClassName={styles.Active}
         title={
           <span className={`${styles.dropdownText} d-sm-inline-column`}>
           <i className="fas fa-stream"></i> Home
@@ -105,6 +106,7 @@ const NavBar = () => {
       </NavLink>
       <NavLink
         className={styles.NavLink}
+        activeClassName={styles.Active}
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
