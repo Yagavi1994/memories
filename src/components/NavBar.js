@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink, useHistory } from "react-router-dom";
@@ -13,11 +14,16 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const history = useHistory(); // useHistory hook for navigation
+
+  // Variables to toggle open and closed mobile navbar burger menu
+  const [toggleNavBar, setToggleNavBar] = useState(false);
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
@@ -32,26 +38,61 @@ const NavBar = () => {
     }
   };
 
-  const addPostIcon = (
-    <NavLink
-      className={styles.NavLink}
-      activeClassName={styles.Active}
-      to="/posts/create"
-    >
-      <i className="far fa-plus-square"></i>Add post
-    </NavLink>
+  const addIcons = (
+    <>
+      <div>
+        <NavLink
+          className={styles.NavLink}
+          activeClassName={styles.Active}
+          to="/posts/create"
+        >
+          <i className="far fa-plus-square"></i>Add post
+        </NavLink>
+        <NavLink
+          className={styles.NavLink}
+          activeClassName={styles.Active}
+          to="/milestones/create"
+        >
+          <i className="far fa-plus-square"></i>Add milestone
+        </NavLink>
+      </div>
+    </>
   );
 
   const loggedInIcons = (
     <>
-      <NavLink
-        exact
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/"
+      <NavDropdown
+        id={styles.dropdownMenu}
+        title={
+          <span className={`${styles.dropdownText} d-sm-inline-column`}>
+          <i className="fas fa-stream"></i> Home
+          </span>
+          }
       >
-        <i className="fas fa-home"></i>Home
-      </NavLink>
+        <NavDropdown.Item
+          id={styles.dropdownItem}
+          as={Link}
+          className={styles.NavLink}
+          to="/"
+          onClick={() => {
+            setToggleNavBar(!toggleNavBar);
+          }}
+        >
+          <i className={`fa-solid fa-bullhorn ${styles.Icon}`}></i> Posts
+        </NavDropdown.Item>
+        <NavDropdown.Item
+          id={styles.dropdownItem}
+          as={Link}
+          className={styles.NavLink}
+          to="/milestones"
+          onClick={() => {
+            setToggleNavBar(!toggleNavBar);
+          }}
+        >
+          <i className={`fa-regular fa-calendar-days ${styles.Icon}`}></i> Milestones
+        </NavDropdown.Item>
+      </NavDropdown>
+
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -103,7 +144,7 @@ const NavBar = () => {
             <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
         </NavLink>
-        {currentUser && addPostIcon}
+        {currentUser && addIcons}
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}

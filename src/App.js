@@ -14,6 +14,10 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import MilestonePage from "./pages/milestones/MilestonePage";
+import MilestoneCreateForm from "./pages/milestones/MilestoneCreateForm";
+import MilestoneEditForm from "./pages/milestones/MilestoneEditForm";
+import MilestonesPage from "./pages/milestones/MilestonesPage";
 import NotFound from "./components/NotFound";
 
 function App() {
@@ -51,6 +55,10 @@ function App() {
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
+          <Route exact path="/milestones" render={() => <MilestonesPage />} />
+          <Route exact path="/milestones/create" render={() => <MilestoneCreateForm />} />
+          <Route exact path="/milestones/:id" render={() => <MilestonePage />} />
+          <Route exact path="/milestones/:id/edit" render={() => <MilestoneEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route
             exact

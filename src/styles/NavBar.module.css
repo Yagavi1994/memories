@@ -1,15 +1,45 @@
 .NavBar {
   background-color: #2d2d2d;
+  columns: #fff;
 }
 
 .NavLink {
   padding: 5px;
+  color: #fff;
 }
 
-.Active i, .Active .NavLink {
-  color: #d2cb7d;
-}
-
-i:hover, .NavLink:hover {
+.Active i, .Active .NavLink, .Active #dropdownMenu {
   color: #d2cb7d !important;
+}
+
+i:hover, .NavLink:hover, #dropdownMenu:hover {
+  color: #d2cb7d !important;
+}
+
+#dropdownItem:hover {
+  color: #d2cb7d !important;
+  background-color: #2d2d2d !important;
+}
+#dropdownMenu {
+  color: #fff;
+  transition: color ease-in-out 0.3s;
+  padding: 5px;
+  text-align: right;
+}
+
+#dropdownItem {
+  display: block;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #170312;
+  text-align: inherit;
+  /* white-space: nowrap; */
+  background-color: transparent;
+  border: 0;
+  /* text-align: right; */
+}
+
+.Icon {
+  color: #2d2d2d;
 }
