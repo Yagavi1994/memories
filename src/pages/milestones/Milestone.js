@@ -9,25 +9,10 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 
 const Milestone = (props) => {
   const {
-    // id,
-    // owner,
-    // profile_id,
-    // profile_image,
-    // comments_count,
-    // likes_count,
-    // like_id,
-    // title,
-    // content,
-    // image,
-    // updated_at,
-    // milestonePage,
-    // setMilestones,
-
     id,
     owner,
     profile_id,
     profile_image,
-    // created_at,
     updated_at,
     title,
     content,
@@ -87,7 +72,7 @@ const Milestone = (props) => {
   };
 
   return (
-    <Card className={styles.Milestone}>
+    <Card className={styles.Post}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
@@ -108,9 +93,12 @@ const Milestone = (props) => {
       <Link to={`/milestones/${id}`}>
         <Card.Img src={image} alt={title} />
       </Link>
-      <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {content && <Card.Text>{content}</Card.Text>}
+      <Card.Body className="d-flex justify-content-center align-items-center flex-column">
+        <div className="text-left">
+          {title && <Card.Text><strong>Milestone:</strong> {title}</Card.Text>}
+          {milestone_date && <Card.Text><strong>Milestone Date:</strong> {milestone_date}</Card.Text>}
+          {content && <Card.Text><strong>Description:</strong> {content}</Card.Text>}
+        </div>
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger

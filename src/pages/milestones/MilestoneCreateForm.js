@@ -74,7 +74,7 @@ function MilestoneCreateForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Milestone</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -92,7 +92,7 @@ function MilestoneCreateForm() {
         <Form.Label>Date</Form.Label>
         <Form.Control
           type="date"
-          name="milestone_date" // Ensure this matches the state field name
+          name="milestone_date" 
           value={milestone_date}
           onChange={handleChange}
         />

@@ -21,9 +21,10 @@ function MilestoneEditForm() {
   const [milestoneData, setMilestoneData] = useState({
     title: "",
     content: "",
+    milestone_date: "",
     image: "",
   });
-  const { title, content, image } = milestoneData;
+  const { title, content, milestone_date, image } = milestoneData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -33,9 +34,9 @@ function MilestoneEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/milestones/${id}/`);
-        const { title, content, image, is_owner } = data;
+        const { title, content, milestone_date, image, is_owner } = data;
 
-        is_owner ? setMilestoneData({ title, content, image }) : history.push("/");
+        is_owner ? setMilestoneData({ title, content, milestone_date, image }) : history.push("/");
       } catch (err) {
       }
     };
@@ -65,6 +66,7 @@ function MilestoneEditForm() {
     const formData = new FormData();
 
     formData.append("title", title);
+    formData.append("milestone_date", milestone_date);
     formData.append("content", content);
 
     if (imageInput?.current?.files[0]) {
@@ -84,7 +86,7 @@ function MilestoneEditForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Milestone</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -98,8 +100,23 @@ function MilestoneEditForm() {
         </Alert>
       ))}
 
+<Form.Group>
+        <Form.Label>Date</Form.Label>
+        <Form.Control
+          type="date"
+          name="milestone_date"
+          value={milestone_date}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.milestone_date?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label>Description</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
