@@ -10,6 +10,16 @@
     margin-bottom: 30px;
   }
 
+  .PostBar {
+    background-color: aliceblue;
+    color: #2d2d2d;
+    width: 100%;
+  }
+
+  .PostBar i {
+    color: #2d2d2d;
+  }
+
   /* Responsive adjustments */
   @media screen and (max-width: 600px) {
     .Post {

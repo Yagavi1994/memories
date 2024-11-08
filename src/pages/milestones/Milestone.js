@@ -29,6 +29,15 @@ const Milestone = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
 
+  // Format the milestone_date to "05 Nov 2024" format
+  const formattedDate = milestone_date
+    ? new Date(milestone_date).toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      })
+    : "";
+
   const handleEdit = () => {
     history.push(`/milestones/${id}/edit`);
   };
@@ -95,11 +104,11 @@ const Milestone = (props) => {
       </Link>
       <Card.Body className="d-flex justify-content-center align-items-center flex-column">
         <div className="text-left">
-          {title && <Card.Text><strong>Milestone:</strong> {title}</Card.Text>}
-          {milestone_date && <Card.Text><strong>Milestone Date:</strong> {milestone_date}</Card.Text>}
-          {content && <Card.Text><strong>Description:</strong> {content}</Card.Text>}
+          {title && <Card.Text><strong>Milestone:</strong> {title}</Card.Text>}<hr></hr>
+          {milestone_date && <Card.Text><strong>Milestone Date:</strong> {formattedDate}</Card.Text>}<hr></hr>
+          {content && <Card.Text><strong>Description:</strong> {content}</Card.Text>}<hr></hr>
         </div>
-        <div className={styles.PostBar}>
+        <div className={`mt-3 ${styles.PostBar}`}>
           {is_owner ? (
             <OverlayTrigger
               placement="top"
@@ -125,7 +134,7 @@ const Milestone = (props) => {
           )}
           {likes_count}
           <Link to={`/milestones/${id}`}>
-            <i className="far fa-comments" />
+            <i className="fa-regular fa-comment ms-5"></i>
           </Link>
           {comments_count}
         </div>
