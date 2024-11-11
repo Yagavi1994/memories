@@ -170,7 +170,7 @@ function ProfilePage() {
 
   const profileTabs = (
     <>
-      <Tabs defaultActiveKey="posts" id="profile-tab">
+      <Tabs defaultActiveKey="posts" id="profile-tab" className="mt-3">
         <Tab eventKey="posts" title={`${profile?.owner}'s posts`}>
           {mainProfilePosts}
         </Tab>

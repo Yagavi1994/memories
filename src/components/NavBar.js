@@ -94,13 +94,38 @@ const NavBar = () => {
         </NavDropdown.Item>
       </NavDropdown>
 
-      <NavLink
-        className={styles.NavLink}
+      <NavDropdown
+        id={styles.dropdownMenu}
         activeClassName={styles.Active}
-        to="/liked"
+        title={
+          <span className={`${styles.dropdownText} d-sm-inline-column`}>
+          <i className="fas fa-heart"></i> Liked
+          </span>
+          }
       >
-        <i className="fas fa-heart"></i>Liked
-      </NavLink>
+         <NavDropdown.Item
+          id={styles.dropdownItem}
+          as={Link}
+          className={styles.NavLink}
+          to="/liked/posts"
+          onClick={() => {
+            setToggleNavBar(!toggleNavBar);
+          }}
+        >
+          <i className={`fa-solid fa-bullhorn ${styles.Icon}`}></i> Posts
+        </NavDropdown.Item>
+        <NavDropdown.Item
+          id={styles.dropdownItem}
+          as={Link}
+          className={styles.NavLink}
+          to="/liked/milestones"
+          onClick={() => {
+            setToggleNavBar(!toggleNavBar);
+          }}
+        >
+          <i className={`fa-regular fa-calendar-days ${styles.Icon}`}></i> Milestones
+        </NavDropdown.Item>
+      </NavDropdown>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>

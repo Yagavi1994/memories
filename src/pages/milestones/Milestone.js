@@ -62,6 +62,7 @@ const Milestone = (props) => {
         }),
       }));
     } catch (err) {
+      console.error(err);
     }
   };
 
