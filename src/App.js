@@ -23,18 +23,6 @@ import NotFound from "./components/NotFound";
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
-  const LikedContent = ({ profile_id }) => (
-    <>
-      <PostsPage
-        message="No results found. Adjust the search keyword or like a post."
-        filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
-      />
-      <MilestonesPage
-        message="No results found. Adjust the search keyword or like a milestone."
-        filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
-      />
-    </>
-  );
 
   return (
     <div className={styles.App}>

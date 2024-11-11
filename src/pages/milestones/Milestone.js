@@ -23,6 +23,11 @@ const Milestone = (props) => {
     comments_count,
     milestonePage,
     setMilestones,
+    age_months,
+    age_years,
+    height,
+    weight,
+    milestone_category,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -105,10 +110,55 @@ const Milestone = (props) => {
       </Link>
       <Card.Body className="d-flex justify-content-center align-items-center flex-column">
         <div className="text-left">
-          {title && <Card.Text><strong>Milestone:</strong> {title}</Card.Text>}<hr></hr>
-          {milestone_date && <Card.Text><strong>Milestone Date:</strong> {formattedDate}</Card.Text>}<hr></hr>
-          {content && <Card.Text><strong>Description:</strong> {content}</Card.Text>}<hr></hr>
+          {title && (
+            <>
+              <Card.Text><strong>Milestone:</strong> {title}</Card.Text>
+              <hr />
+            </>
+          )}
+          {milestone_date && (
+            <>
+              <Card.Text><strong>Milestone Date:</strong> {formattedDate}</Card.Text>
+              <hr />
+            </>
+          )}
+          {(age_years || age_months) && (
+            <>
+              <Card.Text>
+                <strong>Age:</strong> 
+                {age_years && ` ${age_years} Year${age_years > 1 ? 's' : ''}`} 
+                {age_months && ` ${age_months} Month${age_months > 1 ? 's' : ''}`}
+              </Card.Text>
+              <hr />
+            </>
+          )}
+          {height && (
+            <>
+              <Card.Text><strong>Height:</strong> {height} cm</Card.Text>
+              <hr />
+            </>
+          )}
+          {weight && (
+            <>
+              <Card.Text><strong>Weight:</strong> {weight} kg</Card.Text>
+              <hr />
+            </>
+          )}
+          {milestone_category && (
+            <>
+              <Card.Text><strong>Milestone Category:</strong> {milestone_category}</Card.Text>
+              <hr />
+            </>
+          )}
+          {content && (
+            <>
+              <Card.Text><strong>Description:</strong> {content}</Card.Text>
+              <hr />
+            </>
+          )}
         </div>
+
+
         <div className={`mt-3 ${styles.PostBar}`}>
           {is_owner ? (
             <OverlayTrigger

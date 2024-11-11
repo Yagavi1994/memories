@@ -29,8 +29,13 @@ function MilestoneCreateForm() {
     content: "",
     image: "",
     milestone_date: "",
+    age_months: "",
+    age_years: "",
+    height: "",
+    weight: "",
+    milestone_category: "",
   });
-  const { title, content, image, milestone_date } = milestoneData;
+  const { title, content, image, milestone_date, age_months, age_years, height, weight, milestone_category } = milestoneData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -60,6 +65,11 @@ function MilestoneCreateForm() {
     formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
     formData.append("milestone_date", milestone_date);
+    formData.append("age_years", age_years);
+    formData.append("age_months", age_months);
+    formData.append("height", height);
+    formData.append("weight", weight);
+    formData.append("milestone_category", milestone_category);
 
     try {
       const { data } = await axiosReq.post("/milestones/", formData);
@@ -96,6 +106,94 @@ function MilestoneCreateForm() {
           value={milestone_date}
           onChange={handleChange}
         />
+      </Form.Group>
+      {errors?.milestone_date?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group as={Row} className="align-items-center">
+        <Form.Label column sm="2">
+          Age:
+        </Form.Label>
+        <Col sm="5">
+          <Form.Control
+            type="number"
+            name="age_years"
+            min="0"
+            placeholder="Years"
+            value={age_years}
+            onChange={handleChange}
+          />
+        </Col>
+        <Col sm="5">
+          <Form.Control
+            type="number"
+            name="age_months"
+            min="0"
+            max="11"
+            placeholder="Months"
+            value={age_months}
+            onChange={handleChange}
+          />
+        </Col>
+      </Form.Group>
+      {errors?.milestone_date?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group as={Row} className="align-items-center mt-3">
+        <Form.Label column sm="2">
+          Height:
+        </Form.Label>
+        <Col sm="4">
+          <Form.Control
+            type="number"
+            name="height"
+            min="0"
+            placeholder="cm"
+            value={height}
+            onChange={handleChange}
+          />
+        </Col>
+        <Form.Label column sm="2">
+          Weight:
+        </Form.Label>
+        <Col sm="4">
+          <Form.Control
+            type="number"
+            name="weight"
+            min="0"
+            placeholder="kg"
+            value={weight}
+            onChange={handleChange}
+          />
+        </Col>
+      </Form.Group>
+      {errors?.milestone_date?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Milestone Category</Form.Label>
+        <Form.Control
+          as="select"
+          name="milestone_category"
+          value={milestone_category}
+          onChange={handleChange}
+        >
+          <option value="physical">Physical</option>
+          <option value="cognitive">Cognitive</option>
+          <option value="emotional">Emotional</option>
+          <option value="social">Social</option>
+          <option value="language">Language</option>
+          <option value="other">Other</option>
+        </Form.Control>
       </Form.Group>
       {errors?.milestone_date?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
