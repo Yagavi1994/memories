@@ -14,14 +14,8 @@
     color: #d2cb7d;
   }
 
-  .PostBar {
-    background-color: aliceblue;
-    color: #2d2d2d;
-    width: 100%;
-  }
-
-  .PostBar i {
-    color: #2d2d2d;
+  .Comments {
+    margin-left: 20px
   }
 
   /* Responsive adjustments */

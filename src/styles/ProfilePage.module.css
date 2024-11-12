@@ -4,6 +4,12 @@
     width: 120px;
     margin: 4px;
   }
+
+ 
+.ProfileTab:hover {
+  color: #d2cb7d !important;
+  transition: color ease-in-out 0.3s;    
+  }
   
   @media screen and (max-width: 991px) {
     .ProfileImage {
@@ -11,3 +17,5 @@
       height: 250px;
     }
   }
+
+  

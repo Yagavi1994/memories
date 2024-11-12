@@ -80,6 +80,12 @@ figure {
   display: inline-block;
 }
 
+.Upload {
+  max-height: 100px;
+  max-width: 100px;
+  cursor: pointer;
+}
+
 /* scrollbar */
 *::-webkit-scrollbar {
   width: 5px;

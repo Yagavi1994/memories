@@ -187,7 +187,7 @@ const Milestone = (props) => {
           )}
           {likes_count}
           <Link to={`/milestones/${id}`}>
-            <i className="fa-regular fa-comment"></i>
+            <i className={`far fa-comments ${styles.Comments}`} />
           </Link>
           {comments_count}
         </div>
