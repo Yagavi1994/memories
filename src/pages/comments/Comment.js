@@ -18,6 +18,7 @@ const Comment = (props) => {
     content,
     id,
     setPost,
+    setMilestone,
     setComments,
   } = props;
 
@@ -28,20 +29,36 @@ const Comment = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/comments/${id}/`);
-      setPost((prevPost) => ({
-        results: [
-          {
-            ...prevPost.results[0],
-            comments_count: prevPost.results[0].comments_count - 1,
-          },
-        ],
-      }));
+
+      if (setPost) {
+        setPost((prevPost) => ({
+          results: [
+            {
+              ...prevPost.results[0],
+              comments_count: prevPost.results[0].comments_count - 1,
+            },
+          ],
+        }));
+      }
+
+      if (setMilestone) {
+        setMilestone((prevMilestone) => ({
+          results: [
+            {
+              ...prevMilestone.results[0],
+              comments_count: prevMilestone.results[0].comments_count - 1,
+            },
+          ],
+        }));
+      }
 
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
-    } catch (err) {}
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (

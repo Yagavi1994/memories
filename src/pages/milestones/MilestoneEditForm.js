@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 
-import styles from "../../styles/PostCreateEditForm.module.css";
+import styles from "../../styles/PostMilestoneCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
@@ -80,18 +80,19 @@ function MilestoneEditForm() {
     formData.append("milestone_category", milestone_category);
 
     if (imageInput?.current?.files[0]) {
-      formData.append("image", imageInput.current.files[0]);
+        formData.append("image", imageInput.current.files[0]);
     }
 
     try {
-      await axiosReq.put(`/milestones/${id}/`, formData);
-      history.push(`/milestones/${id}`);
+        await axiosReq.post(`/milestones/${id}/edit/`, formData); // Use POST instead of PUT
+        history.push(`/milestones/${id}`);
     } catch (err) {
-      if (err.response?.status !== 401) {
-        setErrors(err.response?.data);
-      }
+        if (err.response?.status !== 401) {
+            setErrors(err.response?.data);
+        }
     }
   };
+
 
   const textFields = (
     <div className="text-center">

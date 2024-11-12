@@ -1,4 +1,4 @@
-.Owner {
+  .Owner {
     font-weight: bold;
     color: #efeef4;
     margin-right: 8px;
@@ -7,4 +7,8 @@
   .Date {
     font-weight: lighter;
     color: #c1c1c5;
+  }
+
+  .Comment {
+    width: 75%;
   }
