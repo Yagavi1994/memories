@@ -171,10 +171,10 @@ function ProfilePage() {
   const profileTabs = (
     <>
       <Tabs defaultActiveKey="posts" id="profile-tab" className={`mt-3 ${styles.CustomTab}`}>
-        <Tab eventKey="posts" title={`${profile?.owner}'s posts`}>
+        <Tab eventKey="posts" title={`Posts`}>
           {mainProfilePosts}
         </Tab>
-        <Tab eventKey="milestones" title={`${profile?.owner}'s milestones`}>
+        <Tab eventKey="milestones" title={`Milestones`}>
           {mainProfileMilestones}
         </Tab>
       </Tabs>
@@ -185,15 +185,15 @@ function ProfilePage() {
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        <Container className={appStyles.Content}>
-          {hasLoaded ? (
-            <>
-              {mainProfile}
-              {profileTabs}
-            </>
-          ) : (
-            <Asset spinner />
-          )}
+        <Container className={`${appStyles.Content} ${appStyles.ProfileContainer}`}>
+            {hasLoaded ? (
+              <>
+                {mainProfile}
+                {profileTabs}
+              </>
+            ) : (
+              <Asset spinner />
+            )}
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
