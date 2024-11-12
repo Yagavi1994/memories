@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/Post.module.css";
+import styles from "../../styles/PostMilestone.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
@@ -108,58 +108,60 @@ const Milestone = (props) => {
       <Link to={`/milestones/${id}`}>
         <Card.Img src={image} alt={title} />
       </Link>
-      <Card.Body className="d-flex justify-content-center align-items-center flex-column">
-        <div className="text-left">
+      <Card.Body className="text-left">
+        <ul className={`text-left`}>
           {title && (
-            <>
-              <Card.Text><strong>Milestone:</strong> {title}</Card.Text>
+            <li>
+              <Card.Text><strong className={styles.Font}>Milestone:</strong> {title}</Card.Text>
               <hr />
-            </>
+            </li>
           )}
           {milestone_date && (
-            <>
-              <Card.Text><strong>Milestone Date:</strong> {formattedDate}</Card.Text>
+            <li>
+              <Card.Text><strong className={styles.Font}>Milestone Date:</strong> {formattedDate} </Card.Text>
               <hr />
-            </>
+            </li>
           )}
           {(age_years || age_months) && (
-            <>
+            <li>
               <Card.Text>
-                <strong>Age:</strong> 
+                <strong className={styles.Font}>Age:</strong> 
                 {age_years && ` ${age_years} Year${age_years > 1 ? 's' : ''}`} 
                 {age_months && ` ${age_months} Month${age_months > 1 ? 's' : ''}`}
               </Card.Text>
               <hr />
-            </>
+            </li>
           )}
           {height && (
-            <>
-              <Card.Text><strong>Height:</strong> {height} cm</Card.Text>
+            <li>
+              <Card.Text><strong className={styles.Font}>Height:</strong> {height} cm</Card.Text>
               <hr />
-            </>
+            </li>
           )}
           {weight && (
-            <>
-              <Card.Text><strong>Weight:</strong> {weight} kg</Card.Text>
+            <li>
+              <Card.Text><strong className={styles.Font}>Weight:</strong> {weight} kg</Card.Text>
               <hr />
-            </>
+            </li>
           )}
           {milestone_category && (
-            <>
-              <Card.Text><strong>Milestone Category:</strong> {milestone_category}</Card.Text>
-              <hr />
-            </>
+            <li>
+              <Card.Text>
+                <strong className={styles.Font}>Milestone Category:</strong>{" "}
+                {milestone_category.charAt(0).toUpperCase() + milestone_category.slice(1)}
+              </Card.Text>
+              <hr/>
+            </li>
           )}
           {content && (
-            <>
-              <Card.Text><strong>Description:</strong> {content}</Card.Text>
+            <li>
+              <Card.Text><strong className={styles.Font}>Description:</strong> {content}</Card.Text>
               <hr />
-            </>
+            </li>
           )}
-        </div>
+        </ul>
 
-
-        <div className={`mt-3 ${styles.PostBar}`}>
+        <div className={`mt-3 text-center ${styles.PostBar}`}>
           {is_owner ? (
             <OverlayTrigger
               placement="top"
@@ -185,7 +187,7 @@ const Milestone = (props) => {
           )}
           {likes_count}
           <Link to={`/milestones/${id}`}>
-            <i className="fa-regular fa-comment ms-5"></i>
+            <i className="fa-regular fa-comment"></i>
           </Link>
           {comments_count}
         </div>

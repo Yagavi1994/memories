@@ -28,7 +28,7 @@ i:hover, .NavLink:hover, #dropdownMenu:hover {
   color: #fff;
   transition: color ease-in-out 0.3s;
   padding: 5px;
-  text-align: right;
+  text-align: left;
 }
 
 #dropdownItem {
@@ -38,10 +38,8 @@ i:hover, .NavLink:hover, #dropdownMenu:hover {
   font-weight: 400;
   color: #170312;
   text-align: inherit;
-  /* white-space: nowrap; */
   background-color: transparent;
   border: 0;
-  /* text-align: right; */
 }
 
 .Icon {
