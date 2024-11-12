@@ -4,16 +4,17 @@
     padding-left: 40px;
     margin-bottom: 16px;
   }
-  
-  .SearchIcon {
-    position: absolute;
-    font-size: 1.2rem;
-    padding: 9px;
-    padding-left: 15px;
-    color: #242a3d;
+
+  .SearchBar {
+    width: 90%;
+    max-width: 600px; 
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
   }
-  
-  .SearchIcon:hover {
-    cursor: default;
-    color: #57575a !important;
+
+  @media screen and (max-width: 600px) {
+    .SearchBar {
+      margin-top: 30px;
+    }
   }

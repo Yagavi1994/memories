@@ -1,3 +1,9 @@
 .Container {
     min-height: 343px;
   }
+
+@media screen and (max-width: 600px) {
+  .Months {
+    margin-top: 20px;
+  }
+}

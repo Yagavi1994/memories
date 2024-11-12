@@ -1,5 +1,7 @@
 .App {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
   background-color: #171717;
   min-height: 100vh;
 }
@@ -90,6 +92,10 @@ figure {
 }
 *::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.PopularProfiles {
+  width: 90%;
 }
 
 /* Responsive adjustments */

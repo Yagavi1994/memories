@@ -130,6 +130,7 @@ function MilestoneCreateForm() {
         <Col sm="5">
           <Form.Control
             type="number"
+            className={styles.Months}
             name="age_months"
             min="0"
             max="11"
