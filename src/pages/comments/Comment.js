@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
-import { MoreDropdown } from "../../components/MoreDropdown";
+import { CustomDropdown } from "../../components/Dropdown";
 import CommentEditForm from "./CommentEditForm";
 
 import styles from "../../styles/Comment.module.css";
@@ -85,7 +85,7 @@ const Comment = (props) => {
           )}
         </Media.Body>
         {is_owner && !showEditForm && (
-          <MoreDropdown
+          <CustomDropdown
             handleEdit={() => setShowEditForm(true)}
             handleDelete={handleDelete}
           />

@@ -5,8 +5,15 @@
 .DropdownItem:hover {
     color: #d2cb7d;
     background-color: #2d2d2d;
+    transition: color ease-in-out 0.3s;
 }
 
 .Icon {
     color: #2d2d2d;
 }
+
+.Absolute {
+    position: absolute;
+    right: 0;
+    z-index: 99;
+  }

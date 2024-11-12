@@ -5,11 +5,18 @@
     margin: 4px;
   }
 
- 
-.ProfileTab:hover {
-  color: #d2cb7d !important;
-  transition: color ease-in-out 0.3s;    
+  .CustomTab a:hover {
+    color: #2d2d2d !important;
+    background-color: #fff;
+    border: 2px solid #2d2d2d !important;
+    margin: 1px;
+    transition: transform 0.2s ease-in-out;
   }
+
+  a {
+    font-weight: 400;
+  }
+  
   
   @media screen and (max-width: 991px) {
     .ProfileImage {

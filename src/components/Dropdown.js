@@ -1,6 +1,6 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
-import styles from "../styles/MoreDropdown.module.css";
+import styles from "../styles/Dropdown.module.css";
 import { useHistory } from "react-router";
 
 // The forwardRef is important!!
@@ -16,13 +16,13 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const MoreDropdown = ({ handleEdit, handleDelete }) => {
+export const CustomDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className="ml-auto" drop="left">
       <Dropdown.Toggle as={ThreeDots} />
 
       <Dropdown.Menu
-        className="text-center"
+        className="text-left"
         popperConfig={{ strategy: "fixed" }}
       >
         <Dropdown.Item
@@ -30,14 +30,14 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
           onClick={handleEdit}
           aria-label="edit"
         >
-          <i className={`fas fa-edit ${styles.Icon}`} />
+          <i className={`fas fa-edit ${styles.Icon}`} /> Edit
         </Dropdown.Item>
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={handleDelete}
           aria-label="delete"
         >
-          <i className={`fa-solid fa-trash ${styles.Icon}`} />
+          <i className={`fa-solid fa-trash ${styles.Icon}`} /> Trash
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

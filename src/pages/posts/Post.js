@@ -5,7 +5,7 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
-import { MoreDropdown } from "../../components/MoreDropdown";
+import { CustomDropdown } from "../../components/Dropdown";
 
 const Post = (props) => {
   const {
@@ -78,10 +78,10 @@ const Post = (props) => {
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
-          <div className="d-flex align-items-center">
-            <span>{updated_at}</span>
+          <div className="d-flex justify-content-between align-items-center">
+            <span className="mr-2">{updated_at}</span>
             {is_owner && postPage && (
-              <MoreDropdown
+              <CustomDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
               />

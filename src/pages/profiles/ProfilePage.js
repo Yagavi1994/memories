@@ -26,7 +26,7 @@ import Post from "../posts/Post";
 import Milestone from "../milestones/Milestone";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
-import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import { ProfileEditDropdown } from "../../components/Dropdown";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -78,11 +78,11 @@ function ProfilePage() {
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2">
+            <Col xs={2} className="my-2">
               <div>{profile?.posts_count}</div>
               <div>posts</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={4} className="my-2">
               <div>{profile?.milestones_count}</div>
               <div>milestones</div>
             </Col>
@@ -123,7 +123,7 @@ function ProfilePage() {
   const mainProfilePosts = (
     <>
       <hr />
-      <p className="text-center">{profile?.owner}'s posts</p>
+      <p className="text-center"><h5>{profile?.owner}'s posts</h5></p>
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
@@ -147,7 +147,7 @@ function ProfilePage() {
   const mainProfileMilestones = (
     <>
       <hr />
-      <p className="text-center">{profile?.owner}'s milestones</p>
+      <p className="text-center"><h5>{profile?.owner}'s milestones</h5></p>
       <hr />
       {profileMilestones.results.length ? (
         <InfiniteScroll
@@ -170,7 +170,7 @@ function ProfilePage() {
 
   const profileTabs = (
     <>
-      <Tabs defaultActiveKey="posts" id="profile-tab" className={`mt-3`}>
+      <Tabs defaultActiveKey="posts" id="profile-tab" className={`mt-3 ${styles.CustomTab}`}>
         <Tab eventKey="posts" title={`${profile?.owner}'s posts`}>
           {mainProfilePosts}
         </Tab>

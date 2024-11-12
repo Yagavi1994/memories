@@ -5,7 +5,7 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
-import { MoreDropdown } from "../../components/MoreDropdown";
+import {CustomDropdown } from "../../components/Dropdown";
 
 const Milestone = (props) => {
   const {
@@ -95,9 +95,9 @@ const Milestone = (props) => {
             {owner}
           </Link>
           <div className="d-flex align-items-center">
-            <span>{updated_at}</span>
+            <span className="mr-2">{updated_at}</span>
             {is_owner && milestonePage && (
-              <MoreDropdown
+              <CustomDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
               />
