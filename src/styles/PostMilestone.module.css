@@ -20,6 +20,11 @@
   }
 
   .Font {
+    font-size: 90%;
+    color: #fff !important;
+  }
+
+  .Font {
     color: #d2cb7d;
   }
 

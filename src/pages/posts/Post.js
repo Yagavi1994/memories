@@ -88,6 +88,9 @@ const Post = (props) => {
             )}
           </div>
         </Media>
+        <div className={`mt-3 text-left ${styles.Font}`}>
+          {content && <Card.Text>{content}</Card.Text>}
+        </div>
       </Card.Body>
       <div className={styles.ImageContainer}>
         <Link to={`/posts/${id}`}>
@@ -96,7 +99,6 @@ const Post = (props) => {
       </div>
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {content && <Card.Text>{content}</Card.Text>}
         <div className={`mt-3 ${styles.PostBar}`}>
           {is_owner ? (
             <OverlayTrigger
