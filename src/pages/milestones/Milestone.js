@@ -105,9 +105,11 @@ const Milestone = (props) => {
           </div>
         </Media>
       </Card.Body>
-      <Link to={`/milestones/${id}`}>
-        <Card.Img src={image} alt={title} />
-      </Link>
+      <div className={styles.ImageContainer}>
+        <Link to={`/milestones/${id}`}>
+          <Card.Img src={image} alt={title} className={styles.Image} />
+        </Link>
+      </div>
       <Card.Body className="text-left">
         <ul className={`text-left`}>
           {title && (
