@@ -5,3 +5,11 @@
     align-items: center;
     min-height: 120px;
   }
+
+.Asset:hover {
+  transform: scale(1.05);
+}
+
+.line {
+  white-space: pre-line;
+}

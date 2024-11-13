@@ -148,7 +148,7 @@ function ProfilePage() {
       ) : (
         <Asset
           src={NoResults}
-          message={`No results found, ${profile?.owner} hasn't posted yet.`}
+          message={`${profile?.owner} hasn't posted yet.`}
         />
       )}
     </>
@@ -172,7 +172,7 @@ function ProfilePage() {
       ) : (
         <Asset
           src={NoResults}
-          message={`No results found, ${profile?.owner} hasn't added any milestones yet.`}
+          message={`${profile?.owner} hasn't added any milestones yet.`}
         />
       )}
     </>

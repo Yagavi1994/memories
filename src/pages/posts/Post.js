@@ -73,8 +73,8 @@ const Post = (props) => {
   return (
     <Card className={styles.Post}>
       <Card.Body>
-        <Media className="align-items-center justify-content-between">
-          <Link to={`/profiles/${profile_id}`}>
+        <Media className={`align-items-center justify-content-between`}>
+          <Link to={`/profiles/${profile_id}`} className={styles.Name}>
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
@@ -88,7 +88,7 @@ const Post = (props) => {
             )}
           </div>
         </Media>
-        <div className={`mt-3 text-left ${styles.Font}`}>
+        <div className={`mt-3 text-left ${styles.ContentFont}`}>
           {content && <Card.Text>{content}</Card.Text>}
         </div>
       </Card.Body>

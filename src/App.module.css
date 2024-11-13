@@ -20,8 +20,15 @@
   width: 75%;
 }
 
+
 #ProfileContainer {
   width: 100%;
+  margin-bottom: 30px;
+}
+
+#FormContainer {
+  width: 100% !important;
+  margin-bottom: 30px;
 }
 
 .Comment {

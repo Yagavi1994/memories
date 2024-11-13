@@ -2,12 +2,21 @@ import React from "react";
 import Spinner from "react-bootstrap/Spinner";
 import styles from "../styles/Asset.module.css";
 
-const Asset = ({ spinner, src, message }) => {
+const Asset = ({ spinner, src, message, message2, className }) => {
   return (
-    <div className={`${styles.Asset} p-4`}>
+    <div className={`${styles.Asset} p-4 ${className || ""}`}>
       {spinner && <Spinner animation="border" />}
-      {src && <img src={src} alt={message} />}
-      {message && <p className="mt-4">{message}</p>}
+      {src && <img src={src} alt={message} 
+      style={{ 
+        cursor: 'pointer',
+        borderRadius: '25%',
+        height: '120px',
+        width: '120px',
+        border: '1px solid #fff',
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)', 
+        }} 
+        />}
+      {message && <p className="mt-4 text-center">{message}</p>}
     </div>
   );
 };

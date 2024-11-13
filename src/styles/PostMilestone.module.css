@@ -10,7 +10,6 @@
     margin-bottom: 30px;
   }
 
-
   .Image {
     width: 100%;
     max-height: 400px;
@@ -19,7 +18,11 @@
     overflow: hidden; 
   }
 
-  .Font {
+  .Name:hover {
+    color: #d2cb7d;
+  }
+
+  .ContentFont {
     font-size: 90%;
     color: #fff !important;
   }

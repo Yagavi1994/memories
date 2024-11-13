@@ -34,7 +34,7 @@ function App() {
             path="/"
             render={() => (
               <PostsPage
-                message="No results found. Adjust the search keyword or follow a user."
+                message="Adjust the search keyword or follow a user."
                 filter={`owner__followed__owner__profile=${profile_id}&`}
               />
             )}
@@ -44,7 +44,7 @@ function App() {
             path="/milestones"
             render={() => (
               <MilestonesPage
-                message="No results found. Adjust the search keyword or follow a user."
+                message="Adjust the search keyword or follow a user."
                 filter={`owner__followed__owner__profile=${profile_id}&`}
               />
             )}
@@ -54,7 +54,7 @@ function App() {
             path="/liked/posts"
             render={() => (
               <PostsPage
-                message="No results found. Adjust the search keyword or like a post."
+                message="Adjust the search keyword or like a post."
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
               />
             )}
@@ -65,7 +65,7 @@ function App() {
             path="/liked/milestones"
             render={() => (
               <MilestonesPage
-                message="No results found. Adjust the search keyword or like a milestone."
+                message="Adjust the search keyword or like a milestone."
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
               />
             )}
