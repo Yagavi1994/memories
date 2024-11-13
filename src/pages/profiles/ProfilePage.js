@@ -42,6 +42,16 @@ function ProfilePage() {
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
 
+  const [activeTab, setActiveTab] = useState(
+    localStorage.getItem("activeTab") || "posts"
+  );
+    
+  // Update local storage whenever the active tab changes
+  const handleTabSelect = (k) => {
+    setActiveTab(k);
+    localStorage.setItem("activeTab", k);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -170,7 +180,11 @@ function ProfilePage() {
 
   const profileTabs = (
     <>
-      <Tabs defaultActiveKey="posts" id="profile-tab" className={`mt-3 ${styles.CustomTab}`}>
+      <Tabs activeKey={activeTab}
+            onSelect={handleTabSelect} 
+            defaultActiveKey="posts" 
+            id="profile-tab" 
+            className={`mt-3 ${styles.CustomTab}`}>
         <Tab eventKey="posts" title={`Posts`}>
           {mainProfilePosts}
         </Tab>
