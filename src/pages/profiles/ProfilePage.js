@@ -77,8 +77,8 @@ function ProfilePage() {
   const mainProfile = (
     <>
       {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
-      <Row noGutters className="px-3 text-center">
-        <Col lg={3} className="text-lg-left">
+      <Row noGutters className="px-3 text-left">
+        <Col lg={3} className="text-lg-left text-center">
           <Image
             className={styles.ProfileImage}
             roundedCircle
@@ -86,22 +86,22 @@ function ProfilePage() {
           />
         </Col>
         <Col lg={6}>
-          <h3 className="m-2">{profile?.owner}</h3>
-          <Row className="justify-content-center no-gutters">
+          <h3 className="m-2 text-center">{profile?.owner}</h3>
+          <Row className={`justify-content-center no-gutters ${styles.Font}`}>
             <Col xs={2} className="my-2">
-              <div>{profile?.posts_count}</div>
+              <div className={styles.Count}>{profile?.posts_count}</div>
               <div>posts</div>
             </Col>
             <Col xs={4} className="my-2">
-              <div>{profile?.milestones_count}</div>
+              <div className={styles.Count}>{profile?.milestones_count}</div>
               <div>milestones</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>{profile?.followers_count}</div>
+              <div className={styles.Count}>{profile?.followers_count}</div>
               <div>followers</div>
             </Col>
             <Col xs={3} className="my-2 pl-1">
-              <div>{profile?.following_count}</div>
+              <div className={styles.Count}>{profile?.following_count}</div>
               <div>following</div>
             </Col>
           </Row>

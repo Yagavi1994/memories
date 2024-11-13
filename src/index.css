@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@media (max-width: 600px) {
+  
+  .navbar a {
+    font-size: 14px;
+  }
+
+  .navbar-brand {
+    margin: 0;
+    padding-right: 0;
+  }
+  
+}
