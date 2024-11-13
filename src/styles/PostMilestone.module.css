@@ -4,10 +4,19 @@
     border-radius: 2px;
     text-align: center;
     color: #efeef4;
-    width: 75%;
+    width: 75%; 
     margin: auto;
     margin-top: 15px;
     margin-bottom: 30px;
+  }
+
+
+  .Image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: fill;
+    object-position: center;
+    overflow: hidden; 
   }
 
   .Font {
@@ -42,3 +51,9 @@
   .HeartOutline:hover {
     color: #d2cb7d;
   }
+
+  /* @media (max-width: 768px) {
+    .ImageContainer {
+      max-height: 200px;
+    }
+  } */

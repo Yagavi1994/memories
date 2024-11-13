@@ -90,7 +90,7 @@ function ProfilePage() {
               <div>{profile?.followers_count}</div>
               <div>followers</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={3} className="my-2 pl-1">
               <div>{profile?.following_count}</div>
               <div>following</div>
             </Col>
@@ -185,7 +185,7 @@ function ProfilePage() {
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        <Container className={`${appStyles.Content} ${appStyles.ProfileContainer}`}>
+        <Container className={appStyles.Content} id={appStyles.ProfileContainer}>
             {hasLoaded ? (
               <>
                 {mainProfile}

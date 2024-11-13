@@ -52,10 +52,14 @@ i:hover, .NavLink:hover, #dropdownMenu:hover {
   color: #2d2d2d;
 }
 
-PlusIcon {
+.PlusIcon {
   transition: transform 0.2s ease-in-out;
 }
 
 .PlusIcon:hover {
   transform: scale(1.1); 
 }
+
+.navbar-toggler {
+  border: 1px solid #fff !important;
+} 
