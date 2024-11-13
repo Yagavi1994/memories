@@ -16,6 +16,7 @@
   border-radius: 2px;
   border: 1px solid #dadadf;
   color: #efeef4;
+  width: 75%;
 }
 
 .Comment {
@@ -111,8 +112,9 @@ figure {
     height: auto;
   }
 
-  .ProfileContainer {
+  .ProfileContainer, .Content {
     width: 90%;
     height: auto;
   }
+
 }

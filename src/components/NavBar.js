@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -31,6 +31,12 @@ const NavBar = () => {
     } catch (err) {}
   };
 
+  const handleDropdownSelect = () => {
+    if (window.innerWidth >= 768) {
+      setExpanded(false); // Only close dropdown in desktop view
+    }
+  };
+
   const addIcons = (
     <>
       <div>
@@ -61,12 +67,13 @@ const NavBar = () => {
           <i className="fa-solid fa-house"></i> Home
           </span>
         }
-        onClick={() => setExpanded(false)} // Close Navbar on dropdown item click
+        onToggle={(isOpen) => setExpanded(isOpen)} // Control expanded state with onToggle
       >
         <NavDropdown.Item
           id={styles.dropdownItem}
           as={Link}
           to="/"
+          onClick={handleDropdownSelect}
         >
           <i className={`fa-solid fa-bullhorn ${styles.Icon}`}></i> Posts
         </NavDropdown.Item>
@@ -74,6 +81,7 @@ const NavBar = () => {
           id={styles.dropdownItem}
           as={Link}
           to="/milestones"
+          onClick={handleDropdownSelect}
         >
           <i className={`fa-regular fa-calendar-days ${styles.Icon}`}></i> Milestones
         </NavDropdown.Item>
@@ -86,12 +94,13 @@ const NavBar = () => {
           <i className="fas fa-heart"></i> Liked
           </span>
         }
-        onClick={() => setExpanded(false)}
+        onToggle={(isOpen) => setExpanded(isOpen)}
       >
         <NavDropdown.Item
           id={styles.dropdownItem}
           as={Link}
           to="/liked/posts"
+          onClick={handleDropdownSelect}
         >
           <i className={`fa-solid fa-bullhorn ${styles.Icon}`}></i> Posts
         </NavDropdown.Item>
@@ -99,6 +108,7 @@ const NavBar = () => {
           id={styles.dropdownItem}
           as={Link}
           to="/liked/milestones"
+          onClick={handleDropdownSelect}
         >
           <i className={`fa-regular fa-calendar-days ${styles.Icon}`}></i> Milestones
         </NavDropdown.Item>
