@@ -258,7 +258,7 @@ function MilestoneEditForm() {
                   className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
                   htmlFor="image-upload"
                 >
-                  Change the image
+                  Change image
                 </Form.Label>
               </div>
 
