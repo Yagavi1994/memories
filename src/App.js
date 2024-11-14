@@ -19,6 +19,7 @@ import MilestoneCreateForm from "./pages/milestones/MilestoneCreateForm";
 import MilestoneEditForm from "./pages/milestones/MilestoneEditForm";
 import MilestonesPage from "./pages/milestones/MilestonesPage";
 import NotFound from "./components/NotFound";
+import { Redirect } from "react-router-dom";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -32,12 +33,16 @@ function App() {
           <Route
             exact
             path="/"
-            render={() => (
-              <PostsPage
-                message="Adjust the search keyword or follow a user."
-                filter={`owner__followed__owner__profile=${profile_id}&`}
-              />
-            )}
+            render={() =>
+              currentUser ? (
+                <PostsPage
+                  message="Adjust the search keyword or follow a user."
+                  filter={`owner__followed__owner__profile=${profile_id}&`}
+                />
+              ) : (
+                <Redirect to="/signin" />
+              )
+            }
           />
           <Route
             exact
@@ -59,7 +64,6 @@ function App() {
               />
             )}
           />
-
           <Route
             exact
             path="/liked/milestones"
@@ -70,13 +74,11 @@ function App() {
               />
             )}
           />
-
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
-          <Route exact path="/milestones" render={() => <MilestonesPage />} />
           <Route exact path="/milestones/create" render={() => <MilestoneCreateForm />} />
           <Route exact path="/milestones/:id" render={() => <MilestonePage />} />
           <Route exact path="/milestones/:id/edit" render={() => <MilestoneEditForm />} />
@@ -96,7 +98,6 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
-
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>
