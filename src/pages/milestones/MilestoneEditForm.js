@@ -41,7 +41,7 @@ function MilestoneEditForm() {
         const { data } = await axiosReq.get(`/milestones/${id}/`);
         const { title, content, milestone_date, image, is_owner, age_months, age_years, height, weight, milestone_category } = data;
 
-        is_owner ? setMilestoneData({ title, content, milestone_date, image, age_months, age_years, height, weight, milestone_category }) : history.push("/");
+        is_owner ? setMilestoneData({ title, content, milestone_date, image, age_months, age_years, height, weight, milestone_category }) : history.push("/posts");
       } catch (err) {
       }
     };

@@ -41,7 +41,7 @@ const SignUpForm = () => {
     event.preventDefault();
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
-      history.push("/signin");
+      history.push("/");
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -120,7 +120,7 @@ const SignUpForm = () => {
         </Container>
 
         <Container className={`mt-3 ${appStyles.Content}`}>
-          <Link className={styles.Link} to="/signin">
+          <Link className={styles.Link} to="/">
             Already have an account? <span>Sign in</span>
           </Link>
         </Container>

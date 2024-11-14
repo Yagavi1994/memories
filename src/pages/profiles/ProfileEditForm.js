@@ -42,10 +42,10 @@ const ProfileEditForm = () => {
           const { name, content, image } = data;
           setProfileData({ name, content, image });
         } catch (err) {
-          history.push("/");
+          history.push("/posts");
         }
       } else {
-        history.push("/");
+        history.push("/posts");
       }
     };
 

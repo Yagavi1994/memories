@@ -26,7 +26,7 @@ const NavBar = () => {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
       removeTokenTimestamp();
-      history.push("/signin");
+      history.push("/");
     } catch (err) {}
   };
 
@@ -71,7 +71,7 @@ const NavBar = () => {
         <NavDropdown.Item
           id={styles.dropdownItem}
           as={Link}
-          to="/"
+          to="/posts"
           onClick={handleDropdownSelect}
         >
           <i className={`fa-solid fa-bullhorn ${styles.Icon}`}></i> Posts
@@ -113,7 +113,7 @@ const NavBar = () => {
         </NavDropdown.Item>
       </NavDropdown>
 
-      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+      <NavLink className={styles.NavLink} to="/posts" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
       <NavLink
@@ -131,7 +131,7 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/signin"
+        to="/"
       >
         <i className="fas fa-sign-in-alt"></i>Sign in
       </NavLink>
@@ -153,7 +153,7 @@ const NavBar = () => {
       fixed="top"
     >
       <Container>
-        <NavLink to="/">
+        <NavLink to="/posts">
           <Navbar.Brand>
             <img src={logo} alt="logo" className={styles.Logo} />
           </Navbar.Brand>

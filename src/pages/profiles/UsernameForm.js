@@ -31,7 +31,7 @@ const UsernameForm = () => {
     if (currentUser?.profile_id?.toString() === id) {
       setUsername(currentUser.username);
     } else {
-      history.push("/");
+      history.push("/posts");
     }
   }, [currentUser, history, id]);
 
