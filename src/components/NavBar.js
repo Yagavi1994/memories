@@ -63,7 +63,7 @@ const NavBar = () => {
         id={styles.dropdownMenu}
         title={
           <span className={`${styles.dropdownText} d-sm-inline-column`}>
-          <i className="fa-solid fa-house"></i> Home
+          <i class="fa-solid fa-bars-staggered"></i>Feed
           </span>
         }
         onToggle={(isOpen) => setExpanded(isOpen)} // Control expanded state with onToggle

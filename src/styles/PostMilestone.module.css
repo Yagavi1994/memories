@@ -29,6 +29,8 @@
 
   .Font {
     color: #d2cb7d;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .Comments {

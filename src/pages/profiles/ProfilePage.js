@@ -1,32 +1,29 @@
 import React, { useEffect, useState } from "react";
-
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import Container from "react-bootstrap/Container";
-
-import Asset from "../../components/Asset";
-
-import styles from "../../styles/ProfilePage.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
-
-import PopularProfiles from "./PopularProfiles";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { Button, Image } from "react-bootstrap";
 import { useParams } from "react-router";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
 import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { Button, Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
 import Milestone from "../milestones/Milestone";
 import { fetchMoreData } from "../../utils/utils";
+import Asset from "../../components/Asset";
+import PopularProfiles from "./PopularProfiles";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/Dropdown";
+
+import styles from "../../styles/ProfilePage.module.css";
+import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -41,11 +38,12 @@ function ProfilePage() {
 
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
+  const [isFollowing, setIsFollowing] = useState(!!profile?.following_id);
 
   const [activeTab, setActiveTab] = useState(
     localStorage.getItem("activeTab") || "posts"
   );
-    
+
   // Update local storage whenever the active tab changes
   const handleTabSelect = (k) => {
     setActiveTab(k);
@@ -67,12 +65,23 @@ function ProfilePage() {
         }));
         setProfilePosts(profilePosts);
         setProfileMilestones(profileMilestones);
+        setIsFollowing(!!pageProfile.following_id);
         setHasLoaded(true);
       } catch (err) {
+        // Handle error
       }
     };
     fetchData();
   }, [id, setProfileData]);
+
+  const toggleFollow = async () => {
+    if (isFollowing) {
+      await handleUnfollow(profile);
+    } else {
+      await handleFollow(profile);
+    }
+    setIsFollowing(!isFollowing);
+  };
 
   const mainProfile = (
     <>
@@ -87,43 +96,34 @@ function ProfilePage() {
         </Col>
         <Col lg={6}>
           <h3 className="m-2 text-center">{profile?.owner}</h3>
-          <Row className={`justify-content-center no-gutters ${styles.Font}`}>
-            <Col xs={2} className="my-2">
+          <Row className={`justify-content-center no-gutters text-center ${styles.Font}`}>
+            <Col xs={2} className="my-2 mr-2 mr-md-0">
               <div className={styles.Count}>{profile?.posts_count}</div>
               <div>posts</div>
             </Col>
-            <Col xs={4} className="my-2">
+            <Col xs={4} className="my-2 mr-2 mr-md-0">
               <div className={styles.Count}>{profile?.milestones_count}</div>
               <div>milestones</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={3} className="my-2 mr-2 mr-md-0">
               <div className={styles.Count}>{profile?.followers_count}</div>
               <div>followers</div>
             </Col>
-            <Col xs={3} className="my-2 pl-1">
+            <Col xs={3} className="my-2 mr-2 mr-md-0">
               <div className={styles.Count}>{profile?.following_count}</div>
               <div>following</div>
             </Col>
           </Row>
         </Col>
-        <Col lg={3} className="text-lg-right">
-          {currentUser &&
-            !is_owner &&
-            (profile?.following_id ? (
-              <Button
-                className={`${btnStyles.Button} ${btnStyles.BlackOutline} mt-4`}
-                onClick={() => handleUnfollow(profile)}
-              >
-                Unfollow
-              </Button>
-            ) : (
-              <Button
-                className={`${btnStyles.Button} ${btnStyles.Black}`}
-                onClick={() => handleFollow(profile)}
-              >
-                follow
-              </Button>
-            ))}
+        <Col lg={3} className="text-lg-right text-center">
+          {currentUser && !is_owner && (
+            <Button
+              className={`${btnStyles.Button} ${isFollowing ? btnStyles.BlackOutline : btnStyles.Black} mt-4`}
+              onClick={toggleFollow}
+            >
+              {isFollowing ? "Unfollow" : "Follow"}
+            </Button>
+          )}
         </Col>
         {profile?.content && <Col className="p-3">{profile.content}</Col>}
       </Row>
@@ -200,14 +200,14 @@ function ProfilePage() {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
         <Container className={appStyles.Content} id={appStyles.ProfileContainer}>
-            {hasLoaded ? (
-              <>
-                {mainProfile}
-                {profileTabs}
-              </>
-            ) : (
-              <Asset spinner />
-            )}
+          {hasLoaded ? (
+            <>
+              {mainProfile}
+              {profileTabs}
+            </>
+          ) : (
+            <Asset spinner />
+          )}
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
