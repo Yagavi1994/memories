@@ -94,7 +94,7 @@ function ProfilePage() {
             src={profile?.image}
           />
         </Col>
-        <Col lg={6}>
+        <Col lg={7}>
           <h3 className="m-2 text-center">{profile?.owner}</h3>
           <Row className={`justify-content-center no-gutters text-center ${styles.Font}`}>
             <Col xs={2} className="my-2 mr-2 mr-md-0">
@@ -115,7 +115,7 @@ function ProfilePage() {
             </Col>
           </Row>
         </Col>
-        <Col lg={3} className="text-lg-right text-center">
+        <Col lg={2} className="text-lg-right text-center">
           {currentUser && !is_owner && (
             <Button
               className={`${btnStyles.Button} ${isFollowing ? btnStyles.BlackOutline : btnStyles.Black} mt-4`}
