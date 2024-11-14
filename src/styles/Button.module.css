@@ -2,13 +2,18 @@
     font-size: 1rem;
     align-self: center;
     border-radius: 100px;
-    border-color: transparent;
+    border-color: #242a3d  !important;
     padding: 4px 10px;
     margin-left: 5px;
     margin-right: 10px;
     min-width: 75px;
     color: #242a3d  !important;
     text-transform: capitalize;
+  }
+
+  .buttonClassName:focus {
+    outline: none;
+    box-shadow: none;
   }
   
   .Button:hover {
@@ -47,25 +52,19 @@
   
   .BlueOutline,
   .Blue:hover {
-    /* border: 1px solid #2142b2; */
     background-color: #ffffff;
     color: #d2cb7d;
   }
   
   .Black,
   .BlackOutline:hover {
-    /* background-color: #242a3d;
-    color: white; */
-    background-color: aliceblue;
+    background-color: aliceblue !important;
     color: #242a3d !important;
   }
   
   .Black:hover,
   .BlackOutline {
-    /* background-color: #dadadf;
-    color: #242a3d;
-    border-color: #242a3d; */
-    background-color: #d2cb7d;
+    background-color: #d2cb7d !important;
     color: #242a3d !important;
   }
   

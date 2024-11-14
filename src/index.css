@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+.btn-primary:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 @media (max-width: 600px) {
   
   .navbar a {
