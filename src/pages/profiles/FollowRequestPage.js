@@ -12,7 +12,8 @@ const FollowRequestsPage = () => {
     const fetchFollowRequests = async () => {
       try {
         const { data } = await axiosRes.get("/follow-requests/");
-        setFollowRequests(data);
+        console.log("Follow Requests Data:", data); // Debugging
+        setFollowRequests(data.results);
       } catch (err) {
         setErrors("Failed to load follow requests.");
       }
@@ -23,7 +24,8 @@ const FollowRequestsPage = () => {
 
   const handleAccept = async (requestId) => {
     try {
-      await axiosRes.post(`/follow-requests/${requestId}/accept/`);
+      // Use `put` for the accept action if the backend expects it
+      await axiosRes.put(`/follow-requests/${requestId}/accept/`);
       setFollowRequests((prevRequests) =>
         prevRequests.filter((request) => request.id !== requestId)
       );
@@ -31,10 +33,11 @@ const FollowRequestsPage = () => {
       setErrors("Failed to accept follow request.");
     }
   };
-
+  
   const handleDecline = async (requestId) => {
     try {
-      await axiosRes.delete(`/follow-requests/${requestId}/`);
+      // Use `delete` for the decline action as specified in the endpoint
+      await axiosRes.delete(`/follow-requests/${requestId}/decline/`);
       setFollowRequests((prevRequests) =>
         prevRequests.filter((request) => request.id !== requestId)
       );
@@ -42,33 +45,31 @@ const FollowRequestsPage = () => {
       setErrors("Failed to decline follow request.");
     }
   };
-
+  
   return (
     <Container>
-      <h2 className="text-center mt-4">Follow Requests</h2>
+      <h2 className="text-center text-white mt-4">Follow Requests</h2><hr />
       {errors && <Alert variant="danger">{errors}</Alert>}
       {followRequests.length > 0 ? (
         <ListGroup>
           {followRequests.map((request) => (
             <ListGroup.Item key={request.id} className={styles.RequestItem}>
-              <Row className="align-items-center">
+              <Row className={`align-items-center`}>
                 <Col xs={2} className="text-center">
                   <Avatar src={request.requester_profile_image} height={50} />
                 </Col>
                 <Col xs={6}>
-                  <span>{request.requester_username}</span>
+                  <span className="text-white">{request.requester_username} has requested to follow you.</span>
                 </Col>
-                <Col xs={2}>
+                <Col xs={4} className={`${styles.ButtonGroup}`}>
                   <Button
-                    variant="success"
+                    className={`${styles.Accept}`}
                     onClick={() => handleAccept(request.id)}
                   >
                     Accept
                   </Button>
-                </Col>
-                <Col xs={2}>
                   <Button
-                    variant="danger"
+                    className={`${styles.Decline}`}
                     onClick={() => handleDecline(request.id)}
                   >
                     Decline

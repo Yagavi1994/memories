@@ -55,6 +55,7 @@ function ProfilePage() {
           axiosReq.get(`/posts/?owner__profile=${id}`),
           axiosReq.get(`/milestones/?owner__profile=${id}`),
         ]);
+        console.log("Fetched profile data:", fetchedProfile);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [fetchedProfile] },
@@ -64,7 +65,7 @@ function ProfilePage() {
         setIsFollowing(!!fetchedProfile.following_id);
         setHasLoaded(true);
       } catch (err) {
-        
+        console.error("Error fetching profile data:", err);
       }
     };
 

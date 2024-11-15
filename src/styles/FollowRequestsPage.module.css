@@ -1,10 +1,49 @@
+/* FollowRequestsPage.module.css */
 .RequestItem {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    color: #fff !important;
-  }
-  
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #2d2d2d;;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ButtonGroup {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.Accept {
+  background-color: #015022 !important;
+  color: #ffffff;
+  border: 1px solid #fff !important;
+  border-radius: 100px;
+}
+
+.Decline {
+  background-color: rgb(138, 0, 0) !important;
+  color: #fff !important;
+  border: 1px solid white !important;
+  border-radius: 100px;
+}
+
+.Accept:hover, .Decline:hover {
+  transform: scale(1.05);
+  border-color: #fff;
+
+}
+
+.Button {
+  font-size: 1rem;
+  align-self: center;
+  border-radius: 100px;
+  border-color: #242a3d  !important;
+  padding: 4px 10px;
+  margin-left: 5px;
+  margin-right: 10px;
+  min-width: 75px;
+  color: #242a3d  !important;
+  text-transform: capitalize;
+}
