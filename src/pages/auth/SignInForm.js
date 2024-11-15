@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { axiosReq } from "../../api/axiosDefaults";
 
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -36,14 +37,19 @@ function SignInForm() {
 
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
-      setCurrentUser(data.user);
+      // Save token and user info
       setTokenTimestamp(data);
-      history.goBack();
+  
+      // Fetch user data after login
+      const { data: user } = await axiosReq.get("/dj-rest-auth/user/");
+      setCurrentUser(user);
+  
+      history.push("/posts"); // Redirect to posts page after login
     } catch (err) {
       setErrors(err.response?.data);
     }
   };
-
+  
   const handleChange = (event) => {
     setSignInData({
       ...signInData,

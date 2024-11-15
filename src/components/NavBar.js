@@ -18,8 +18,10 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const history = useHistory();
-  
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
+
+  // Prevent rendering navbar items until currentUser is resolved
+  const isLoading = currentUser === undefined;
 
   const handleSignOut = async () => {
     try {
@@ -63,7 +65,7 @@ const NavBar = () => {
         id={styles.dropdownMenu}
         title={
           <span className={`${styles.dropdownText} d-sm-inline-column`}>
-          <i class="fa-solid fa-bars-staggered"></i>Feed
+            <i className="fa-solid fa-bars-staggered"></i>Feed
           </span>
         }
         onToggle={(isOpen) => setExpanded(isOpen)} // Control expanded state with onToggle
@@ -90,7 +92,7 @@ const NavBar = () => {
         id={styles.dropdownMenu}
         title={
           <span className={`${styles.dropdownText} d-sm-inline-column`}>
-          <i className="fas fa-heart"></i> Liked
+            <i className="fas fa-heart"></i> Liked
           </span>
         }
         onToggle={(isOpen) => setExpanded(isOpen)}
@@ -118,7 +120,6 @@ const NavBar = () => {
       </NavLink>
       <NavLink
         className={styles.NavLink}
-        // activeClassName={styles.Active}
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
@@ -131,7 +132,7 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/"
+        to="/signin"
       >
         <i className="fas fa-sign-in-alt"></i>Sign in
       </NavLink>
@@ -164,19 +165,20 @@ const NavBar = () => {
           onClick={() => setExpanded(!expanded)}
           aria-controls="basic-navbar-nav"
           style={{
-            borderColor: "#fff"
+            borderColor: "#fff",
           }}
         >
           <span
-          className="navbar-toggler-icon"
-          style={{
-            backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23FFFFFF' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E\")",
-          }}
+            className="navbar-toggler-icon"
+            style={{
+              backgroundImage:
+                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23FFFFFF' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E\")",
+            }}
           />
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            {currentUser ? loggedInIcons : loggedOutIcons}
+            {!isLoading && (currentUser ? loggedInIcons : loggedOutIcons)}
           </Nav>
         </Navbar.Collapse>
       </Container>

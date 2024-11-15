@@ -13,17 +13,21 @@ export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
-
-  const handleMount = async () => {
-    try {
-      const { data } = await axiosRes.get("dj-rest-auth/user/");
-      setCurrentUser(data);
-    } catch (err) {
-    }
-  };
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    handleMount();
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get("/dj-rest-auth/user/");
+        setCurrentUser(data); // Set the current user data
+      } catch (err) {
+        setCurrentUser(null); // Set to null if the user is not authenticated
+      } finally {
+        setLoading(false); // Ensure loading is complete
+      }
+    };
+
+    handleMount(); // Call the function immediately after defining it
   }, []);
 
   useMemo(() => {
@@ -75,7 +79,7 @@ export const CurrentUserProvider = ({ children }) => {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SetCurrentUserContext.Provider value={setCurrentUser}>
-        {children}
+        {!loading && children}
       </SetCurrentUserContext.Provider>
     </CurrentUserContext.Provider>
   );
