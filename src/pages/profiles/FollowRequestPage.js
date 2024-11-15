@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Alert, Button, Container, ListGroup, Row, Col } from "react-bootstrap";
-import axios from "axios";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/FollowRequestsPage.module.css";

@@ -5,14 +5,12 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink, useHistory, Link } from "react-router-dom";
-import {
-  useCurrentUser,
-  useSetCurrentUser,
-} from "../contexts/CurrentUserContext";
+import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
+import { useEffect, useState } from "react";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -22,6 +20,24 @@ const NavBar = () => {
 
   // Prevent rendering navbar items until currentUser is resolved
   const isLoading = currentUser === undefined;
+
+  const [followRequestCount, setFollowRequestCount] = useState(0);
+
+  // Fetch the count of follow requests
+  useEffect(() => {
+    const fetchFollowRequestCount = async () => {
+      try {
+        const { data } = await axios.get("/follow-requests/count/");
+        setFollowRequestCount(data.count);
+      } catch (err) {
+        console.error("Failed to fetch follow request count");
+      }
+    };
+
+    if (currentUser) {
+      fetchFollowRequestCount();
+    }
+  }, [currentUser]);
 
   const handleSignOut = async () => {
     try {
@@ -120,7 +136,10 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/followrequests"
       >
-        <i class="fa-solid fa-user-plus"></i>
+        <i className="fa-solid fa-user-plus"></i>
+        {followRequestCount > 0 && (
+          <span className={styles.NotificationBadge}>{followRequestCount}</span>
+        )}
       </NavLink>
 
       <NavLink className={styles.NavLink} to="/posts" onClick={handleSignOut}>
