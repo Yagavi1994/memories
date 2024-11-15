@@ -84,7 +84,7 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
-        <Form.Label>Bio</Form.Label>
+      <Form.Label><h5 className="mt-2">Bio</h5><hr /></Form.Label>
         <Form.Control
           as="textarea"
           value={content}

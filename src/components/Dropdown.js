@@ -70,6 +70,13 @@ export const ProfileEditDropdown = ({ id }) => {
           <i className={`fas fa-key ${styles.Icon}`} />
           Change Password
         </Dropdown.Item>
+        <Dropdown.Item className={styles.DropdownItem}
+          onClick={() => history.push(`/profiles/${id}/edit/privacy`)}
+          aria-label="edit-privacy"
+        >
+          <i className={`fa-solid fa-user-lock ${styles.Icon}`} />
+          Change Privacy
+        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

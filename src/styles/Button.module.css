@@ -56,13 +56,11 @@
     color: #d2cb7d;
   }
   
-  .Black,
-  .BlackOutline:hover {
+  .Black {
     background-color: aliceblue !important;
     color: #242a3d !important;
   }
   
-  .Black:hover,
   .BlackOutline {
     background-color: #d2cb7d !important;
     color: #242a3d !important;

@@ -115,6 +115,14 @@ const NavBar = () => {
         </NavDropdown.Item>
       </NavDropdown>
 
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/followrequests"
+      >
+        <i class="fa-solid fa-user-plus"></i>
+      </NavLink>
+
       <NavLink className={styles.NavLink} to="/posts" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
@@ -132,7 +140,7 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/signin"
+        to="/"
       >
         <i className="fas fa-sign-in-alt"></i>Sign in
       </NavLink>

@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-
+import styles from "../../styles/Form.module.css";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import {
@@ -17,8 +17,8 @@ import {
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
-const UsernameForm = () => {
-  const [username, setUsername] = useState("");
+const UserPrivacyForm = () => {
+  const [privacy, setPrivacy] = useState("private"); // Default privacy setting
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
@@ -29,7 +29,7 @@ const UsernameForm = () => {
 
   useEffect(() => {
     if (currentUser?.profile_id?.toString() === id) {
-      setUsername(currentUser.username);
+      setPrivacy(currentUser.is_private ? "private" : "public"); // Set initial privacy
     } else {
       history.push("/posts");
     }
@@ -38,12 +38,13 @@ const UsernameForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axiosRes.put("/dj-rest-auth/user/", {
-        username,
+      const is_private = privacy === "private";
+      await axiosRes.put(`/profiles/${id}/`, {
+        is_private,
       });
       setCurrentUser((prevUser) => ({
         ...prevUser,
-        username,
+        is_private,
       }));
       history.goBack();
     } catch (err) {
@@ -55,17 +56,31 @@ const UsernameForm = () => {
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>
         <Container className={appStyles.Content}>
-          <Form onSubmit={handleSubmit} className="my-2">
+          <Form onSubmit={handleSubmit} className="my-2 mt-3">
             <Form.Group>
-              <Form.Label><h5 className="mt-2">Change Username</h5><hr /></Form.Label>
-              <Form.Control
-                placeholder="username"
-                type="text"
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
-              />
+              <Form.Label><h5>Change Privacy</h5></Form.Label><hr />
+              <div className={styles.Form}>
+                <Form.Check
+                  type="radio"
+                  id="private"
+                  label="Private"
+                  name="privacy"
+                  value="private"
+                  checked={privacy === "private"}
+                  onChange={(event) => setPrivacy(event.target.value)}
+                />
+                <Form.Check
+                  type="radio"
+                  id="public"
+                  label="Public"
+                  name="privacy"
+                  value="public"
+                  checked={privacy === "public"}
+                  onChange={(event) => setPrivacy(event.target.value)}
+                />
+              </div>
             </Form.Group>
-            {errors?.username?.map((message, idx) => (
+            {errors?.is_private?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
               </Alert>
@@ -74,13 +89,13 @@ const UsernameForm = () => {
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
               onClick={() => history.goBack()}
             >
-              cancel
+              Cancel
             </Button>
             <Button
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
               type="submit"
             >
-              save
+              Save
             </Button>
           </Form>
         </Container>
@@ -89,4 +104,4 @@ const UsernameForm = () => {
   );
 };
 
-export default UsernameForm;
+export default UserPrivacyForm;

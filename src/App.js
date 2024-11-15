@@ -13,12 +13,14 @@ import PostEditForm from "./pages/posts/PostEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
+import UserPrivacyForm from "./pages/profiles/UserPrivacyForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import MilestonePage from "./pages/milestones/MilestonePage";
 import MilestoneCreateForm from "./pages/milestones/MilestoneCreateForm";
 import MilestoneEditForm from "./pages/milestones/MilestoneEditForm";
 import MilestonesPage from "./pages/milestones/MilestonesPage";
 import NotFound from "./components/NotFound";
+import FollowRequestPage from "./pages/profiles/FollowRequestPage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -73,6 +75,7 @@ function App() {
 
           <Route exact path="/" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route exact path="/followrequests" render={() => <FollowRequestPage />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
@@ -90,6 +93,11 @@ function App() {
             exact
             path="/profiles/:id/edit/password"
             render={() => <UserPasswordForm />}
+          />
+           <Route
+            exact
+            path="/profiles/:id/edit/privacy"
+            render={() => <UserPrivacyForm />}
           />
           <Route
             exact

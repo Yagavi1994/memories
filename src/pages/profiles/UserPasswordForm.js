@@ -55,6 +55,7 @@ const UserPasswordForm = () => {
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>
         <Container className={appStyles.Content}>
+        <h5 className="mt-3">Change Password</h5><hr />
           <Form onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Label>New password</Form.Label>
