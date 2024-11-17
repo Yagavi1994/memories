@@ -30,13 +30,13 @@ export const ProfileDataProvider = ({ children }) => {
       console.error("Error fetching page profile:", err);
     }
   };
-  
+
   const handleFollow = async (clickedProfile) => {
     try {
       const { data } = await axiosRes.post("/followers/", {
         followed: clickedProfile.id,
       });
-  
+
       setProfileData((prevState) => ({
         ...prevState,
         // Update pageProfile if clicked profile matches the current page profile
@@ -55,18 +55,18 @@ export const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
-  
+
       // Re-fetch the page profile to sync immediately
       await fetchPageProfile(clickedProfile.id);
     } catch (err) {
       console.error("Error while following profile:", err);
     }
   };
-  
+
   const handleUnfollow = async (clickedProfile) => {
     try {
       await axiosRes.delete(`/followers/${clickedProfile.following_id}/`);
-  
+
       setProfileData((prevState) => ({
         ...prevState,
         // Update pageProfile if clicked profile matches the current page profile
@@ -85,14 +85,26 @@ export const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
-  
+
       // Re-fetch the page profile to sync immediately
       await fetchPageProfile(clickedProfile.id);
     } catch (err) {
       console.error("Error while unfollowing profile:", err);
     }
-  };  
-  
+  };
+
+  const getFollowButtonState = (profile) => {
+    if (profile.is_private) {
+      if (profile.following_id) {
+        return "unfollow"; // If already accepted
+      } else {
+        return "request_sent"; // Request sent but not yet accepted
+      }
+    } else {
+      return profile.following_id ? "unfollow" : "follow"; // Public profile
+    }
+  };
+
   // Fetch popular profiles on mount and when the current user changes
   useEffect(() => {
     const fetchPopularProfiles = async () => {
@@ -115,7 +127,7 @@ export const ProfileDataProvider = ({ children }) => {
   return (
     <ProfileDataContext.Provider value={profileData}>
       <SetProfileDataContext.Provider
-        value={{ setProfileData, handleFollow, handleUnfollow }}
+        value={{ setProfileData, handleFollow, handleUnfollow, getFollowButtonState }}
       >
         {children}
       </SetProfileDataContext.Provider>

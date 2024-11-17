@@ -56,12 +56,36 @@
     color: #d2cb7d;
   }
   
-  .Black {
+  .White {
     background-color: aliceblue !important;
     color: #242a3d !important;
   }
+
+  .Disabled {
+    background-color: #555555 !important; /* Dark grey background */
+    color: #ffffff !important; /* White text for contrast */
+    border: 1px solid white !important; /* No border */
+    opacity: 0.7 !important; /* Slight transparency for disabled effect */
+    padding: 5px 8px !important; /* Adjust padding */
+  }
+
+  .Disabled:hover:active {
+    background-color: #555555 !important;
+    color: #ffffff;
+  }
   
-  .BlackOutline {
+  .Disabled:active {
+    background-color: #555555 !important;
+    color: #ffffff;
+  }
+  
+  .Disabled:focus {
+    background-color: #555555 !important;
+    color: #ffffff;
+  }
+  
+  
+  .Gold {
     background-color: #d2cb7d !important;
     color: #242a3d !important;
   }

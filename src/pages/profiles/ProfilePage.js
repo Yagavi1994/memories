@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row, Container, Tab, Tabs, Button, Image } from "react-bootstrap";
+import { Col, Row, Container, Tab, Tabs, Image } from "react-bootstrap";
 import { useParams } from "react-router";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -15,9 +15,9 @@ import Asset from "../../components/Asset";
 import PopularProfiles from "./PopularProfiles";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/Dropdown";
+import FollowButton from "../../components/FollowButton"; // Import FollowButton
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -26,12 +26,11 @@ function ProfilePage() {
   const currentUser = useCurrentUser();
   const { id } = useParams();
 
-  const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
+  const { setProfileData } = useSetProfileData();
   const { pageProfile } = useProfileData();
 
   const [profile] = pageProfile.results || [];
   const isOwner = currentUser?.username === profile?.owner;
-  const [isFollowing, setIsFollowing] = useState(!!profile?.following_id);
 
   const [activeTab, setActiveTab] = useState(
     localStorage.getItem("activeTab") || "posts"
@@ -55,14 +54,12 @@ function ProfilePage() {
           axiosReq.get(`/posts/?owner__profile=${id}`),
           axiosReq.get(`/milestones/?owner__profile=${id}`),
         ]);
-        console.log("Fetched profile data:", fetchedProfile);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [fetchedProfile] },
         }));
         setProfilePosts(fetchedPosts);
         setProfileMilestones(fetchedMilestones);
-        setIsFollowing(!!fetchedProfile.following_id);
         setHasLoaded(true);
       } catch (err) {
         console.error("Error fetching profile data:", err);
@@ -71,15 +68,6 @@ function ProfilePage() {
 
     fetchData();
   }, [id, setProfileData]);
-
-  const toggleFollow = async () => {
-    if (isFollowing) {
-      await handleUnfollow(profile);
-    } else {
-      await handleFollow(profile);
-    }
-    setIsFollowing(!isFollowing);
-  };
 
   const mainProfile = profile && (
     <>
@@ -117,13 +105,7 @@ function ProfilePage() {
         </Col>
         <Col lg={2} className="text-lg-right text-center">
           {currentUser && !isOwner && (
-            <Button
-              className={`${btnStyles.Button} ${isFollowing ? btnStyles.BlackOutline : btnStyles.Black
-                } mt-4`}
-              onClick={toggleFollow}
-            >
-              {isFollowing ? "Unfollow" : "Follow"}
-            </Button>
+            <FollowButton profile={profile} />
           )}
         </Col>
         {profile.content && <Col className="p-3">{profile.content}</Col>}
@@ -212,8 +194,7 @@ function ProfilePage() {
               {!profile?.can_view_posts && !profile?.can_view_milestones && (
                 <Container className="text-center mt-3 mb-3">
                   <hr />
-                  {/* <Image src={Lock} alt="Lock image" className={`mb-3 ${styles.Lock}`} />  */}
-                  <i class="fa-solid fa-lock fa-bounce"></i>
+                  <i className="fa-solid fa-lock fa-bounce"></i>
                   <h5 className="mt-4 mb-4">This profile is private.</h5>
                 </Container>
               )}
