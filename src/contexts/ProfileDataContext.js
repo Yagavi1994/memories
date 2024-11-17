@@ -3,7 +3,6 @@ import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "./CurrentUserContext";
 import { followHelper, unfollowHelper } from "../utils/utils";
 
-// Create contexts for profile data and setters
 const ProfileDataContext = createContext();
 const SetProfileDataContext = createContext();
 
@@ -19,18 +18,7 @@ export const ProfileDataProvider = ({ children }) => {
 
   const currentUser = useCurrentUser();
 
-  const fetchPageProfile = async (profileId) => {
-    try {
-      const { data } = await axiosReq.get(`/profiles/${profileId}/`);
-      setProfileData((prevState) => ({
-        ...prevState,
-        pageProfile: { results: [data] },
-      }));
-    } catch (err) {
-      console.error("Error fetching page profile:", err);
-    }
-  };
-
+  // Handle follow action
   const handleFollow = async (clickedProfile) => {
     try {
       const { data } = await axiosRes.post("/followers/", {
@@ -39,37 +27,32 @@ export const ProfileDataProvider = ({ children }) => {
 
       setProfileData((prevState) => ({
         ...prevState,
-        // Update pageProfile if clicked profile matches the current page profile
         pageProfile: {
           results: prevState.pageProfile.results.map((profile) =>
             profile.id === clickedProfile.id
-              ? followHelper(profile, clickedProfile, data.id)
+              ? followHelper(profile, clickedProfile, data.id, clickedProfile.is_private)
               : profile
           ),
         },
-        // Update popularProfiles
         popularProfiles: {
           ...prevState.popularProfiles,
           results: prevState.popularProfiles.results.map((profile) =>
-            followHelper(profile, clickedProfile, data.id)
+            followHelper(profile, clickedProfile, data.id, clickedProfile.is_private)
           ),
         },
       }));
-
-      // Re-fetch the page profile to sync immediately
-      await fetchPageProfile(clickedProfile.id);
     } catch (err) {
       console.error("Error while following profile:", err);
     }
   };
 
+  // Handle unfollow action
   const handleUnfollow = async (clickedProfile) => {
     try {
       await axiosRes.delete(`/followers/${clickedProfile.following_id}/`);
 
       setProfileData((prevState) => ({
         ...prevState,
-        // Update pageProfile if clicked profile matches the current page profile
         pageProfile: {
           results: prevState.pageProfile.results.map((profile) =>
             profile.id === clickedProfile.id
@@ -77,7 +60,6 @@ export const ProfileDataProvider = ({ children }) => {
               : profile
           ),
         },
-        // Update popularProfiles
         popularProfiles: {
           ...prevState.popularProfiles,
           results: prevState.popularProfiles.results.map((profile) =>
@@ -85,20 +67,20 @@ export const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
-
-      // Re-fetch the page profile to sync immediately
-      await fetchPageProfile(clickedProfile.id);
     } catch (err) {
       console.error("Error while unfollowing profile:", err);
     }
   };
 
+  // Get the button state based on profile status
   const getFollowButtonState = (profile) => {
     if (profile.is_private) {
       if (profile.following_id) {
-        return "unfollow"; // If already accepted
-      } else {
+        return "unfollow"; // Already accepted
+      } else if (profile.request_sent) {
         return "request_sent"; // Request sent but not yet accepted
+      } else {
+        return "follow"; // Ready to follow (private profile)
       }
     } else {
       return profile.following_id ? "unfollow" : "follow"; // Public profile
@@ -127,7 +109,12 @@ export const ProfileDataProvider = ({ children }) => {
   return (
     <ProfileDataContext.Provider value={profileData}>
       <SetProfileDataContext.Provider
-        value={{ setProfileData, handleFollow, handleUnfollow, getFollowButtonState }}
+        value={{
+          setProfileData,
+          handleFollow,
+          handleUnfollow,
+          getFollowButtonState,
+        }}
       >
         {children}
       </SetProfileDataContext.Provider>

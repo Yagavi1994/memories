@@ -103,7 +103,7 @@ function ProfilePage() {
             </Col>
           </Row>
         </Col>
-        <Col lg={2} className="text-lg-right text-center">
+        <Col lg={2} className="text-lg-right text-center mt-3">
           {currentUser && !isOwner && (
             <FollowButton profile={profile} />
           )}

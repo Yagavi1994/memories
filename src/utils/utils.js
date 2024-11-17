@@ -1,66 +1,93 @@
-import jwtDecode from 'jwt-decode';
+import jwtDecode from "jwt-decode";
 import { axiosReq } from "../api/axiosDefaults";
 
+// Fetch additional data for infinite scroll
 export const fetchMoreData = async (resource, setResource) => {
   try {
     const { data } = await axiosReq.get(resource.next);
     setResource((prevResource) => ({
       ...prevResource,
       next: data.next,
-      results: data.results.reduce((acc, cur) => {
-        return acc.some((accResult) => accResult.id === cur.id)
-          ? acc
-          : [...acc, cur];
-      }, prevResource.results),
+      results: [
+        ...prevResource.results,
+        ...data.results.filter(
+          (newItem) =>
+            !prevResource.results.some(
+              (existingItem) => existingItem.id === newItem.id
+            )
+        ),
+      ],
     }));
-  } catch (err) {}
+  } catch (err) {
+    console.error("Error fetching more data:", err);
+  }
 };
 
-export const followHelper = (profile, clickedProfile, following_id) => {
-  return profile.id === clickedProfile.id
-    ? // This is the profile I clicked on,
-      // update its followers count and set its following id
-      {
-        ...profile,
-        followers_count: profile.followers_count + 1,
-        following_id,
-      }
-    : profile.is_owner
-    ? // This is the profile of the logged in user
-      // update its following count
-      { ...profile, following_count: profile.following_count + 1 }
-    : // this is not the profile the user clicked on or the profile
-      // the user owns, so just return it unchanged
-      profile;
+// Helper function to handle follow action
+export const followHelper = (profile, clickedProfile, following_id, isPrivate = false) => {
+  if (profile.id === clickedProfile.id) {
+    // This is the clicked profile
+    return {
+      ...profile,
+      followers_count: profile.followers_count + 1,
+      following_id: isPrivate ? null : following_id, // Null for private profiles
+      request_sent: isPrivate, // True for private profiles
+    };
+  }
+
+  if (profile.is_owner) {
+    // This is the logged-in user's profile
+    return {
+      ...profile,
+      following_count: profile.following_count + 1,
+    };
+  }
+
+  // Unchanged profile
+  return profile;
 };
 
+// Helper function to handle unfollow action
 export const unfollowHelper = (profile, clickedProfile) => {
-  return profile.id === clickedProfile.id
-    ? // This is the profile I clicked on,
-      // update its followers count and set its following id
-      {
-        ...profile,
-        followers_count: profile.followers_count - 1,
-        following_id: null,
-      }
-    : profile.is_owner
-    ? // This is the profile of the logged in user
-      // update its following count
-      { ...profile, following_count: profile.following_count - 1 }
-    : // this is not the profile the user clicked on or the profile
-      // the user owns, so just return it unchanged
-      profile;
+  if (profile.id === clickedProfile.id) {
+    // This is the clicked profile
+    return {
+      ...profile,
+      followers_count: profile.followers_count - 1,
+      following_id: null,
+      request_sent: false, // Reset request_sent for private profiles
+    };
+  }
+
+  if (profile.is_owner) {
+    // This is the logged-in user's profile
+    return {
+      ...profile,
+      following_count: profile.following_count - 1,
+    };
+  }
+
+  // Unchanged profile
+  return profile;
 };
 
+// Set token expiration timestamp in localStorage
 export const setTokenTimestamp = (data) => {
-  const refreshTokenTimestamp = jwtDecode(data?.refresh_token).exp;
-  localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
+  if (data?.refresh_token) {
+    const refreshTokenTimestamp = jwtDecode(data.refresh_token).exp;
+    localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
+  } else {
+    console.warn("No refresh token provided to setTokenTimestamp");
+  }
 };
 
+// Check if the token should be refreshed
 export const shouldRefreshToken = () => {
-  return !!localStorage.getItem("refreshTokenTimestamp");
+  const timestamp = localStorage.getItem("refreshTokenTimestamp");
+  return timestamp && Date.now() / 1000 > timestamp;
 };
 
+// Remove token expiration timestamp from localStorage
 export const removeTokenTimestamp = () => {
   localStorage.removeItem("refreshTokenTimestamp");
 };
