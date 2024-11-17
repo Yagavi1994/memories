@@ -26,6 +26,7 @@ i:hover, .NavLink:hover, #dropdownMenu:hover {
   border: 1px solid #fff;
 }
 
+
 #dropdownItem:hover {
   color: #d2cb7d !important;
   background-color: #2d2d2d !important;

@@ -68,10 +68,10 @@ const FollowRequestsPage = () => {
                 <Col xs={2} className="text-center">
                   <Avatar src={request.requester_profile_image} height={50} />
                 </Col>
-                <Col xs={6}>
+                <Col xs={10} md={7} className="pl-4 pl-md-0">
                   <span>{request.requester_username} has requested to follow you.</span>
                 </Col>
-                <Col xs={4} className={styles.ButtonGroup}>
+                <Col md={3} className={`mt-3 mt-lg-0 ${styles.ButtonGroup}`}>
                   <Button
                     variant="success"
                     className={styles.Accept}

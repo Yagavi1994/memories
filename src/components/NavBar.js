@@ -136,7 +136,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/followrequests"
       >
-        <i className="fa-solid fa-user-plus"></i>
+       <i class={`fa-solid fa-user-plus ${styles.NotificationIcon}`}></i>
         {followRequestCount > 0 && (
           <span className={styles.NotificationBadge}>{followRequestCount}</span>
         )}

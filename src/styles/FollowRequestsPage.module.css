@@ -3,27 +3,26 @@
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin-bottom: 10px;
-  background-color: #2d2d2d;;
+  margin-bottom: 30px;
   display: flex;
-  flex-wrap: wrap;
+  background-color: #2d2d2d !important;
 }
 
 .ButtonGroup {
   display: flex;
   gap: 10px;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .Accept {
-  background-color: #015022 !important;
+  background-color: #00270f !important;
   color: #ffffff;
   border: 1px solid #fff !important;
   border-radius: 100px;
 }
 
 .Decline {
-  background-color: rgb(138, 0, 0) !important;
+  background-color: rgb(94, 0, 0) !important;
   color: #fff !important;
   border: 1px solid white !important;
   border-radius: 100px;
@@ -40,10 +39,11 @@
   align-self: center;
   border-radius: 100px;
   border-color: #242a3d  !important;
-  padding: 4px 10px;
+  padding: 0 10px;
   margin-left: 5px;
   margin-right: 10px;
   min-width: 75px;
   color: #242a3d  !important;
   text-transform: capitalize;
+  box-shadow: 0 4px 6px #ffffff
 }
