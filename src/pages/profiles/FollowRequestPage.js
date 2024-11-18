@@ -3,6 +3,7 @@ import { Alert, Button, Container, ListGroup, Row, Col } from "react-bootstrap";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/FollowRequestsPage.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 const FollowRequestsPage = () => {
   const [followRequests, setFollowRequests] = useState([]);
@@ -71,17 +72,17 @@ const FollowRequestsPage = () => {
                 <Col xs={10} md={7} className="pl-4 pl-md-0">
                   <span>{request.requester_username} has requested to follow you.</span>
                 </Col>
-                <Col md={3} className={`mt-3 mt-lg-0 ${styles.ButtonGroup}`}>
+                <Col md={3} className={`mt-3 mt-md-0 ${styles.ButtonGroup}`}>
                   <Button
                     variant="success"
-                    className={styles.Accept}
+                    className={btnStyles.Gold}
                     onClick={() => handleAccept(request.id)}
                   >
                     Accept
                   </Button>
                   <Button
                     variant="danger"
-                    className={styles.Decline}
+                    className={btnStyles.White}
                     onClick={() => handleDecline(request.id)}
                   >
                     Decline

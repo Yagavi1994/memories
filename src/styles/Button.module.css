@@ -1,8 +1,8 @@
 .Button {
     font-size: 1rem;
     align-self: center;
-    border-radius: 100px;
-    border-color: #242a3d  !important;
+    border-radius: 100px !important;
+    border-color: #242a3d !important;
     padding: 4px 10px;
     margin-left: 5px;
     margin-right: 10px;
@@ -59,6 +59,8 @@
   .White {
     background-color: aliceblue !important;
     color: #242a3d !important;
+    border-radius: 100px !important;
+    border: none !important;
   }
 
   .Disabled {
@@ -84,12 +86,17 @@
     color: #ffffff;
   }
   
-  
   .Gold {
     background-color: #d2cb7d !important;
     color: #242a3d !important;
+    border-radius: 100px !important;
+    border: none !important;
   }
   
+  .Gold:hover, .White:hover {
+    transform: scale(1.05) !important;
+  }
+
   .Bright {
     background-color: #c5bc5f;
     color: #d2cb7d;

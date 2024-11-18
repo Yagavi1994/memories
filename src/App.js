@@ -21,6 +21,8 @@ import MilestoneEditForm from "./pages/milestones/MilestoneEditForm";
 import MilestonesPage from "./pages/milestones/MilestonesPage";
 import NotFound from "./components/NotFound";
 import FollowRequestPage from "./pages/profiles/FollowRequestPage";
+import DeleteProfilePage from "./pages/profiles/DeleteProfilePage";
+
 
 function App() {
   const currentUser = useCurrentUser();
@@ -99,6 +101,13 @@ function App() {
             path="/profiles/:id/edit/privacy"
             render={() => <UserPrivacyForm />}
           />
+
+          <Route
+            exact
+            path="/profiles/:id/edit/deleteprofile"
+            render={() => <DeleteProfilePage />}
+          />
+
           <Route
             exact
             path="/profiles/:id/edit"

@@ -37,7 +37,7 @@ export const CustomDropdown = ({ handleEdit, handleDelete }) => {
           onClick={handleDelete}
           aria-label="delete"
         >
-          <i className={`fa-solid fa-trash ${styles.Icon}`} /> Trash
+          <i className={`fa-solid fa-trash ${styles.Icon}`} /> Delete
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
@@ -76,6 +76,15 @@ export const ProfileEditDropdown = ({ id }) => {
         >
           <i className={`fa-solid fa-user-lock ${styles.Icon}`} />
           Change Privacy
+        </Dropdown.Item>
+        <Dropdown.Item className={styles.DropdownItem}
+          onClick={() => {
+          console.log("Navigating to delete profile with ID:", id);
+          history.push(`/profiles/${id}/edit/deleteprofile`)}}
+          aria-label="delete-profile"
+        >
+          <i className={`fa-solid fa-trash ${styles.Icon}`} />
+          Delete Profile
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
