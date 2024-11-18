@@ -27,26 +27,30 @@ const UserPrivacyForm = () => {
   const setCurrentUser = useSetCurrentUser();
 
   useEffect(() => {
+    console.log("Current User (Privacy):", currentUser?.is_private);
     if (currentUser?.profile_id?.toString() === id) {
-      setPrivacy(currentUser.is_private ? "private" : "public"); // Set initial privacy
+      setPrivacy(currentUser.is_private ? "private" : "public");
     } else {
       history.push("/posts");
     }
   }, [currentUser, history, id]);
+  
+  const handlePrivacyChange = (e) => {
+    setPrivacy(e.target.value); // Update privacy state
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const is_private = privacy === "private";
-      await axiosRes.put(`/profiles/${id}/`, {
-        is_private,
-      });
+      await axiosRes.put(`/profiles/${id}/`, { is_private });
       setCurrentUser((prevUser) => ({
         ...prevUser,
         is_private,
       }));
       history.goBack();
     } catch (err) {
+      console.error("Error updating privacy:", err.response?.data); // Debug error
       setErrors(err.response?.data);
     }
   };
@@ -66,7 +70,7 @@ const UserPrivacyForm = () => {
                   name="privacy"
                   value="private"
                   checked={privacy === "private"}
-                  onChange={(event) => setPrivacy(event.target.value)}
+                  onChange={handlePrivacyChange}
                 />
                 <Form.Check
                   type="radio"
@@ -75,7 +79,7 @@ const UserPrivacyForm = () => {
                   name="privacy"
                   value="public"
                   checked={privacy === "public"}
-                  onChange={(event) => setPrivacy(event.target.value)}
+                  onChange={handlePrivacyChange}
                 />
               </div>
             </Form.Group>
@@ -86,15 +90,15 @@ const UserPrivacyForm = () => {
             ))}
             <Button
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
-              onClick={() => history.goBack()}
-            >
-              Cancel
-            </Button>
-            <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
               type="submit"
             >
               Save
+            </Button>
+            <Button
+              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              onClick={() => history.goBack()}
+            >
+              Cancel
             </Button>
           </Form>
         </Container>
