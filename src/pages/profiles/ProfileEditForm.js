@@ -99,14 +99,14 @@ const ProfileEditForm = () => {
           {message}
         </Alert>
       ))}
+      <Button className={`${btnStyles.Button} ${btnStyles.Gold}`} type="submit">
+        Save
+      </Button>
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`${btnStyles.Button} ${btnStyles.White}`}
         onClick={() => history.goBack()}
       >
-        cancel
-      </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        save
+        Cancel
       </Button>
     </>
   );

@@ -217,15 +217,14 @@ function MilestoneCreateForm() {
           {message}
         </Alert>
       ))}
-
+      <Button className={`${btnStyles.Button} ${btnStyles.Gold}`} type="submit">
+        Create
+      </Button>
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`${btnStyles.Button} ${btnStyles.White}`}
         onClick={() => history.goBack()}
       >
         Cancel
-      </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        Create
       </Button>
     </div>
   );

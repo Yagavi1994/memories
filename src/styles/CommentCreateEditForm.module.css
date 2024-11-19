@@ -11,12 +11,10 @@
     padding: 4px 10px;
     min-width: 75px;
     margin: 5px;
-    font-weight: 600;
     text-transform: capitalize;
   }
   
   .Button:hover {
-    cursor: pointer;
-    background-color: aliceblue;
-    color: #242a3d;
+    cursor: pointer !important;
+    transform: scale(1.05) !important;
   }

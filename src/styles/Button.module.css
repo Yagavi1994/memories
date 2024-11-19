@@ -17,10 +17,8 @@
   }
   
   .Button:hover {
-    opacity: 0.8;
-    border-color: transparent;
-    cursor: pointer;
-    color: #ffffff;
+    cursor: pointer !important;
+    transform: scale(1.05) !important;
   }
   
   .Button:hover:active {
@@ -94,6 +92,7 @@
   }
   
   .Gold:hover, .White:hover {
+    cursor: pointer !important;
     transform: scale(1.05) !important;
   }
 

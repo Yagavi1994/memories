@@ -89,13 +89,13 @@ const UserPrivacyForm = () => {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.Gold}`}
               type="submit"
             >
               Save
             </Button>
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.White}`}
               onClick={() => history.goBack()}
             >
               Cancel

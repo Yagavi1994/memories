@@ -40,7 +40,7 @@ const PopularProfiles = ({ mobile }) => {
 
       {popularProfiles.results && popularProfiles.results.length ? (
         <>
-          <p className="mt-3 mb-0">
+          <p className="mt-3 h5 mb-0">
             Most followed profiles
             <hr />
           </p>
