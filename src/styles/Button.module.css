@@ -103,6 +103,7 @@
 
   @media (max-width: 600px) {
     .Disabled {
-      padding: 5px 5px !important; 
+      font-size: small !important;
+      padding: 6px 6px !important; 
     }
   }

@@ -58,6 +58,15 @@ i:hover, .NavLink:hover, #dropdownMenu:hover {
   transition: transform 0.2s ease-in-out;
 }
 
+.NotificationBadge {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background-color: #d2cb7d;
+  padding: 3px 5px;
+  color: #2d2d2d;
+  font-weight: 600;
+}
+
 .PlusIcon:hover {
   transform: scale(1.1); 
 }

@@ -138,7 +138,7 @@ const NavBar = () => {
       >
        <i class={`fa-solid fa-user-plus ${styles.NotificationIcon}`}></i>
         {followRequestCount > 0 && (
-          <span className={styles.NotificationBadge}>{followRequestCount}</span>
+          <sup className={`mr-2 ${styles.NotificationBadge}`}>{followRequestCount}</sup>
         )}
       </NavLink>
 

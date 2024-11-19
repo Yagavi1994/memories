@@ -45,7 +45,7 @@ const PopularProfiles = ({ mobile }) => {
             <hr />
           </p>
           {mobile ? (
-            <div className="d-flex justify-content-around">
+            <div className="d-flex justify-content-center">
               {filteredProfiles.slice(0, 3).map((profile) => (
                 <Profile key={profile.id} profile={profile} mobile />
               ))}
