@@ -9,11 +9,7 @@
   color: #fff;
 }
 
-.Active NavLink {
-  color: #d2cb7d;
-}
-
-.Active i, .Active #dropdownMenu {
+.Active i, .Active {
   color: #d2cb7d;
 }
 

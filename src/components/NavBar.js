@@ -4,23 +4,23 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
-import { NavLink, useHistory, Link } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const history = useHistory();
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
+  const location = useLocation();
 
-  // Prevent rendering navbar items until currentUser is resolved
-  const isLoading = currentUser === undefined;
-
+  // State for follow requests count
   const [followRequestCount, setFollowRequestCount] = useState(0);
 
   // Fetch the count of follow requests
@@ -30,7 +30,7 @@ const NavBar = () => {
         const { data } = await axios.get("/follow-requests/count/");
         setFollowRequestCount(data.count);
       } catch (err) {
-        console.error("Failed to fetch follow request count");
+        console.error("Failed to fetch follow request count", err);
       }
     };
 
@@ -45,50 +45,61 @@ const NavBar = () => {
       setCurrentUser(null);
       removeTokenTimestamp();
       history.push("/");
-    } catch (err) {}
+    } catch (err) {
+      console.error("Sign out failed", err);
+    }
   };
 
   const handleDropdownSelect = () => {
     if (window.innerWidth >= 768) {
-      setExpanded(false); // Only close dropdown in desktop view
+      setExpanded(false); // Close dropdown on desktop
     }
   };
 
-  const addIcons = (
-    <>
-      <div>
-        <NavLink
-          className={styles.NavLink}
-          activeClassName={styles.Active}
-          to="/posts/create"
-        >
-          <i className={`far fa-plus-square ${styles.PlusIcon}`}></i>Post
-        </NavLink>
-        <NavLink
-          className={styles.NavLink}
-          activeClassName={styles.Active}
-          to="/milestones/create"
-        >
-          <i className={`far fa-plus-square ${styles.PlusIcon}`}></i>Milestone
-        </NavLink>
-      </div>
-    </>
+  // Determine active state for dropdowns
+  const isFeedActive = ["/posts", "/milestones"].includes(location.pathname);
+  const isLikedActive = ["/liked/posts", "/liked/milestones"].includes(location.pathname);
+
+  // Icons for creating posts or milestones
+  const addIcons = currentUser && (
+    <div>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/posts/create"
+      >
+        <i className={`far fa-plus-square ${styles.PlusIcon}`}></i> Post
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/milestones/create"
+      >
+        <i className={`far fa-plus-square ${styles.PlusIcon}`}></i> Milestone
+      </NavLink>
+    </div>
   );
 
+  // Logged-in navigation items
   const loggedInIcons = (
     <>
       <NavDropdown
         id={styles.dropdownMenu}
         title={
-          <span className={`${styles.dropdownText} d-sm-inline-column`}>
-            <i className="fa-solid fa-bars-staggered"></i>Feed
+          <span
+            className={`${styles.dropdownText} d-sm-inline-column ${
+              isFeedActive ? styles.Active : ""
+            }`}
+          >
+            <i className="fa-solid fa-bars-staggered"></i>{" "}
+            <span className="d-md-none d-lg-inline">Feed</span>
           </span>
         }
-        onToggle={(isOpen) => setExpanded(isOpen)} // Control expanded state with onToggle
+        onToggle={(isOpen) => setExpanded(isOpen)}
       >
         <NavDropdown.Item
           id={styles.dropdownItem}
-          as={Link}
+          as={NavLink}
           to="/posts"
           onClick={handleDropdownSelect}
         >
@@ -96,7 +107,7 @@ const NavBar = () => {
         </NavDropdown.Item>
         <NavDropdown.Item
           id={styles.dropdownItem}
-          as={Link}
+          as={NavLink}
           to="/milestones"
           onClick={handleDropdownSelect}
         >
@@ -107,15 +118,20 @@ const NavBar = () => {
       <NavDropdown
         id={styles.dropdownMenu}
         title={
-          <span className={`${styles.dropdownText} d-sm-inline-column`}>
-            <i className="fas fa-heart"></i> Liked
+          <span
+            className={`${styles.dropdownText} d-sm-inline-column ${
+              isLikedActive ? styles.Active : ""
+            }`}
+          >
+            <i className="fas fa-heart"></i>{" "}
+            <span className="d-md-none d-lg-inline">Liked</span>
           </span>
         }
         onToggle={(isOpen) => setExpanded(isOpen)}
       >
         <NavDropdown.Item
           id={styles.dropdownItem}
-          as={Link}
+          as={NavLink}
           to="/liked/posts"
           onClick={handleDropdownSelect}
         >
@@ -123,7 +139,7 @@ const NavBar = () => {
         </NavDropdown.Item>
         <NavDropdown.Item
           id={styles.dropdownItem}
-          as={Link}
+          as={NavLink}
           to="/liked/milestones"
           onClick={handleDropdownSelect}
         >
@@ -136,39 +152,49 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/followrequests"
       >
-       <i class={`fa-solid fa-user-plus ${styles.NotificationIcon}`}></i>
+        <i className={`fa-solid fa-user-plus ${styles.NotificationIcon}`}></i>
         {followRequestCount > 0 && (
-          <sup className={`mr-2 ${styles.NotificationBadge}`}>{followRequestCount}</sup>
+          <sup className={styles.NotificationBadge}>{followRequestCount}</sup>
         )}
       </NavLink>
 
-      <NavLink className={styles.NavLink} to="/posts" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i>Sign out
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/posts"
+        onClick={handleSignOut}
+      >
+        <i className="fas fa-sign-out-alt"></i>{" "}
+        <span className="d-md-none d-lg-inline">Sign out</span>
       </NavLink>
       <NavLink
         className={styles.NavLink}
+        activeClassName={styles.Active}
         to={`/profiles/${currentUser?.profile_id}`}
       >
-        <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
+        <Avatar src={currentUser?.profile_image} height={40} />
+        <span className="d-none d-lg-inline d-sm-inline">Profile</span>
       </NavLink>
     </>
   );
 
+  // Logged-out navigation items
   const loggedOutIcons = (
     <>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/"
+        exact
       >
-        <i className="fas fa-sign-in-alt"></i>Sign in
+        <i className="fas fa-sign-in-alt"></i> Sign in
       </NavLink>
       <NavLink
-        to="/signup"
         className={styles.NavLink}
         activeClassName={styles.Active}
+        to="/signup"
       >
-        <i className="fas fa-user-plus"></i>Sign up
+        <i className="fa-solid fa-user"></i> Sign up
       </NavLink>
     </>
   );
@@ -186,14 +212,11 @@ const NavBar = () => {
             <img src={logo} alt="logo" className={styles.Logo} />
           </Navbar.Brand>
         </NavLink>
-        {currentUser && addIcons}
+        {addIcons}
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
           aria-controls="basic-navbar-nav"
-          style={{
-            borderColor: "#fff",
-          }}
         >
           <span
             className="navbar-toggler-icon"
@@ -205,7 +228,7 @@ const NavBar = () => {
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            {!isLoading && (currentUser ? loggedInIcons : loggedOutIcons)}
+            {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
       </Container>
