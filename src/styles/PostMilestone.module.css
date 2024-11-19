@@ -29,12 +29,26 @@
 
   .Font {
     color: #d2cb7d;
-    display: flex;
-    flex-wrap: wrap;
   }
 
   .Comments {
     margin-left: 20px
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  .Row {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .HeartBullets i {
+      color: #dfdada;
   }
 
   /* Responsive adjustments */

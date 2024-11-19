@@ -167,6 +167,7 @@ function MilestoneCreateForm() {
           <Form.Control
             type="number"
             name="weight"
+            step="0.01"
             min="0"
             placeholder="kg"
             value={weight}

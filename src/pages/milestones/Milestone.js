@@ -5,7 +5,7 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
-import {CustomDropdown } from "../../components/Dropdown";
+import { CustomDropdown } from "../../components/Dropdown";
 
 const Milestone = (props) => {
   const {
@@ -18,8 +18,8 @@ const Milestone = (props) => {
     content,
     milestone_date,
     image,
-    like_id, 
-    likes_count, 
+    like_id,
+    likes_count,
     comments_count,
     milestonePage,
     setMilestones,
@@ -37,10 +37,10 @@ const Milestone = (props) => {
   // Format the milestone_date to "05 Nov 2024" format
   const formattedDate = milestone_date
     ? new Date(milestone_date).toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-      })
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    })
     : "";
 
   const handleEdit = () => {
@@ -110,58 +110,58 @@ const Milestone = (props) => {
           <Card.Img src={image} alt={title} className={styles.Image} />
         </Link>
       </div>
-      <Card.Body className="text-left">
-        <ul className={`text-left`}>
+      <Card.Body className={`text-left ${styles.HeartBullets}`}>
+        <div className={`${styles.HeartBullets}`}>
           {title && (
-            <li>
-              <Card.Text><strong className={styles.Font}>Milestone:</strong> {title}</Card.Text>
+            <p>
+              <Card.Text><i class="fa-solid fa-heart fa-2xs"></i><strong className={`ml-2 ${styles.Font}`}>Milestone:</strong> {title}</Card.Text>
               <hr />
-            </li>
+            </p>
           )}
           {milestone_date && (
-            <li>
-              <Card.Text><strong className={styles.Font}>Milestone Date:</strong> {formattedDate} </Card.Text>
+            <p>
+              <Card.Text><i class="fa-solid fa-heart fa-2xs"></i><strong className={`ml-2 ${styles.Font}`}>Milestone Date:</strong> {formattedDate} </Card.Text>
               <hr />
-            </li>
+            </p>
           )}
           {(age_years || age_months) && (
-            <li>
+            <p>
               <Card.Text>
-                <strong className={styles.Font}>Age:</strong> 
-                {age_years && ` ${age_years} Year${age_years > 1 ? 's' : ''}`} 
+                <i class="fa-solid fa-heart fa-2xs"></i><strong className={`ml-2 ${styles.Font}`}>Age:</strong>
+                {age_years && ` ${age_years} Year${age_years > 1 ? 's' : ''}`}
                 {age_months && ` ${age_months} Month${age_months > 1 ? 's' : ''}`}
               </Card.Text>
               <hr />
-            </li>
+            </p>
           )}
           {height && (
-            <li>
-              <Card.Text><strong className={styles.Font}>Height:</strong> {height} cm</Card.Text>
+            <p>
+              <Card.Text><i class="fa-solid fa-heart fa-2xs"></i><strong className={`ml-2 ${styles.Font}`}>Height:</strong> {height} cm</Card.Text>
               <hr />
-            </li>
+            </p>
           )}
           {weight && (
-            <li>
-              <Card.Text><strong className={styles.Font}>Weight:</strong> {weight} kg</Card.Text>
+            <p>
+              <Card.Text><i class="fa-solid fa-heart fa-2xs"></i><strong className={`ml-2 ${styles.Font}`}>Weight:</strong> {weight} kg</Card.Text>
               <hr />
-            </li>
+            </p>
           )}
           {milestone_category && (
-            <li>
+            <p>
               <Card.Text>
-                <strong className={styles.Font}>Milestone Category:</strong>{" "}
+                <i class="fa-solid fa-heart fa-2xs"></i><strong className={`ml-2 ${styles.Font}`}>Milestone Category:</strong>{" "}
                 {milestone_category.charAt(0).toUpperCase() + milestone_category.slice(1)}
               </Card.Text>
-              <hr/>
-            </li>
+              <hr />
+            </p>
           )}
           {content && (
-            <li>
-              <Card.Text><strong className={styles.Font}>Description:</strong> {content}</Card.Text>
-              <hr />
-            </li>
+              <p>
+                <Card.Text style={{ textAlign: "justify" }}><i class="fa-solid fa-heart fa-2xs"></i><strong className={` ${styles.Font}`}>Description:</strong> {content}</Card.Text>
+                <hr />
+              </p>
           )}
-        </ul>
+        </div>
 
         <div className={`mt-3 text-center ${styles.PostBar}`}>
           {is_owner ? (
