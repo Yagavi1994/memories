@@ -12,7 +12,7 @@ const Asset = ({ spinner, src, message, message2, className }) => {
         borderRadius: '25%',
         height: '120px',
         width: '120px',
-        border: '1px solid #fff',
+        border: '2px solid #fff',
         boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)', 
         }} 
         />}

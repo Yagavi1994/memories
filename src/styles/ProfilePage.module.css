@@ -8,9 +8,12 @@
   .CustomTab a:hover {
     color: #2d2d2d !important;
     background-color: #fff;
-    border: 2px solid #2d2d2d !important;
-    margin: 1px;
-    transition: transform 0.2s ease-in-out;
+  }
+
+  .CustomTab {
+    margin-left: 5px;
+    gap: 2px;
+    /* border: 2px solid #2d2d2d !important; */
   }
 
   a {

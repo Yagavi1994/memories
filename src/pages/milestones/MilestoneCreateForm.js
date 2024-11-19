@@ -254,7 +254,7 @@ function MilestoneCreateForm() {
                 </>
               ) : (
                 <Form.Label
-                  className="d-flex justify-content-center"
+                  className={`d-flex justify-content-center ${styles.UploadImage}`}
                   htmlFor="image-upload"
                 >
                   <Asset 
