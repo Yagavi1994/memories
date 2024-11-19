@@ -17,24 +17,31 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
 const UserPrivacyForm = () => {
-  const [privacy, setPrivacy] = useState("private"); // Default privacy setting
+  const [privacy, setPrivacy] = useState("public"); // Default privacy setting
   const [errors, setErrors] = useState({});
-
   const history = useHistory();
   const { id } = useParams();
 
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+  // Load privacy status from localStorage or currentUser
   useEffect(() => {
-    console.log("Current User (Privacy):", currentUser?.is_private);
-    if (currentUser?.profile_id?.toString() === id) {
-      setPrivacy(currentUser.is_private ? "private" : "public");
+    const storedPrivacy = localStorage.getItem("privacyStatus");
+
+    if (storedPrivacy) {
+      setPrivacy(storedPrivacy); // Load from localStorage
+    } else if (currentUser?.profile_id?.toString() === id) {
+      setPrivacy(currentUser.is_private ? "private" : "public"); // Load from currentUser
+      localStorage.setItem(
+        "privacyStatus",
+        currentUser.is_private ? "private" : "public"
+      ); // Store in localStorage for the first time
     } else {
-      history.push("/posts");
+      history.push("/posts"); // Redirect if unauthorized
     }
-  }, [currentUser, history, id]);
-  
+  }, [currentUser, id, history]);
+
   const handlePrivacyChange = (e) => {
     setPrivacy(e.target.value); // Update privacy state
   };
@@ -44,11 +51,17 @@ const UserPrivacyForm = () => {
     try {
       const is_private = privacy === "private";
       await axiosRes.put(`/profiles/${id}/`, { is_private });
+
+      // Update the current user context
       setCurrentUser((prevUser) => ({
         ...prevUser,
         is_private,
       }));
-      history.goBack();
+
+      // Save privacy status to localStorage
+      localStorage.setItem("privacyStatus", privacy);
+
+      history.goBack(); // Redirect back
     } catch (err) {
       console.error("Error updating privacy:", err.response?.data); // Debug error
       setErrors(err.response?.data);
@@ -61,7 +74,14 @@ const UserPrivacyForm = () => {
         <Container className={appStyles.Content}>
           <Form onSubmit={handleSubmit} className="my-2 mt-3">
             <Form.Group>
-              <Form.Label><h5>Change Privacy</h5></Form.Label><hr />
+              <Form.Label>
+                <h5>Change Privacy</h5>
+              </Form.Label>
+              <hr />
+              <p className="mb-3">
+                <strong>Current Status:</strong>{" "}
+                {privacy === "private" ? "Private" : "Public"}
+              </p>
               <div className={styles.Form}>
                 <Form.Check
                   type="radio"

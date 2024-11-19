@@ -38,7 +38,7 @@ const FollowButton = ({ profile }) => {
       {followState === "unfollow"
         ? "Unfollow"
         : followState === "request_sent"
-        ? "Request Sent"
+        ? "Requested"
         : "Follow"}
     </Button>
   );

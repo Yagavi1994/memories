@@ -100,3 +100,9 @@
     background-color: #c5bc5f;
     color: #d2cb7d;
   }
+
+  @media (max-width: 600px) {
+    .Disabled {
+      padding: 5px 5px !important; 
+    }
+  }
