@@ -61,7 +61,7 @@ function MilestonesPage({ message, filter = "" }) {
             onChange={(event) => setQuery(event.target.value)}
             type="text"
             className="mr-sm-2"
-            placeholder="Search milestones"
+            placeholder="Search milestones..."
           />
         </Form>
 

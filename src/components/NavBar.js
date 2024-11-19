@@ -83,6 +83,14 @@ const NavBar = () => {
   // Logged-in navigation items
   const loggedInIcons = (
     <>
+       <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/home"
+      >
+        <i class="fa-solid fa-house"></i>
+        <span className="d-md-none d-lg-inline">Home</span>
+      </NavLink>
       <NavDropdown
         id={styles.dropdownMenu}
         title={
@@ -160,8 +168,7 @@ const NavBar = () => {
 
       <NavLink
         className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/posts"
+        to="/"
         onClick={handleSignOut}
       >
         <i className="fas fa-sign-out-alt"></i>{" "}
@@ -173,7 +180,7 @@ const NavBar = () => {
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <Avatar src={currentUser?.profile_image} height={40} />
-        <span className="d-none d-lg-inline d-sm-inline">Profile</span>
+        <span className="d-md-none d-lg-inline">Profile</span>
       </NavLink>
     </>
   );
@@ -207,7 +214,7 @@ const NavBar = () => {
       fixed="top"
     >
       <Container>
-        <NavLink to="/posts">
+        <NavLink to="/home">
           <Navbar.Brand>
             <img src={logo} alt="logo" className={styles.Logo} />
           </Navbar.Brand>

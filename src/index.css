@@ -12,6 +12,29 @@ code {
     monospace;
 }
 
+table {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+td {
+  padding: 0.8rem 0;
+  vertical-align: top;
+  border-bottom: 1px solid #423f3f;
+}
+
+td:first-child {
+  width: 5%; /* Icon column */
+}
+
+td:nth-child(2) {
+  width: 25%; /* Label column */
+}
+
+td:last-child {
+  width: 70%; /* Value column */
+}
+
 .btn-primary:focus {
   outline: none !important;
   box-shadow: none !important;

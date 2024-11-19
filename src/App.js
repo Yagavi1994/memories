@@ -20,6 +20,7 @@ import MilestonePage from "./pages/milestones/MilestonePage";
 import MilestoneCreateForm from "./pages/milestones/MilestoneCreateForm";
 import MilestoneEditForm from "./pages/milestones/MilestoneEditForm";
 import MilestonesPage from "./pages/milestones/MilestonesPage";
+import HomePage from "./pages/Home/HomePage";
 import NotFound from "./components/NotFound";
 import FollowRequestPage from "./pages/profiles/FollowRequestPage";
 import DeleteProfilePage from "./pages/profiles/DeleteProfilePage";
@@ -78,6 +79,16 @@ function App() {
           <PublicRoute exact path="/signup" restricted={true} component={SignUpForm} />
 
           {/* Protected Routes */}
+          <ProtectedRoute
+            exact
+            path="/home"
+            component={() => (
+              <HomePage
+                message="Adjust the search keyword or follow a user."
+                filter={`owner__followed__owner__profile=${profile_id}&`}
+              />
+            )}
+          />
           <ProtectedRoute
             exact
             path="/posts"

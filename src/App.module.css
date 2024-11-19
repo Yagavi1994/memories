@@ -118,6 +118,13 @@ figure {
   font-weight: 500;
 }
 
+@media screen and (max-width: 1024px) {
+  .PopularProfiles {
+    width: 75%;
+  }
+}
+
+
 /* Responsive adjustments */
 @media screen and (max-width: 600px) {
   .Comment {

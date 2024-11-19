@@ -111,58 +111,81 @@ const Milestone = (props) => {
         </Link>
       </div>
       <Card.Body className={`text-left ${styles.HeartBullets}`}>
-        <div className={`${styles.HeartBullets}`}>
-          {title && (
-            <p>
-              <Card.Text><i class="fa-solid fa-heart fa-2xs"></i><strong className={`ml-2 ${styles.Font}`}>Milestone:</strong> {title}</Card.Text>
-              <hr />
-            </p>
-          )}
-          {milestone_date && (
-            <p>
-              <Card.Text><i class="fa-solid fa-heart fa-2xs"></i><strong className={`ml-2 ${styles.Font}`}>Milestone Date:</strong> {formattedDate} </Card.Text>
-              <hr />
-            </p>
-          )}
-          {(age_years || age_months) && (
-            <p>
-              <Card.Text>
-                <i class="fa-solid fa-heart fa-2xs"></i><strong className={`ml-2 ${styles.Font}`}>Age:</strong>
-                {age_years && ` ${age_years} Year${age_years > 1 ? 's' : ''}`}
-                {age_months && ` ${age_months} Month${age_months > 1 ? 's' : ''}`}
-              </Card.Text>
-              <hr />
-            </p>
-          )}
-          {height && (
-            <p>
-              <Card.Text><i class="fa-solid fa-heart fa-2xs"></i><strong className={`ml-2 ${styles.Font}`}>Height:</strong> {height} cm</Card.Text>
-              <hr />
-            </p>
-          )}
-          {weight && (
-            <p>
-              <Card.Text><i class="fa-solid fa-heart fa-2xs"></i><strong className={`ml-2 ${styles.Font}`}>Weight:</strong> {weight} kg</Card.Text>
-              <hr />
-            </p>
-          )}
-          {milestone_category && (
-            <p>
-              <Card.Text>
-                <i class="fa-solid fa-heart fa-2xs"></i><strong className={`ml-2 ${styles.Font}`}>Milestone Category:</strong>{" "}
-                {milestone_category.charAt(0).toUpperCase() + milestone_category.slice(1)}
-              </Card.Text>
-              <hr />
-            </p>
-          )}
-          {content && (
-              <p>
-                <Card.Text style={{ textAlign: "justify" }}><i class="fa-solid fa-heart fa-2xs"></i><strong className={` ${styles.Font}`}>Description:</strong> {content}</Card.Text>
-                <hr />
-              </p>
-          )}
+        <div>
+          <table style={{ width: "100%" }}>
+            <tbody>
+              {title && (
+                <tr>
+                  <td>
+                    <i className="fa-solid fa-heart fa-2xs"></i>
+                  </td>
+                  <td className={styles.Font}><strong>Milestone</strong></td>
+                  <td>: {title}</td>
+                </tr>
+              )}
+              {milestone_date && (
+                <tr>
+                  <td>
+                    <i className="fa-solid fa-heart fa-2xs"></i>
+                  </td>
+                  <td className={styles.Font}><strong>Date</strong></td>
+                  <td>: {formattedDate}</td>
+                </tr>
+              )}
+              {(age_years || age_months) && (
+                <tr>
+                  <td>
+                    <i className="fa-solid fa-heart fa-2xs"></i>
+                  </td>
+                  <td className={styles.Font}><strong>Age</strong></td>
+                  <td>
+                    : {age_years && `${age_years} Year${age_years > 1 ? "s" : ""}`}
+                    {age_months && ` ${age_months} Month${age_months > 1 ? "s" : ""}`}
+                  </td>
+                </tr>
+              )}
+              {height && (
+                <tr>
+                  <td>
+                    <i className="fa-solid fa-heart fa-2xs"></i>
+                  </td>
+                  <td className={styles.Font}><strong>Height</strong></td>
+                  <td>: {height} cm</td>
+                </tr>
+              )}
+              {weight && (
+                <tr>
+                  <td>
+                    <i className="fa-solid fa-heart fa-2xs"></i>
+                  </td>
+                  <td className={styles.Font}><strong>Weight</strong></td>
+                  <td>: {weight} kg</td>
+                </tr>
+              )}
+              {milestone_category && (
+                <tr>
+                  <td>
+                    <i className="fa-solid fa-heart fa-2xs"></i>
+                  </td>
+                  <td className={styles.Font}><strong>Category</strong></td>
+                  <td>
+                    : {milestone_category.charAt(0).toUpperCase() +
+                      milestone_category.slice(1)}
+                  </td>
+                </tr>
+              )}
+              {content && (
+                <tr>
+                  <td>
+                    <i className="fa-solid fa-heart fa-2xs"></i>
+                  </td>
+                  <td className={styles.Font}><strong>Description</strong></td>
+                  <td style={{ textAlign: "justify" }}>: {content}</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </div>
-
         <div className={`mt-3 text-center ${styles.PostBar}`}>
           {is_owner ? (
             <OverlayTrigger
@@ -194,7 +217,7 @@ const Milestone = (props) => {
           {comments_count}
         </div>
       </Card.Body>
-    </Card>
+    </Card >
   );
 };
 
