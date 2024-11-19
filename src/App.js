@@ -1,7 +1,8 @@
+import React from "react";
 import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
 import Container from "react-bootstrap/Container";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
@@ -22,7 +23,46 @@ import MilestonesPage from "./pages/milestones/MilestonesPage";
 import NotFound from "./components/NotFound";
 import FollowRequestPage from "./pages/profiles/FollowRequestPage";
 import DeleteProfilePage from "./pages/profiles/DeleteProfilePage";
+import { Link } from "react-router-dom";
 
+// Protected Route Component
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const currentUser = useCurrentUser();
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        currentUser ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/",
+              state: { from: props.location },
+            }}
+          />
+        )
+      }
+    />
+  );
+};
+
+// Public Route Component
+const PublicRoute = ({ component: Component, restricted, ...rest }) => {
+  const currentUser = useCurrentUser();
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        currentUser && restricted ? (
+          <Redirect to="/posts" />
+        ) : (
+          <Component {...props} />
+        )
+      }
+    />
+  );
+};
 
 function App() {
   const currentUser = useCurrentUser();
@@ -33,88 +73,78 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route
+          {/* Public Routes */}
+          <PublicRoute exact path="/" restricted={true} component={SignInForm} />
+          <PublicRoute exact path="/signup" restricted={true} component={SignUpForm} />
+
+          {/* Protected Routes */}
+          <ProtectedRoute
             exact
             path="/posts"
-            render={() => (
+            component={() => (
               <PostsPage
                 message="Adjust the search keyword or follow a user."
                 filter={`owner__followed__owner__profile=${profile_id}&`}
               />
             )}
           />
-          <Route
+          <ProtectedRoute
             exact
             path="/milestones"
-            render={() => (
+            component={() => (
               <MilestonesPage
                 message="Adjust the search keyword or follow a user."
                 filter={`owner__followed__owner__profile=${profile_id}&`}
               />
             )}
           />
-          <Route
+          <ProtectedRoute
             exact
             path="/liked/posts"
-            render={() => (
+            component={() => (
               <PostsPage
                 message="Adjust the search keyword or like a post."
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
               />
             )}
           />
-
-          <Route
+          <ProtectedRoute
             exact
             path="/liked/milestones"
-            render={() => (
+            component={() => (
               <MilestonesPage
                 message="Adjust the search keyword or like a milestone."
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
               />
             )}
           />
+          <ProtectedRoute exact path="/followrequests" component={FollowRequestPage} />
+          <ProtectedRoute exact path="/posts/create" component={PostCreateForm} />
+          <ProtectedRoute exact path="/posts/:id" component={PostPage} />
+          <ProtectedRoute exact path="/posts/:id/edit" component={PostEditForm} />
+          <ProtectedRoute exact path="/milestones" component={MilestonesPage} />
+          <ProtectedRoute exact path="/milestones/create" component={MilestoneCreateForm} />
+          <ProtectedRoute exact path="/milestones/:id" component={MilestonePage} />
+          <ProtectedRoute exact path="/milestones/:id/edit" component={MilestoneEditForm} />
+          <ProtectedRoute exact path="/profiles/:id" component={ProfilePage} />
+          <ProtectedRoute exact path="/profiles/:id/edit/username" component={UsernameForm} />
+          <ProtectedRoute exact path="/profiles/:id/edit/password" component={UserPasswordForm} />
+          <ProtectedRoute exact path="/profiles/:id/edit/privacy" component={UserPrivacyForm} />
+          <ProtectedRoute exact path="/profiles/:id/edit" component={ProfileEditForm} />
+          <ProtectedRoute exact path="/profiles/:id/edit/deleteprofile" component={DeleteProfilePage} />
 
-          <Route exact path="/" render={() => <SignInForm />} />
-          <Route exact path="/signup" render={() => <SignUpForm />} />
-          <Route exact path="/followrequests" render={() => <FollowRequestPage />} />
-          <Route exact path="/posts/create" render={() => <PostCreateForm />} />
-          <Route exact path="/posts/:id" render={() => <PostPage />} />
-          <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
-          <Route exact path="/milestones" render={() => <MilestonesPage />} />
-          <Route exact path="/milestones/create" render={() => <MilestoneCreateForm />} />
-          <Route exact path="/milestones/:id" render={() => <MilestonePage />} />
-          <Route exact path="/milestones/:id/edit" render={() => <MilestoneEditForm />} />
-          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          {/* Not Found Route */}
           <Route
-            exact
-            path="/profiles/:id/edit/username"
-            render={() => <UsernameForm />}
+            render={() => (
+              <NotFound
+                message={
+                  <p>
+                    Please <Link to="/">Sign In</Link> or <Link to="/signup">Sign Up</Link> to view this page.
+                  </p>
+                }
+              />
+            )}
           />
-          <Route
-            exact
-            path="/profiles/:id/edit/password"
-            render={() => <UserPasswordForm />}
-          />
-           <Route
-            exact
-            path="/profiles/:id/edit/privacy"
-            render={() => <UserPrivacyForm />}
-          />
-
-          <Route
-            exact
-            path="/profiles/:id/edit/deleteprofile"
-            render={() => <DeleteProfilePage />}
-          />
-
-          <Route
-            exact
-            path="/profiles/:id/edit"
-            render={() => <ProfileEditForm />}
-          />
-
-          <Route render={() => <NotFound />} />
         </Switch>
       </Container>
     </div>
