@@ -25,37 +25,51 @@ function HomePage({ message }) {
   useEffect(() => {
     const fetchFeed = async () => {
       try {
+        // Fetch followed users
+        const { data: followedUsers } = await axiosReq.get("/followers/");
+        console.log("Followed Users Response:", followedUsers);
+
+        // Fetch posts and milestones
         const [postData, milestoneData] = await Promise.all([
           axiosReq.get(`/posts/?search=${query}`),
           axiosReq.get(`/milestones/?search=${query}`),
         ]);
+        console.log("Posts Response:", postData.data.results);
+        console.log("Milestones Response:", milestoneData.data.results);
 
-        console.log("Post Data:", postData.data.results); // Debug
-      console.log("Milestone Data:", milestoneData.data.results); // Debug
+        // Filter posts and milestones by followed users
+        const followedUserIds = followedUsers.map((user) => user.id);
+        const filteredPosts = postData.data.results.filter((post) =>
+          followedUserIds.includes(post.owner)
+        );
+        const filteredMilestones = milestoneData.data.results.filter((milestone) =>
+          followedUserIds.includes(milestone.owner)
+        );
 
-        // Combine posts and milestones directly while adding the "type" field
+        // Combine and sort feed
         const combinedFeed = [
-          ...postData.data.results.map((post) => ({ ...post, type: "post" })),
-          ...milestoneData.data.results.map((milestone) => ({ ...milestone, type: "milestone" })),
+          ...filteredPosts.map((post) => ({ ...post, type: "post" })),
+          ...filteredMilestones.map((milestone) => ({ ...milestone, type: "milestone" })),
         ].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-        
 
-      setFeed({ results: combinedFeed });
-      setHasLoaded(true);
-    } catch (err) {
-      console.error("Error fetching the feed:", err);
-    }
-  };
+        console.log("Combined Feed:", combinedFeed);
 
-  setHasLoaded(false);
-  const timer = setTimeout(() => {
-    fetchFeed();
-  }, 1000);
+        setFeed({ results: combinedFeed });
+      } catch (err) {
+        console.error("Error fetching the feed:", err);
+      } finally {
+        setHasLoaded(true); // Ensure loading stops
+      }
+    };
 
-  return () => {
-    clearTimeout(timer);
-  };
-}, [query]);
+    // Debounce timer
+    const timer = setTimeout(() => {
+      setHasLoaded(false); // Reset loading state before fetching
+      fetchFeed();
+    }, 500); // Delay API call by 500ms
+
+    return () => clearTimeout(timer); // Clear timer on dependency change
+  }, [query]);
 
   return (
     <Row className="h-100">
