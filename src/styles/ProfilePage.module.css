@@ -3,6 +3,7 @@
     height: 120px;
     width: 120px;
     margin: 4px;
+    border: 2px solid #fff;
   }
 
   .CustomTab a:hover {

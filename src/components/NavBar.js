@@ -83,14 +83,6 @@ const NavBar = () => {
   // Logged-in navigation items
   const loggedInIcons = (
     <>
-       <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/home"
-      >
-        <i class="fa-solid fa-house"></i>
-        <span className="d-md-none d-lg-inline">Home</span>
-      </NavLink>
       <NavDropdown
         id={styles.dropdownMenu}
         title={
@@ -215,7 +207,7 @@ const NavBar = () => {
       fixed="top"
     >
       <Container>
-        <NavLink to="/home">
+        <NavLink to="/posts">
           <Navbar.Brand>
             <img src={logo} alt="logo" className={styles.Logo} />
           </Navbar.Brand>

@@ -44,7 +44,7 @@ function SignInForm() {
       const { data: user } = await axiosReq.get("/dj-rest-auth/user/");
       setCurrentUser(user);
   
-      history.push("/home"); // Redirect to posts page after login
+      history.push("/posts"); // Redirect to posts page after login
     } catch (err) {
       setErrors(err.response?.data);
     }
