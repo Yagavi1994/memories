@@ -11,10 +11,17 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
+    margin-top: 10px;
   }
 
   @media screen and (max-width: 1024px) {
     .SearchBar {
-      margin-top: 30px;
+      margin-top: 10px;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .SearchBar {
+     width: 80%;
     }
   }

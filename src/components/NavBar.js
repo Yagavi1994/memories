@@ -160,10 +160,11 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/followrequests"
       >
-        <i className={`fa-solid fa-user-plus ${styles.NotificationIcon}`}></i>
+        <i className={`fa-solid fa-user pr-0`}></i>
         {followRequestCount > 0 && (
-          <sup className={styles.NotificationBadge}>{followRequestCount}</sup>
+          <sup className={` ${styles.NotificationBadge}`}>{followRequestCount}</sup>
         )}
+        <span className="d-md-none d-xl-inline ml-2">Requests</span>
       </NavLink>
 
       <NavLink
@@ -171,7 +172,7 @@ const NavBar = () => {
         to="/"
         onClick={handleSignOut}
       >
-        <i className="fas fa-sign-out-alt"></i>{" "}
+        <i className="fas fa-sign-out-alt ml-md-1"></i>
         <span className="d-md-none d-lg-inline">Sign out</span>
       </NavLink>
       <NavLink
@@ -201,7 +202,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/signup"
       >
-        <i className="fa-solid fa-user"></i> Sign up
+        <i className="fa-solid fa-user-plus"></i> Sign up
       </NavLink>
     </>
   );
