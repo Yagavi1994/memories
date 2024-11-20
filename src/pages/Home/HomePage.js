@@ -28,7 +28,11 @@ function HomePage({ message }) {
         // Fetch followed users
         const { data: followedUsers } = await axiosReq.get("/followers/");
         console.log("Followed Users Response:", followedUsers);
-
+  
+        // Extract followed profile IDs
+        const followedProfileIds = followedUsers.results.map((user) => user.followed);
+        console.log("Followed Profile IDs:", followedProfileIds);
+  
         // Fetch posts and milestones
         const [postData, milestoneData] = await Promise.all([
           axiosReq.get(`/posts/?search=${query}`),
@@ -36,41 +40,47 @@ function HomePage({ message }) {
         ]);
         console.log("Posts Response:", postData.data.results);
         console.log("Milestones Response:", milestoneData.data.results);
-
-        // Filter posts and milestones by followed users
-        const followedUserIds = followedUsers.map((user) => user.id);
-        const filteredPosts = postData.data.results.filter((post) =>
-          followedUserIds.includes(post.owner)
-        );
-        const filteredMilestones = milestoneData.data.results.filter((milestone) =>
-          followedUserIds.includes(milestone.owner)
-        );
-
+  
+        // Filter posts and milestones by `profile_id`
+        const filteredPosts = postData.data.results.filter((post) => {
+          console.log("Post Profile ID:", post.profile_id);
+          return followedProfileIds.includes(post.profile_id);
+        });
+  
+        const filteredMilestones = milestoneData.data.results.filter((milestone) => {
+          console.log("Milestone Profile ID:", milestone.profile_id);
+          return followedProfileIds.includes(milestone.profile_id);
+        });
+  
+        console.log("Filtered Posts:", filteredPosts);
+        console.log("Filtered Milestones:", filteredMilestones);
+  
         // Combine and sort feed
         const combinedFeed = [
           ...filteredPosts.map((post) => ({ ...post, type: "post" })),
           ...filteredMilestones.map((milestone) => ({ ...milestone, type: "milestone" })),
         ].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
+  
         console.log("Combined Feed:", combinedFeed);
-
+  
         setFeed({ results: combinedFeed });
       } catch (err) {
         console.error("Error fetching the feed:", err);
+        setFeed({ results: [] });
       } finally {
-        setHasLoaded(true); // Ensure loading stops
+        setHasLoaded(true);
       }
     };
-
-    // Debounce timer
+  
     const timer = setTimeout(() => {
-      setHasLoaded(false); // Reset loading state before fetching
+      setHasLoaded(false);
       fetchFeed();
-    }, 500); // Delay API call by 500ms
-
-    return () => clearTimeout(timer); // Clear timer on dependency change
+    }, 500);
+  
+    return () => clearTimeout(timer);
   }, [query]);
-
+  
+  
   return (
     <Row className="h-100">
       {/* Left Side (Main Feed) */}
@@ -102,8 +112,7 @@ function HomePage({ message }) {
                 )}
                 dataLength={feed.results.length}
                 loader={<Asset spinner />}
-                hasMore={!!feed.next}
-                next={() => fetchMoreData(feed, setFeed)}
+                hasMore={false} // Adjust if you add pagination
               />
             ) : (
               <Container className={appStyles.Content}>
