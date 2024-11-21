@@ -6,22 +6,20 @@ import { followHelper, unfollowHelper } from "../utils/utils";
 const ProfileDataContext = createContext();
 const SetProfileDataContext = createContext();
 
-// Custom hooks for accessing context
 export const useProfileData = () => useContext(ProfileDataContext);
 export const useSetProfileData = () => useContext(SetProfileDataContext);
 
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
-    pageProfile: { results: [] }, // Data for the currently viewed profile
-    popularProfiles: { results: [] }, // Data for popular profiles
+    pageProfile: { results: [] },
+    popularProfiles: { results: [], next: null, previous: null },
   });
 
   const currentUser = useCurrentUser();
 
-  // Handle follow action
   const handleFollow = async (clickedProfile) => {
     try {
-      const { data } = await axiosRes.post('/followers/', {
+      const { data } = await axiosRes.post("/followers/", {
         followed: clickedProfile.id,
       });
 
@@ -42,11 +40,10 @@ export const ProfileDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      console.error("Error while following profile:", err);
+      console.error(`Error following profile ${clickedProfile.id}:`, err.response?.data || err.message);
     }
   };
 
-  // Handle unfollow action
   const handleUnfollow = async (clickedProfile) => {
     try {
       await axiosRes.delete(`/followers/${clickedProfile.following_id}/`);
@@ -68,38 +65,34 @@ export const ProfileDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      console.error("Error while unfollowing profile:", err);
+      console.error(`Error unfollowing profile ${clickedProfile.id}:`, err.response?.data || err.message);
     }
   };
 
-  // Get the button state based on profile status
   const getFollowButtonState = (profile) => {
     if (profile.is_private) {
       if (profile.following_id) {
-        return "unfollow"; // Already accepted
+        return "unfollow";
       } else if (profile.request_sent) {
-        return "request_sent"; // Request sent but not yet accepted
+        return "request_sent";
       } else {
-        return "follow"; // Ready to follow (private profile)
+        return "follow";
       }
     } else {
-      return profile.following_id ? "unfollow" : "follow"; // Public profile
+      return profile.following_id ? "unfollow" : "follow";
     }
   };
 
-  // Fetch popular profiles on mount and when the current user changes
   useEffect(() => {
     const fetchPopularProfiles = async () => {
       try {
-        const { data } = await axiosReq.get(
-          "/profiles/?ordering=-followers_count"
-        );
+        const { data } = await axiosReq.get("/profiles/?ordering=-followers_count");
         setProfileData((prevState) => ({
           ...prevState,
           popularProfiles: data,
         }));
       } catch (err) {
-        console.error("Error while fetching popular profiles:", err);
+        console.error("Error fetching popular profiles:", err.response?.data || err.message);
       }
     };
 

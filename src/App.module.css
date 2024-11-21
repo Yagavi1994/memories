@@ -113,9 +113,9 @@ figure {
 }
 
 .PopularProfiles {
-  width: 75%;
+  width: 100%;
+  height: auto;
   text-align: center;
-  font-weight: 500;
 }
 
 
@@ -135,15 +135,8 @@ figure {
 
 @media (max-width: 1024px) {
   .PopularProfiles {
+    max-width: 75%;
     margin-bottom: 30px !important;
-  }
-
-}
-
-@media (min-width: 1024px) {
-  .PopularProfiles {
-    width: 100%;
-    height: auto;
   }
 
 }

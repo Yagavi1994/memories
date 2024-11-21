@@ -186,7 +186,6 @@ function ProfilePage() {
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-      <PopularProfiles mobile={true} width="100%" />
         <Container className={appStyles.Content} id={appStyles.ProfileContainer}>
           {hasLoaded ? (
             <>
