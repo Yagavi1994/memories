@@ -13,37 +13,3 @@
   gap: 10px;
   justify-content: center;
 }
-
-/* .Accept {
-  background-color: #00270f !important;
-  color: #ffffff;
-  border: 1px solid #fff !important;
-  border-radius: 100px;
-}
-
-.Decline {
-  background-color: rgb(65, 1, 1) !important;
-  color: #fff !important;
-  border: 1px solid white !important;
-  border-radius: 100px;
-}
-
-.Accept:hover, .Decline:hover {
-  transform: scale(1.05);
-  border-color: #fff;
-
-}
-
-.Button {
-  font-size: 1rem;
-  align-self: center;
-  border-radius: 100px;
-  border-color: #242a3d  !important;
-  padding: 0 10px;
-  margin-left: 5px;
-  margin-right: 10px;
-  min-width: 75px;
-  color: #242a3d  !important;
-  text-transform: capitalize;
-  box-shadow: 0 4px 6px #ffffff
-} */
