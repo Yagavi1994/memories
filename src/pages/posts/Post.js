@@ -99,7 +99,7 @@ const Post = (props) => {
       </div>
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
-        <div className={`mt-3 ${styles.PostBar}`}>
+        <div className={`mt-3 text-center`}>
           {is_owner ? (
             <OverlayTrigger
               placement="top"

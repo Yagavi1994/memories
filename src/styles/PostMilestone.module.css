@@ -47,10 +47,6 @@
     justify-content: center;
   }
 
-  .HeartBullets i {
-      color: #dfdada;
-  }
-
   /* Responsive adjustments */
   @media screen and (max-width: 600px) {
     .Post {
