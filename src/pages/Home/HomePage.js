@@ -10,14 +10,14 @@ import Asset from "../../components/Asset";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsMilestonesPage.module.css";
-import { axiosReq } from "../../api/axiosDefaults";
+import { axiosRes, axiosReq } from "../../api/axiosDefaults";
 
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 
-function HomePage({ message }) {
+const HomePage = ({ message }) => {
   const [feed, setFeed] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const [query, setQuery] = useState("");
@@ -25,50 +25,97 @@ function HomePage({ message }) {
   useEffect(() => {
     const fetchFeed = async () => {
       try {
-        // Fetch followed users with their permissions
-        const { data: followedUsers } = await axiosReq.get("/profiles/?can_view_posts=true&can_view_milestones=true");
-        const followedUserIds = followedUsers.results.map((user) => user.owner);
-
+        // Fetch followed users
+        const { data: followedUsers } = await axiosReq.get("/followers/");
+        console.log("Followed Users:", followedUsers);
+    
+        const followedUserIds = followedUsers?.results?.map((user) => user.followed) || [];
+        const followedNames = followedUsers?.results?.map((user) => user.followed_name) || [];
+        console.log("Followed User IDs:", followedUserIds);
+        console.log("Followed Usernames:", followedNames);
+    
         // Fetch posts and milestones
         const [postData, milestoneData] = await Promise.all([
           axiosReq.get(`/posts/?search=${query}`),
           axiosReq.get(`/milestones/?search=${query}`),
         ]);
+        console.log("Posts Data:", postData);
+        console.log("Milestones Data:", milestoneData);
+    
+        // Filter posts and milestones
+        const filteredPosts = postData?.data?.results?.filter((post) =>
+          followedUserIds.includes(post.owner) || followedNames.includes(post.owner)
+        ) || [];
+        const filteredMilestones = milestoneData?.data?.results?.filter((milestone) =>
+          followedUserIds.includes(milestone.owner) || followedNames.includes(milestone.owner)
+        ) || [];
 
-        // Filter posts and milestones by followed users
-        const filteredPosts = postData.data.results.filter((post) =>
-          followedUserIds.includes(post.owner)
-        );
-        const filteredMilestones = milestoneData.data.results.filter((milestone) =>
-          followedUserIds.includes(milestone.owner)
-        );
-
+        console.log("Followed User IDs:", followedUserIds)
+        console.log("Filtered Posts:", filteredPosts);
+        console.log("Filtered Milestones:", filteredMilestones);
+    
         // Combine and sort feed
         const combinedFeed = [
           ...filteredPosts.map((post) => ({ ...post, type: "post" })),
           ...filteredMilestones.map((milestone) => ({ ...milestone, type: "milestone" })),
         ].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
+    
+        console.log("Combined Feed:", combinedFeed);
+    
         setFeed({ results: combinedFeed });
       } catch (err) {
         console.error("Error fetching the feed:", err);
       } finally {
-        setHasLoaded(true); // Ensure loading stops
+        setHasLoaded(true);
       }
     };
-
-    // Debounce timer
+    
     const timer = setTimeout(() => {
-      setHasLoaded(false); // Reset loading state before fetching
+      setHasLoaded(false);
       fetchFeed();
-    }, 500); // Delay API call by 500ms
+    }, 500);
 
-    return () => clearTimeout(timer); // Clear timer on dependency change
+    return () => clearTimeout(timer);
   }, [query]);
+
+  const handleLike = async (id, type) => {
+    try {
+      const { data } = await axiosRes.post("/likes/", { [type]: id });
+
+      // Optimistically update the feed
+      setFeed((prevState) => ({
+        ...prevState,
+        results: prevState.results.map((item) =>
+          item.id === id
+            ? { ...item, likes_count: item.likes_count + 1, like_id: data.id }
+            : item
+        ),
+      }));
+    } catch (err) {
+      console.error("Error liking the item:", err);
+    }
+  };
+
+  const handleUnlike = async (id, like_id, type) => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}/`);
+
+      // Optimistically update the feed
+      setFeed((prevState) => ({
+        ...prevState,
+        results: prevState.results.map((item) =>
+          item.id === id
+            ? { ...item, likes_count: item.likes_count - 1, like_id: null }
+            : item
+        ),
+      }));
+    } catch (err) {
+      console.error("Error unliking the item:", err);
+    }
+  };
 
   return (
     <Row className="h-100">
-      {/* Left Side (Main Feed) */}
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
         <Form
@@ -90,9 +137,21 @@ function HomePage({ message }) {
               <InfiniteScroll
                 children={feed.results.map((item) =>
                   item.type === "post" ? (
-                    <Post key={item.id} {...item} setFeed={setFeed} />
+                    <Post
+                      key={item.id}
+                      {...item}
+                      setPosts={setFeed} // Pass setFeed for posts
+                      handleLike={() => handleLike(item.id, "post")} // Pass handleLike
+                      handleUnlike={() => handleUnlike(item.id, item.like_id, "post")} // Pass handleUnlike
+                    />
                   ) : (
-                    <Milestone key={item.id} {...item} setFeed={setFeed} />
+                    <Milestone
+                      key={item.id}
+                      {...item}
+                      setMilestones={setFeed} // Pass setFeed for milestones
+                      handleLike={() => handleLike(item.id, "milestone")} // Pass handleLike
+                      handleUnlike={() => handleUnlike(item.id, item.like_id, "milestone")} // Pass handleUnlike
+                    />
                   )
                 )}
                 dataLength={feed.results.length}
@@ -112,13 +171,11 @@ function HomePage({ message }) {
           </Container>
         )}
       </Col>
-
-      {/* Right Side (Popular Profiles) */}
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
       </Col>
     </Row>
   );
-}
+};
 
 export default HomePage;

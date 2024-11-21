@@ -186,7 +186,7 @@ const Milestone = (props) => {
             </tbody>
           </table>
         </div>
-        <div className={`mt-3 text-center ${styles.PostBar}`}>
+        <div className={`mt-3 text-center`}>
           {is_owner ? (
             <OverlayTrigger
               placement="top"

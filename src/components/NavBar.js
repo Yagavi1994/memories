@@ -83,13 +83,20 @@ const NavBar = () => {
   // Logged-in navigation items
   const loggedInIcons = (
     <>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/home"
+      >
+        <i class="fa-solid fa-house"></i>
+        <span className="d-md-none d-lg-inline">Home</span>
+      </NavLink>
       <NavDropdown
         id={styles.dropdownMenu}
         title={
           <span
-            className={`${styles.dropdownText} d-sm-inline-column ${
-              isFeedActive ? styles.Active : ""
-            }`}
+            className={`${styles.dropdownText} d-sm-inline-column ${isFeedActive ? styles.Active : ""
+              }`}
           >
             <i className="fa-solid fa-bars-staggered"></i>{" "}
             <span className="d-md-none d-lg-inline">Feed</span>
@@ -119,9 +126,8 @@ const NavBar = () => {
         id={styles.dropdownMenu}
         title={
           <span
-            className={`${styles.dropdownText} d-sm-inline-column ${
-              isLikedActive ? styles.Active : ""
-            }`}
+            className={`${styles.dropdownText} d-sm-inline-column ${isLikedActive ? styles.Active : ""
+              }`}
           >
             <i className="fas fa-heart"></i>{" "}
             <span className="d-md-none d-lg-inline">Liked</span>
