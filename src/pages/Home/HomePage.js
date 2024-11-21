@@ -25,20 +25,17 @@ function HomePage({ message }) {
   useEffect(() => {
     const fetchFeed = async () => {
       try {
-        // Fetch followed users
-        const { data: followedUsers } = await axiosReq.get("/followers/");
-        console.log("Followed Users Response:", followedUsers);
+        // Fetch followed users with their permissions
+        const { data: followedUsers } = await axiosReq.get("/profiles/?can_view_posts=true&can_view_milestones=true");
+        const followedUserIds = followedUsers.results.map((user) => user.owner);
 
         // Fetch posts and milestones
         const [postData, milestoneData] = await Promise.all([
           axiosReq.get(`/posts/?search=${query}`),
           axiosReq.get(`/milestones/?search=${query}`),
         ]);
-        console.log("Posts Response:", postData.data.results);
-        console.log("Milestones Response:", milestoneData.data.results);
 
         // Filter posts and milestones by followed users
-        const followedUserIds = followedUsers.map((user) => user.id);
         const filteredPosts = postData.data.results.filter((post) =>
           followedUserIds.includes(post.owner)
         );
@@ -51,8 +48,6 @@ function HomePage({ message }) {
           ...filteredPosts.map((post) => ({ ...post, type: "post" })),
           ...filteredMilestones.map((milestone) => ({ ...milestone, type: "milestone" })),
         ].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
-        console.log("Combined Feed:", combinedFeed);
 
         setFeed({ results: combinedFeed });
       } catch (err) {

@@ -135,8 +135,13 @@ figure {
 
 @media (max-width: 1024px) {
   .PopularProfiles {
-    max-width: 75%;
     margin-bottom: 30px !important;
   }
 
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .PopularProfiles {
+    width: 75%;
+}
 }
