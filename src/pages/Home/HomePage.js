@@ -28,20 +28,23 @@ const HomePage = ({ message }) => {
         // Fetch followed users
         const { data: followedUsers } = await axiosReq.get("/followers/");
         console.log("Followed Users:", followedUsers);
-    
-        const followedUserIds = followedUsers?.results?.map((user) => user.followed) || [];
+
+        const followedUserIds = followedUsers.results.map((user) => user.followed) || [];
+        console.log("Followed User IDs:", followedUserIds);
         const followedNames = followedUsers?.results?.map((user) => user.followed_name) || [];
+        
         console.log("Followed User IDs:", followedUserIds);
         console.log("Followed Usernames:", followedNames);
-    
+
         // Fetch posts and milestones
         const [postData, milestoneData] = await Promise.all([
           axiosReq.get(`/posts/?search=${query}`),
           axiosReq.get(`/milestones/?search=${query}`),
         ]);
-        console.log("Posts Data:", postData);
-        console.log("Milestones Data:", milestoneData);
-    
+
+        console.log("Posts Data:", postData.data.results);
+        console.log("Milestones Data:", milestoneData.data.results);
+
         // Filter posts and milestones
         const filteredPosts = postData?.data?.results?.filter((post) =>
           followedUserIds.includes(post.owner) || followedNames.includes(post.owner)
@@ -50,18 +53,17 @@ const HomePage = ({ message }) => {
           followedUserIds.includes(milestone.owner) || followedNames.includes(milestone.owner)
         ) || [];
 
-        console.log("Followed User IDs:", followedUserIds)
         console.log("Filtered Posts:", filteredPosts);
         console.log("Filtered Milestones:", filteredMilestones);
-    
+
         // Combine and sort feed
         const combinedFeed = [
           ...filteredPosts.map((post) => ({ ...post, type: "post" })),
           ...filteredMilestones.map((milestone) => ({ ...milestone, type: "milestone" })),
         ].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-    
+
         console.log("Combined Feed:", combinedFeed);
-    
+
         setFeed({ results: combinedFeed });
       } catch (err) {
         console.error("Error fetching the feed:", err);
@@ -69,7 +71,8 @@ const HomePage = ({ message }) => {
         setHasLoaded(true);
       }
     };
-    
+
+    // Fetch data with a debounce-like effect
     const timer = setTimeout(() => {
       setHasLoaded(false);
       fetchFeed();
@@ -132,39 +135,38 @@ const HomePage = ({ message }) => {
         </Form>
 
         {hasLoaded ? (
-          <>
-            {feed.results.length ? (
-              <InfiniteScroll
-                children={feed.results.map((item) =>
-                  item.type === "post" ? (
-                    <Post
-                      key={item.id}
-                      {...item}
-                      setPosts={setFeed} // Pass setFeed for posts
-                      handleLike={() => handleLike(item.id, "post")} // Pass handleLike
-                      handleUnlike={() => handleUnlike(item.id, item.like_id, "post")} // Pass handleUnlike
-                    />
-                  ) : (
-                    <Milestone
-                      key={item.id}
-                      {...item}
-                      setMilestones={setFeed} // Pass setFeed for milestones
-                      handleLike={() => handleLike(item.id, "milestone")} // Pass handleLike
-                      handleUnlike={() => handleUnlike(item.id, item.like_id, "milestone")} // Pass handleUnlike
-                    />
-                  )
-                )}
-                dataLength={feed.results.length}
-                loader={<Asset spinner />}
-                hasMore={!!feed.next}
-                next={() => fetchMoreData(feed, setFeed)}
-              />
-            ) : (
-              <Container className={appStyles.Content}>
-                <Asset src={NoResults} message={message || "No posts or milestones found."} />
-              </Container>
-            )}
-          </>
+          feed.results.length ? (
+            <InfiniteScroll
+              dataLength={feed.results.length}
+              next={() => fetchMoreData(feed, setFeed)}
+              hasMore={!!feed.next}
+              loader={<Asset spinner />}
+            >
+              {feed.results.map((item) =>
+                item.type === "post" ? (
+                  <Post
+                    key={item.id}
+                    {...item}
+                    setPosts={setFeed}
+                    handleLike={() => handleLike(item.id, "post")}
+                    handleUnlike={() => handleUnlike(item.id, item.like_id, "post")}
+                  />
+                ) : (
+                  <Milestone
+                    key={item.id}
+                    {...item}
+                    setMilestones={setFeed}
+                    handleLike={() => handleLike(item.id, "milestone")}
+                    handleUnlike={() => handleUnlike(item.id, item.like_id, "milestone")}
+                  />
+                )
+              )}
+            </InfiniteScroll>
+          ) : (
+            <Container className={appStyles.Content}>
+              <Asset src={NoResults} message={message || "No posts or milestones found."} />
+            </Container>
+          )
         ) : (
           <Container className={appStyles.Content}>
             <Asset spinner />
@@ -179,3 +181,5 @@ const HomePage = ({ message }) => {
 };
 
 export default HomePage;
+
+

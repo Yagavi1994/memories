@@ -89,7 +89,7 @@ const NavBar = () => {
         to="/home"
       >
         <i class="fa-solid fa-house"></i>
-        <span className="d-md-none d-lg-inline">Home</span>
+        <span className="d-md-none d-xl-inline">Home</span>
       </NavLink>
       <NavDropdown
         id={styles.dropdownMenu}
@@ -99,7 +99,7 @@ const NavBar = () => {
               }`}
           >
             <i className="fa-solid fa-bars-staggered"></i>{" "}
-            <span className="d-md-none d-lg-inline">Feed</span>
+            <span className="d-md-none d-xl-inline">Feed</span>
           </span>
         }
         onToggle={(isOpen) => setExpanded(isOpen)}
@@ -130,7 +130,7 @@ const NavBar = () => {
               }`}
           >
             <i className="fas fa-heart"></i>{" "}
-            <span className="d-md-none d-lg-inline">Liked</span>
+            <span className="d-md-none d-xl-inline">Liked</span>
           </span>
         }
         onToggle={(isOpen) => setExpanded(isOpen)}
@@ -171,7 +171,7 @@ const NavBar = () => {
         onClick={handleSignOut}
       >
         <i className="fas fa-sign-out-alt ml-md-1"></i>
-        <span className="d-md-none d-lg-inline">Sign out</span>
+        <span className="d-md-none d-xl-inline">Sign out</span>
       </NavLink>
       <NavLink
         className={styles.NavLink}
@@ -179,7 +179,7 @@ const NavBar = () => {
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <Avatar src={currentUser?.profile_image} height={40} />
-        <span className="d-md-none d-lg-inline">Profile</span>
+        <span className="d-md-none d-xl-inline">Profile</span>
       </NavLink>
     </>
   );
