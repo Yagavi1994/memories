@@ -17,7 +17,7 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
 const UserPrivacyForm = () => {
-  const [privacy, setPrivacy] = useState("public"); // Default privacy setting
+  const [privacy, setPrivacy] = useState("public"); // Default privacy state
   const [errors, setErrors] = useState({});
   const history = useHistory();
   const { id } = useParams();
@@ -25,45 +25,46 @@ const UserPrivacyForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  // Load privacy status from localStorage or currentUser
+  // Fetch the privacy status from the backend
   useEffect(() => {
-    const storedPrivacy = localStorage.getItem("privacyStatus");
+    const fetchPrivacyStatus = async () => {
+      try {
+        // Ensure the user has permission to access this form
+        if (currentUser?.profile_id?.toString() === id) {
+          const { data } = await axiosRes.get(`/profiles/${id}/`);
+          setPrivacy(data.is_private ? "private" : "public"); // Update the state
+        } else {
+          history.push("/posts"); // Redirect unauthorized users
+        }
+      } catch (err) {
+        console.error("Error fetching privacy status:", err.response?.data);
+      }
+    };
 
-    if (storedPrivacy) {
-      setPrivacy(storedPrivacy); // Load from localStorage
-    } else if (currentUser?.profile_id?.toString() === id) {
-      setPrivacy(currentUser.is_private ? "private" : "public"); // Load from currentUser
-      localStorage.setItem(
-        "privacyStatus",
-        currentUser.is_private ? "private" : "public"
-      ); // Store in localStorage for the first time
-    } else {
-      history.push("/posts"); // Redirect if unauthorized
-    }
+    fetchPrivacyStatus();
   }, [currentUser, id, history]);
 
+  // Handle the change in privacy radio buttons
   const handlePrivacyChange = (e) => {
-    setPrivacy(e.target.value); // Update privacy state
+    setPrivacy(e.target.value); // Update the privacy state
   };
 
+  // Submit the updated privacy status to the backend
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const is_private = privacy === "private";
+      const is_private = privacy === "private"; // Convert privacy to boolean
       await axiosRes.put(`/profiles/${id}/`, { is_private });
 
-      // Update the current user context
+      // Update the current user context globally
       setCurrentUser((prevUser) => ({
         ...prevUser,
         is_private,
       }));
 
-      // Save privacy status to localStorage
-      localStorage.setItem("privacyStatus", privacy);
-
-      history.goBack(); // Redirect back
+      history.goBack(); // Navigate back after successful update
     } catch (err) {
-      console.error("Error updating privacy:", err.response?.data); // Debug error
+      console.error("Error updating privacy:", err.response?.data);
       setErrors(err.response?.data);
     }
   };
