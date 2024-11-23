@@ -70,14 +70,14 @@ function MilestoneEditForm() {
     event.preventDefault();
     const formData = new FormData();
 
-    formData.append("title", title);
-    formData.append("milestone_date", milestone_date);
-    formData.append("content", content);
-    formData.append("age_years", age_years);
-    formData.append("age_months", age_months);
-    formData.append("height", height);
-    formData.append("weight", weight);
-    formData.append("milestone_category", milestone_category);
+    if(title) formData.append("title", title);
+    if(milestone_date) formData.append("milestone_date", milestone_date);
+    if(content) formData.append("content", content);
+    if(age_years) formData.append("age_years", age_years);
+    if(age_months) formData.append("age_months", age_months);
+    if(height) formData.append("height", height);
+    if(weight) formData.append("weight", weight);
+    if(milestone_category) formData.append("milestone_category", milestone_category);
 
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
