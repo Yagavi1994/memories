@@ -80,16 +80,16 @@ function MilestoneEditForm() {
     formData.append("milestone_category", milestone_category);
 
     if (imageInput?.current?.files[0]) {
-        formData.append("image", imageInput.current.files[0]);
+      formData.append("image", imageInput.current.files[0]);
     }
 
     try {
-        await axiosReq.post(`/milestones/${id}/edit/`, formData); // Use POST instead of PUT
-        history.push(`/milestones/${id}`);
+      await axiosReq.patch(`/milestones/${id}/`, formData); //
+      history.push(`/milestones/${id}`);
     } catch (err) {
-        if (err.response?.status !== 401) {
-            setErrors(err.response?.data);
-        }
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
 
@@ -111,7 +111,7 @@ function MilestoneEditForm() {
         </Alert>
       ))}
 
-<Form.Group>
+      <Form.Group>
         <Form.Label>Date</Form.Label>
         <Form.Control
           type="date"
@@ -250,7 +250,8 @@ function MilestoneEditForm() {
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
-            <Form.Group className="text-center">
+
+            <Form.Group className="text-center" >
               <figure>
                 <Image className={appStyles.Image} src={image} rounded />
               </figure>
@@ -280,7 +281,7 @@ function MilestoneEditForm() {
           </Container>
         </Col>
         <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
+          <Container className={appStyles.Content} id={appStyles.FormContainer}>{textFields}</Container>
         </Col>
       </Row>
     </Form>

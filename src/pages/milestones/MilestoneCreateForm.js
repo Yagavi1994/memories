@@ -281,7 +281,7 @@ function MilestoneCreateForm() {
           </Container>
         </Col>
         <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content} id={appStyles.FormContainer} >{textFields}</Container>
+          <Container className={`${appStyles.Content} `} id={appStyles.FormContainer} >{textFields}</Container>
         </Col>
       </Row>
     </Form>
