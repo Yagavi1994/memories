@@ -203,6 +203,7 @@ function MilestoneEditForm() {
         >
           <option value="physical">Physical</option>
           <option value="cognitive">Cognitive</option>
+          <option value="motor">Fine Motor</option>
           <option value="emotional">Emotional</option>
           <option value="social">Social</option>
           <option value="language">Language</option>
