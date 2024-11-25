@@ -50,11 +50,9 @@ const NavBar = () => {
     }
   };
 
-  const handleDropdownSelect = () => {
-    if (window.innerWidth >= 768) {
-      setExpanded(false); // Close dropdown on desktop
-    }
-  };
+  const navItemSelect = () => {
+    setExpanded(false);
+  }
 
   // Determine active state for dropdowns
   const isFeedActive = ["/posts", "/milestones"].includes(location.pathname);
@@ -87,8 +85,9 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/home"
+        onClick={navItemSelect}
       >
-        <i class="fa-solid fa-house"></i>
+        <i className="fa-solid fa-house"></i>
         <span className="d-md-none d-xl-inline">Home</span>
       </NavLink>
       <NavDropdown
@@ -102,13 +101,12 @@ const NavBar = () => {
             <span className="d-md-none d-xl-inline">Feed</span>
           </span>
         }
-        onToggle={(isOpen) => setExpanded(isOpen)}
       >
         <NavDropdown.Item
           id={styles.dropdownItem}
           as={NavLink}
           to="/posts"
-          onClick={handleDropdownSelect}
+          onClick={navItemSelect}
         >
           <i className={`fa-solid fa-bullhorn ${styles.Icon}`}></i> Posts
         </NavDropdown.Item>
@@ -116,7 +114,7 @@ const NavBar = () => {
           id={styles.dropdownItem}
           as={NavLink}
           to="/milestones"
-          onClick={handleDropdownSelect}
+          onClick={navItemSelect}
         >
           <i className={`fa-regular fa-calendar-days ${styles.Icon}`}></i> Milestones
         </NavDropdown.Item>
@@ -133,13 +131,12 @@ const NavBar = () => {
             <span className="d-md-none d-xl-inline">Liked</span>
           </span>
         }
-        onToggle={(isOpen) => setExpanded(isOpen)}
       >
         <NavDropdown.Item
           id={styles.dropdownItem}
           as={NavLink}
           to="/liked/posts"
-          onClick={handleDropdownSelect}
+          onClick={navItemSelect}
         >
           <i className={`fa-solid fa-bullhorn ${styles.Icon}`}></i> Posts
         </NavDropdown.Item>
@@ -147,7 +144,7 @@ const NavBar = () => {
           id={styles.dropdownItem}
           as={NavLink}
           to="/liked/milestones"
-          onClick={handleDropdownSelect}
+          onClick={navItemSelect}
         >
           <i className={`fa-regular fa-calendar-days ${styles.Icon}`}></i> Milestones
         </NavDropdown.Item>
@@ -157,6 +154,7 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/followrequests"
+        onClick={navItemSelect}
       >
         <i className={`fa-solid fa-user pr-0`}></i>
         {followRequestCount > 0 && (
@@ -177,6 +175,7 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
         to={`/profiles/${currentUser?.profile_id}`}
+        onClick={navItemSelect}
       >
         <Avatar src={currentUser?.profile_image} height={40} />
         <span className="d-md-none d-xl-inline">Profile</span>
@@ -192,6 +191,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/"
         exact
+        onClick={navItemSelect}
       >
         <i className="fas fa-sign-in-alt"></i> Sign in
       </NavLink>
@@ -199,6 +199,7 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/signup"
+        onClick={navItemSelect}
       >
         <i className="fa-solid fa-user-plus"></i> Sign up
       </NavLink>
@@ -207,6 +208,7 @@ const NavBar = () => {
 
   return (
     <Navbar
+      ref={ref}
       expanded={expanded}
       className={styles.NavBar}
       expand="md"
@@ -220,7 +222,6 @@ const NavBar = () => {
         </NavLink>
         {addIcons}
         <Navbar.Toggle
-          ref={ref}
           onClick={() => setExpanded(!expanded)}
           aria-controls="basic-navbar-nav"
         >
