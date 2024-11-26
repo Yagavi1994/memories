@@ -27,23 +27,14 @@ const HomePage = ({ message }) => {
       try {
         // Fetch followed users
         const { data: followedUsers } = await axiosReq.get("/followers/");
-        console.log("Followed Users:", followedUsers);
-
         const followedUserIds = followedUsers.results.map((user) => user.followed) || [];
-        console.log("Followed User IDs:", followedUserIds);
         const followedNames = followedUsers?.results?.map((user) => user.followed_name) || [];
-        
-        console.log("Followed User IDs:", followedUserIds);
-        console.log("Followed Usernames:", followedNames);
 
         // Fetch posts and milestones
         const [postData, milestoneData] = await Promise.all([
           axiosReq.get(`/posts/?search=${query}`),
           axiosReq.get(`/milestones/?search=${query}`),
         ]);
-
-        console.log("Posts Data:", postData.data.results);
-        console.log("Milestones Data:", milestoneData.data.results);
 
         // Filter posts and milestones
         const filteredPosts = postData?.data?.results?.filter((post) =>
@@ -53,18 +44,17 @@ const HomePage = ({ message }) => {
           followedUserIds.includes(milestone.owner) || followedNames.includes(milestone.owner)
         ) || [];
 
-        console.log("Filtered Posts:", filteredPosts);
-        console.log("Filtered Milestones:", filteredMilestones);
-
         // Combine and sort feed
         const combinedFeed = [
           ...filteredPosts.map((post) => ({ ...post, type: "post" })),
           ...filteredMilestones.map((milestone) => ({ ...milestone, type: "milestone" })),
-        ].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+        ]
 
-        console.log("Combined Feed:", combinedFeed);
-
-        setFeed({ results: combinedFeed });
+        const sortedFeed = combinedFeed.sort(
+          (a, b) => new Date(b.created_at) - new Date(a.created_at)
+        );
+    
+        setFeed({ results: sortedFeed });
       } catch (err) {
         console.error("Error fetching the feed:", err);
       } finally {
@@ -95,7 +85,7 @@ const HomePage = ({ message }) => {
         ),
       }));
     } catch (err) {
-      console.error("Error liking the item:", err);
+      
     }
   };
 
@@ -113,7 +103,7 @@ const HomePage = ({ message }) => {
         ),
       }));
     } catch (err) {
-      console.error("Error unliking the item:", err);
+      
     }
   };
 
@@ -145,7 +135,7 @@ const HomePage = ({ message }) => {
               {feed.results.map((item) =>
                 item.type === "post" ? (
                   <Post
-                    key={item.id}
+                    key={`post-${item.id}`} // Use a unique key
                     {...item}
                     setPosts={setFeed}
                     handleLike={() => handleLike(item.id, "post")}
@@ -153,7 +143,7 @@ const HomePage = ({ message }) => {
                   />
                 ) : (
                   <Milestone
-                    key={item.id}
+                    key={`milestone-${item.id}`} // Use a unique key
                     {...item}
                     setMilestones={setFeed}
                     handleLike={() => handleLike(item.id, "milestone")}
@@ -161,6 +151,7 @@ const HomePage = ({ message }) => {
                   />
                 )
               )}
+
             </InfiniteScroll>
           ) : (
             <Container className={appStyles.Content}>

@@ -15,11 +15,12 @@ import Upload from "../../assets/upload.png";
 import styles from "../../styles/PostMilestoneCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-
+import { useRedirect } from "../../hooks/useRedirect";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function PostCreateForm() {
+  useRedirect("loggedin");
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({

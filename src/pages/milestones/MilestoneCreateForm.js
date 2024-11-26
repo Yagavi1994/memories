@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-
+import { useRedirect } from "../../hooks/useRedirect";
 import Asset from "../../components/Asset";
 
 import Upload from "../../assets/upload.png";
@@ -20,6 +20,7 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function MilestoneCreateForm() {
+  useRedirect("loggedin");
   const [errors, setErrors] = useState({});
 
   const [milestoneData, setMilestoneData] = useState({
