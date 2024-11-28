@@ -6,7 +6,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
-import HomePage from "./pages/Home/HomePage";
+import HomePage from "./pages/home/HomePage";
 import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
 import PostsPage from "./pages/posts/PostsPage";
