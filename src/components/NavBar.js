@@ -215,7 +215,7 @@ const NavBar = () => {
       fixed="top"
     >
       <Container>
-        <NavLink to="/posts">
+        <NavLink to="/home">
           <Navbar.Brand>
             <img src={logo} alt="logo" className={styles.Logo} />
           </Navbar.Brand>
