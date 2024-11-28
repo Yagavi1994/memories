@@ -14,7 +14,6 @@ const FollowRequestsPage = () => {
     const fetchFollowRequests = async () => {
       try {
         const { data } = await axiosRes.get("/follow-requests/");
-        console.log("Follow Requests Data:", data); // Debugging
         setFollowRequests(data.results || []); // Ensure results is defined
       } catch (err) {
         console.error("Error fetching follow requests:", err);

@@ -79,7 +79,6 @@ export const ProfileEditDropdown = ({ id }) => {
         </Dropdown.Item>
         <Dropdown.Item className={styles.DropdownItem}
           onClick={() => {
-          console.log("Navigating to delete profile with ID:", id);
           history.push(`/profiles/${id}/edit/deleteprofile`)}}
           aria-label="delete-profile"
         >
