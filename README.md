@@ -4,9 +4,9 @@
 ![Overview](readme/features/responsive-image.png)
 
 
-Link to the website: [Memories](https://memories-frontend-895c7e867e2e.herokuapp.com)
-Link to the backend API [Memories-backend](https://memories-backend-16d0ed87a1d2.herokuapp.com)
-Link to the backend repository [Memories-backend-repo](https://github.com/Yagavi1994/Memories-API)
+- Link to the website: [Memories](https://memories-frontend-895c7e867e2e.herokuapp.com)
+- Link to the backend API [Memories-backend](https://memories-backend-16d0ed87a1d2.herokuapp.com)
+- Link to the backend repository [Memories-backend-repo](https://github.com/Yagavi1994/Memories-API)
 
 
 # Project Overview
@@ -22,17 +22,17 @@ This platform not only allows parents to upload and share their children's photo
 - [User Experience](#user-experience) 
 - [Design](#design)  
 - [Agile Methodology](#agile-methodology)
-- [Database Scheme & User Journey](#database-scheme-&-user-journey)
+- [Database Scheme](#database-scheme)
 - [Wireframes](#wireframes)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
-- [Deployment & local development](#deployment-&-local-development)
+- [Deployment](#deployment)
 - [Credits](#credits)
 - [Acknowledgement](#acknowledgement)
 
 
-# Project objectives
+# Project Objectives
 
 ## Site Aims
 
@@ -63,10 +63,6 @@ This platform not only allows parents to upload and share their children's photo
 # User Experience
 
 ## User Stories
-
-Here is the formatted list of all your user stories, following the markdown structure provided:
-
----
 
 ### Navigation & Authentication
 
@@ -147,7 +143,7 @@ Here is the formatted list of all your user stories, following the markdown stru
 
 ---
 
-### Adding & Liking Posts
+### Posts and Milestones
 
 #### Create Posts
 #### User Story 9:  
@@ -160,26 +156,26 @@ Here is the formatted list of all your user stories, following the markdown stru
 
 ---
 
-#### View a Post
+#### View a Post and Milestone
 #### User Story 10:  
-**As a user**, I can view the details of a single post so that I can learn more about it.
-- Users can view details of a single post, including image, caption, likes, and comments.
+**As a user**, I can view the details of a single post and milestone so that I can learn more about it.
+- Users can view details of a single post and milestone, including image, caption, likes, and comments.
 - Post information is displayed in a clear and organized manner.
 - Users can navigate back to the main feed easily.
 
 ---
 
-#### Like a Post
+#### Like a Post and Milestone
 #### User Story 11:  
-**As a logged-in user**, I can like a post so that I can show my support for the posts that interest me.
-- Only logged-in users can like posts.
-- Users can toggle likes on and off.
-- Liked posts visually indicate the "liked" status.
+**As a logged-in user**, I can like a post or milestone so that I can show my support for the posts that interest me.
+- Only logged-in users can like posts or milestones.
+- Liked posts or milestones visually indicate the "liked" status.
 - Like count updates in real-time without requiring a page refresh.
+- Liked posts or milestones are saved in their respective liked posts and milestones page for future reference.
 
 ---
 
-#### View Most Recent Posts
+#### View Most Recent Posts and Milestones
 #### User Story 12:  
  **As a user**, I can view all the most recent posts and milestones, ordered by most recently created first so that I am up to date with the newest content.  
 - Posts and Milestones are displayed in order of most recent first.
@@ -187,7 +183,7 @@ Here is the formatted list of all your user stories, following the markdown stru
 - Each post and milestone displays key information (e.g., image, caption, like count).
 ---
 
-#### Search for Posts
+#### Search for Posts or Milestones
 #### User Story 13:  
 **As a user**, I can search for posts and milestones with keywords so that I can find the posts, milestones and user profiles I am most interested in.  
 - A search bar is accessible on the home, posts and milestones page.
@@ -197,21 +193,20 @@ Here is the formatted list of all your user stories, following the markdown stru
 
 ---
 
-#### View Liked Posts
+#### View Liked Posts or Milestones
 #### User Story 14:  
-**As a logged-in user**, I can view the posts I liked so that I can find the posts I enjoy the most.
-- Logged-in users can access a list of posts they’ve liked.
-- Liked posts display in order of most recently liked.
-- Users can navigate to each liked post directly from the list.
+**As a logged-in user**, I can view the posts and milestones I liked so that I can find the posts I enjoy the most.
+- Logged-in users can access a list of posts and milestones they’ve liked.
+- Liked posts or milestones display in order of most recently liked.
+- Users can navigate to each liked post and milestone directly from the list.
 
 ---
 
-#### View Posts of Followed Users
+#### View Posts or Milestones of Followed Users
 #### User Story 15:  
 **As a logged-in user**, I can view content filtered by users I follow so that I can keep up to date with what they are posting about.
-- Logged-in users can view posts filtered by the users they follow.
-- Posts are displayed in reverse chronological order.
-- Users can toggle between “All Posts” and “Followed Users” views.
+- Logged-in users can view posts and milestones filtered by the users they follow.
+- Posts and milestones are displayed in reverse chronological order.
 
 ---
 
@@ -223,24 +218,26 @@ Here is the formatted list of all your user stories, following the markdown stru
 - Loading indicators are displayed when more content is being fetched.
 
 ---
-### The Post Page
+### The Post and Milestone Page
 
-#### View Post Page  
+#### View Post and Milestone Page  
 #### User Story 17:  
-**As a user**, I can view the post page so that I can read the comments about the post.  
-- Users can view a post page with all details, including comments and likes.  
+**As a user**, I can view the post and milestone page so that I can read the comments about the post and milestone.  
+- Users can view a post and milestone page with all details, including comments and likes.  
 - Users can easily navigate back to the main feed.
 
 ---
 
-#### Edit Post  
+#### Edit Post and Milestone 
 #### User Story 18:  
-**As a post owner**, I can edit my post title and description so that I can make corrections or update my post after it was created.  
-- Only the post owner can access the "Edit Post" option.  
-- Post owners can modify the title and description of their posts.  
-- Updated post information is saved and displayed upon submission.
+**As a post or milestone owner**, I can edit my post and milestone title and description so that I can make corrections or update it after it was created.  
+- Only the post or milestone owner can access the "Edit Post or Milestone" option.  
+- Post or Milestone owners can modify the title and description of their posts and milestones.  
+- Updated post and milestone information is saved and displayed upon submission.
 
 ---
+
+### Comment
 
 #### Create a Comment  
 #### User Story 19:  
@@ -518,7 +515,8 @@ This entity-relationship diagram shows a well-structured design for a Memories, 
 
 
 # Wireframes
-Since I took the moments walthrough website as my inspiration, I used it itself as a wireframe for my project. So I made wireframes only few of the important pages, others I used the same outlook of the moments web application.
+
+I drew inspiration for my project from the Moments Walkthrough website, using it as a foundational guide for the design and structure. Consequently, I adopted the visual framework of the Moments application for most of the pages in my project. However, I created custom wireframes for a few key pages where unique functionality or design elements were required to better suit the objectives of Memories. For the rest of the pages, I aligned them closely with the Moments application’s layout while adding my personal touches to ensure a cohesive and polished user experience.
 
 ### Mobile
 #### Sign-in Page
@@ -541,7 +539,7 @@ Since I took the moments walthrough website as my inspiration, I used it itself 
 ![Home](readme/wireframe/home-desktop.png)
 
 #### Profile Page
-[Profile](readme/wireframe/profile-desktop.png)
+![Profile](readme/wireframe/profile-desktop.png)
 
 # Features
 
@@ -581,6 +579,12 @@ This responsive navbar ensures smooth and efficient navigation while preserving 
 > - Navbar includes links to all main pages (e.g., Home, Profile, Posts, Sign In, Sign Up).
 > - Navbar updates to show relevant options based on the logged-in status (e.g., "Sign In" and "Sign Up" for logged-out users; "Profile" and "Logout" for logged-in users).
 > - Navbar is responsive and adapts to various screen sizes.
+
+> - #### User Story 2:  
+> - **As a user**, I can navigate through pages quickly so that I can view content seamlessly without page refresh.
+> - Users can navigate between pages without a full page reload (via client-side routing).
+> - Page transitions are smooth and quick, without any noticeable delays.
+> - Browser history is correctly updated to support back and forward navigation.
 
 #### Navbar Mobile
 ![Navbar-mobile](readme/features/nav-bar-mobile.png)
@@ -646,287 +650,718 @@ The **Home Page** provides users with an engaging and efficient way to explore c
 
 ---
 
-### About Page
-The "About" page has a picture of the site owner and introduces the purpose and mission of the blog. It provides information on what the blog aims to achieve and the values behind it. This page is accessible from the main navigation bar.
 
-- **User Story 8**: The "About" page should be well-organized, easy to read, and offer details about the blog's goals.
+### Posts and Milestones Page
 
-![About Page](static/images/readme/features/about-page.png)
+The **Posts** and **Milestones** pages share a design similar to the **Home Page**, offering a clean and consistent layout. However, these pages are distinct in their content organization:
 
----
+- The **Home Page** combines both posts and milestones into a unified feed.
+- The **Posts** and **Milestones** pages, accessible through the **Feed** dropdown in the navbar, separate the content into their respective categories for focused browsing.
 
-### Contact Page
-The contact page allows visitors to reach out to the blog administrators for inquiries or support. It includes a contact form with fields for the user's name, email address, and message. Upon submission, users receive a confirmation message.
+### Key Features:
 
-- **User Story 9**: Visitors should be able to submit inquiries through the contact page, and receive confirmation after submission.
+1. **Dedicated Pages**:
+   - The **Posts Page** displays only user-generated posts, such as photos or captions, allowing users to exclusively explore shared moments.
+   - The **Milestones Page** showcases developmental milestones, providing users with an organized view of special achievements.
 
-![Contact Page](static/images/readme/features/contact-page.png)
+2. **Consistent Layout**:
+   - Both pages follow the same visual and functional design as the home page, maintaining familiarity for seamless navigation.
+   - Each item includes the user avatar, name, timestamp, description, and interaction options (likes and comments).
 
----
+3. **Focused Browsing**:
+   - Users can browse posts and milestones separately, making it easier to find specific content types.
 
-### Blog Post Page
-Each blog post has its own dedicated page, displaying the title, full content, source, and published date. Users can easily navigate between posts using "Next" and "Previous" buttons. The post page also includes options for sharing the content on social media.
+4. **Interactive Features**:
+   - Just like on the home page, users can like and comment directly on posts or milestones, encouraging engagement.
 
-- **User Story 2**: Blog posts should have dedicated pages with easy navigation options.
+5. **Search and Filtering**:
+   - Search bars on both pages allow users to find specific posts or milestones efficiently.
 
-![Blog Post Page](static/images/readme/features/blog-post-page.png)
+By offering separate pages for **Posts** and **Milestones**, the platform provides users with a focused and streamlined experience, enabling them to interact with the content they care about most.
 
----
+> - **User Story 12**:  
+  > - **As a user**, I can view all the most recent posts and milestones, ordered by most recently created first so that I am up to date with the newest content.  
+  > - Posts and Milestones are displayed in order of most recent first.
+  > - Users can scroll through a list of posts and milestones from the main feed.
+  > - Each post and milestone displays key information (e.g., image, caption, like count).
 
-### Navigation Between Posts
-The blog allows users to easily navigate between posts using "Next" and "Previous" buttons. These buttons are located at the bottom of each blog post, enabling visitors to move chronologically between posts without returning to the homepage or a category page. This seamless navigation enhances the user experience by allowing users to explore more content in a convenient manner.
+> - **User Story 13**:  
+  > - **As a user**, I can search for posts and milestones with keywords so that I can find the posts, milestones and user profiles I am most interested in.  
+  > - A search bar is accessible on the home, posts and milestones page.
+  > - Users can enter keywords to find relevant posts, milestones or profiles.
+  > - Search results display in real-time or after submission.
 
-- **User Story 3**: As a visitor, I want to navigate between posts using "Next" and "Previous" buttons so that I can explore more content.
+#### Posts Page
 
-![Pagination](static/images/readme/features/post-navigation.png)
+![Posts Page](readme/features/posts-page.png)
 
----
+#### Milestones Page
 
-### Add and Remove Favourites
-Users can favourite blog posts for later reference. Each post has a "Like" or "Favourite" button that adds or removes the post from the user's favourites list. A success message appears after each action.
-
-- **User Story 24**: Users should be able to like/favourite posts and see them listed in their profile's favourites section.
-
-#### Add Favourites
-![Add and Remove Favourites](static/images/readme/features/add-favourites.png)
-
-#### Remove Favourites
-![Add and Remove Favourites](static/images/readme/features/remove-favourites.png)
-
----
-
-### Add, Update and Delete Comments
-Registered users can leave comments on blog posts, update their existing comments, or delete them. Each comment is displayed with the user's name, avatar, and the time it was posted. Comments can be edited or removed at any time.
-
-- **User Story 23**: Users should be able to add, update, and delete their comments on blog posts.
-
-![Comments](static/images/readme/features/comments.png)
+![Milestones Page](readme/features/milestones-page.png)
 
 ---
 
-### Filter Content by Category
+### Liked Page
 
-The blog provides a feature that allows users to filter posts based on categories. This enables visitors to browse content specific to their interests, such as newborn care, toddler tips or feeding advice. The categories are accessible via a dropdown in the navigation bar, providing an easy way for users to discover posts related to particular topics.
+The **Liked Page** mirrors the structure of the **Feed**, offering users an organized way to view their liked content. However, this page exclusively displays posts and milestones that the user has marked as "liked," providing a personalized space to revisit their favorite memories.
 
-- **User Story 4**: As a visitor, I want to filter blog posts by category so that I can browse specific topics relevant to my interests.
+### Key Features:
 
-![Category](static/images/readme/features/categories.png)
+1. **Separated Content**:
+   - The **Liked Posts Page** displays all the posts the user has liked.
+   - The **Liked Milestones Page** showcases all the milestones the user has liked.
+   - Both are accessible via the **Liked** dropdown menu in the navbar, allowing users to switch between posts and milestones effortlessly.
 
----
+2. **Familiar Layout**:
+   - The design and functionality remain consistent with the **Feed**, ensuring a seamless browsing experience.
+   - Each item includes:
+     - **User avatar** and name.
+     - **Timestamp** of when the post or milestone was created.
+     - **Description or caption** of the liked item.
+     - Options to interact further, such as commenting.
 
-### Pagination for Blog Posts
-The blog implements pagination for blog post listings when there are more than 5 posts on a single page. Pagination helps break up the content into smaller chunks, allowing for quicker loading times and a better user experience. The pagination controls are displayed at the bottom of the blog posts list, allowing users to navigate between pages of content easily.
+3. **Focused Browsing**:
+   - Users can easily access and revisit the content they’ve liked without sifting through the main feed.
 
-- **User Story 10**: As a visitor, I want to navigate between multiple pages of blog posts when there are more than 5 posts per page so that I can easily browse through the content.
+4. **Interactive Features**:
+   - Users can engage further by commenting on liked posts or milestones directly from this page.
 
-![Pagination](static/images/readme/features/pagination.png)
+5. **Search Functionality**:
+   - A search bar enables users to find specific liked posts or milestones by keywords, making it easy to locate particular content.
 
+The **Liked Page** enhances user engagement by providing a convenient way to revisit their favorite memories, creating a personalized and enjoyable experience on the platform.
+
+> - **User Story 14**:  
+  > - **As a logged-in user**, I can view the posts I liked so that I can find the posts I enjoy the most.  
+  > - Logged-in users can access a list of posts or milestones they’ve liked.
+  > - Content displays in reverse chronological order, with the most recently liked items appearing first.
+
+### Requests Page
+
+The **Requests Page** is a dedicated section where users with private profiles can manage follow requests. When a user sets their profile to private, others who wish to follow them must send a follow request. These requests are displayed on the **Requests Page**, allowing the user to accept or decline them, ensuring full control over their privacy and connections.
+
+### Key Features:
+
+1. **Follow Request Management**:
+   - Displays a list of pending follow requests.
+   - Each request includes:
+     - **Requester’s avatar** for easy identification.
+     - **Requester’s name** displayed clearly.
+     - Options to **accept** or **decline** the request.
+
+2. **User Control**:
+   - Private profile users can control who gains access to their posts and milestones by approving or rejecting follow requests.
+
+3. **Interactive Design**:
+   - Accepting a request immediately grants the requester access to the user’s private profile.
+   - Declining a request removes it from the list and denies the requester access.
+
+4. **Real-Time Updates**:
+   - The page updates dynamically as requests are managed, ensuring an up-to-date list.
+
+5. **Seamless Navigation**:
+   - The **Requests Page** is easily accessible via the **Requests** link in the navbar, offering a streamlined user experience.
+
+The **Requests Page** enhances user privacy and security, ensuring that private profile users have complete control over their audience and interactions.
+
+> - **User Story 34**:  
+  > - **As a user**, I can view follow requests and accept or decline them so that I have control over who follows me.  
+  > - The **Requests Page** displays follow requests with the requester's avatar and name.  
+  > - Users can accept or decline requests directly from the page.  
+  > - Accepted requests grant the requester access to the user's private profile.
+
+![Requests Page](readme/features/follow-request.png)
 
 ### Profile Page
-Users have a dedicated profile page where they can view their personal information, including their avatar, name, email address, and a list of their favourite posts and comment history. The page also provides options to edit their details.
 
-- **User Story 25**: Users should be able to view their profile and access their favourites and comments.
+The **Profile Page** provides users with a personalized space to showcase their posts, milestones, and profile information. It is designed to be visually engaging and intuitive, offering a clear overview of the user’s activity and connections.
 
-![Profile Page](static/images/readme/features/profile-page.png)
+### Key Features:
+
+1. **User Information**:
+   - Displays the user’s **profile picture**, **name**, and **bio** at the top of the page.
+   - Highlights key statistics, including the number of:
+     - **Posts**: Total posts shared by the user.
+     - **Milestones**: Significant moments documented.
+     - **Followers**: Users who follow the profile.
+     - **Following**: Profiles the user is following.
+
+2. **Tabbed Content**:
+   - The page includes two tabs for easy navigation:
+     - **Posts Tab**: Displays all the posts created by the user.
+     - **Milestones Tab**: Displays all milestones shared by the user.
+   - Each tab allows users to view the content in reverse chronological order.
+
+3. **Interactive Features**:
+   - Posts and milestones on the profile page have like and comment options, encouraging interaction with the content.
+   - Allows users to showcase their memories and connect with their followers.
+
+4. **Search Profiles**:
+   - A **profile search bar** in the sidebar helps users find and explore other profiles quickly.
+   - The **Most Followed Profiles** section highlights popular profiles with options to **follow/unfollow** or manage requests for private profiles.
+
+5. **Responsive Design**:
+   - The profile page layout adjusts seamlessly to desktop, tablet, and mobile views, ensuring an optimal user experience across all devices.
+
+The **Profile Page** is an essential feature that combines personal expression, community engagement, and intuitive navigation, providing users with a platform to share and celebrate their cherished memories.
+
+> - **User Story 24**:  
+  > - **As a user**, I can view other users’ profiles so that I can see their posts and learn more about them.  
+  > - Users can view other users’ profiles, including posts, milestones, and bio.  
+  > - Profiles display user statistics, including post count, milestones, followers, and following.  
+
+> - **User Story 28**:  
+  > - **As a user**, I can view all the posts by a specific user so that I can catch up on their latest posts or decide I want to follow them.  
+  > - Users can view a list of all posts by a specific user on their profile.  
+  > - Posts display in reverse chronological order.  
+
+![Profile Page](readme/features/profile-page.png)
+
+### Add Post Page
+
+The **Add Post Page** allows users to create and share their cherished memories with the community. This page provides an intuitive interface for uploading images and adding content, making it simple for users to contribute to the platform.
+
+### Key Features:
+
+1. **Image Upload**:
+   - Users can upload an image by clicking or tapping on the upload area, which prominently displays a placeholder icon.
+   - Uploaded images are previewed in the designated area for confirmation before submission.
+
+2. **Content Input**:
+   - A clean and minimalistic form is provided for users to add:
+     - **Title**: A brief and descriptive heading for the post.
+     - **Content**: Additional details or captions for the image, enabling users to add context to their memories.
+
+3. **Action Buttons**:
+   - **Create Button**: Submits the post to be displayed on the user’s profile and the platform’s feed.
+   - **Cancel Button**: Allows users to discard their input and navigate back without saving changes.
+
+4. **User-Friendly Design**:
+   - A visually balanced layout with clear instructions ensures ease of use.
+   - The dark theme of the page highlights the image and form fields, maintaining the website’s aesthetic consistency.
+
+5. **Responsive Layout**:
+   - The page is optimized for all devices, ensuring that users can add posts seamlessly from desktops, tablets, or mobile devices.
+
+The **Add Post Page** empowers users to document and share their memories effortlessly, fostering a sense of connection and engagement within the community.
+
+> - **User Story 9**:  
+  > - **As a logged-in user**, I can create posts so that I can share my images with the world.  
+  > - Only logged-in users can access the **Add Post Page**.  
+  > - Users can add images and captions to their posts.  
+  > - Validation ensures all required fields are completed before submission.  
+  > - Users receive feedback or confirmation after successfully posting.  
+
+![Add Post Page](readme/features/add-post.png)
+
+### Add Milestone Page
+
+The **Add Milestone Page** is designed to help users document and cherish important milestones in their child’s life. This page provides an organized and detailed interface for capturing significant moments with optional images and contextual information.
+
+### Key Features:
+
+1. **Image Upload**:
+   - Allows users to upload an image representing the milestone.
+   - Clickable upload area with a placeholder icon for user convenience.
+   - Uploaded images are previewed before submission.
+
+2. **Milestone Details**:
+   - **Milestone Title**: A concise field to describe the milestone (e.g., "First Steps").
+   - **Date Field**: A date picker for specifying the exact date the milestone occurred.
+   - **Age Details**: 
+     - Input fields for **years** and **months** to record the child’s age during the milestone.
+   - **Physical Measurements**:
+     - Fields to record the child’s **height** (in cm) and **weight** (in kg) during the milestone.
+
+3. **Category Selection**:
+   - Dropdown menu to categorize the milestone (e.g., Physical, Emotional, Cognitive, etc.).
+   - Helps organize milestones into relevant categories for easy browsing.
+
+4. **Description Field**:
+   - Provides space for users to elaborate on the milestone, including details or stories behind the moment.
+
+5. **Action Buttons**:
+   - **Create Button**: Saves the milestone and displays it in the user’s profile and milestones page.
+   - **Cancel Button**: Discards the input and navigates the user back to the previous page without saving.
+
+6. **User-Friendly Layout**:
+   - A clear and intuitive interface that makes it easy for users to fill in milestone details.
+   - The dark-themed design enhances focus on the input fields and uploaded images.
+
+7. **Responsive Design**:
+   - Optimized for all devices, allowing users to add milestones seamlessly on desktop, tablet, or mobile.
+
+The **Add Milestone Page** provides a structured and personalized way to document milestones, ensuring that users can preserve and cherish these moments for years to come.
+
+> - **User Story 33**:  
+  > - **As a user**, I can add milestones for my baby so that I can keep a record of important developmental moments.  
+  > - Users can add images, titles, descriptions, and relevant details like age, height, and weight.  
+  > - Milestones are categorized and saved to the user’s profile and milestones page.  
+  > - Feedback is provided upon successful milestone creation.  
+
+![Add Milestone Page](readme/features/add-milestone.png)
+
+### Post and Milestone Page
+
+The **Post and Milestone Page** is the central location where users can view detailed content of a specific post or milestone. It provides a dedicated space for engaging with posts or milestones, leaving comments, and interacting with content created by other users.
+
+### Key Features:
+
+1. **Post Details**:
+   - Displays the full content of the selected post or milestone, including the image, title, and any additional details provided by the user.
+   - The author’s avatar, name, and post date are prominently displayed at the top for easy identification.
+
+2. **Interaction Options**:
+   - **Like Button**: Allows users to show their appreciation for the post or milestone. The like count updates dynamically.
+   - **Comment Section**: Provides users with a text box to leave comments on the post or milestone.
+     - Comments display the commenter’s avatar and name.
+     - New comments are added in real-time.
+
+3. **Empty Comment Placeholder**:
+   - If no comments are present, a friendly message is displayed: "No comments yet, be the first to comment!"
+
+4. **User-Friendly Input**:
+   - An intuitive comment input field for users, ensuring quick and easy engagement.
+   - Clear feedback with a "Post" button to submit comments.
+
+5. **Real-Time Updates**:
+   - Likes and comments update dynamically without the need for a page reload, enhancing the overall user
+experience and keeping interactions seamless.
+
+> - **User Story 10**:  
+>   - **As a user**, I can view the details of a single post or milestone so that I can learn more about it.  
+>   - Users can view details of a single post or milestone, including image, caption, likes, and comments.  
+>   - Post or Milestone information is displayed in a clear and organized manner.  
+>   - Users can navigate back to the main feed easily. 
+
+> - #### User Story 11:  
+> - **As a logged-in user**, I can like a post or milestone so that I can show my support for the posts that interest me.
+> - Only logged-in users can like posts or milestones.
+> - Liked posts or milestones visually indicate the "liked" status.
+> - Like count updates in real-time without requiring a page refresh.
+> - Liked posts or milestones are saved in their respective liked posts and milestones page for future reference.
+
+> - #### User Story 17:  
+> - **As a user**, I can view the post and milestone page so that I can read the comments about the post and milestone.  
+> - Users can view a post and milestone page with all details, including comments and likes.  
+> - Users can easily navigate back to the main feed.
+
+> - **User Story 19**:  
+>   - **As a logged-in user**, I can add comments to a post or milestone so that I can share my thoughts about the it.  
+>   - Logged-in users can add comments to a post or milestone.  
+>   - Form validation checks for required fields.  
+>   - Comments appear immediately after submission.  
+
+> - **User Story 20**:  
+>   - **As a user**, I can see how long ago a comment was made so that I know how old a comment is.  
+>   - Each comment displays a relative timestamp (e.g., “2 hours ago”).  
+>   - Timestamps update dynamically to reflect time since posted.  
+
+> - **User Story 21**:  
+>   - **As a user**, I can read comments on posts so that I can read what other users think about the posts.  
+>   - Users can read all comments under a post in chronological order.  
+>   - Comments section is easily accessible and visible on the post page.
+
+#### Post Page
+![Post Page](readme/features/post-page.png)
+
+#### Milestone Page
+![Milestone Page](readme/features/milestone-page.png)
+
+### Edit and Delete Post or Milestone Feature
+
+The **Edit and Delete Post or Milestone** feature provides users with the ability to manage their own content. This functionality is seamlessly integrated into each post and milestone, allowing users to update or remove their content directly from the platform.
+
+#### Key Features:
+- **Edit Post or Milestone**:  
+  - Users can modify the title, description, or associated media of their posts or milestones by selecting the **Edit** option from the dropdown menu.
+  - Changes are applied immediately upon saving and reflected in real-time on the platform.
+  - Form validation ensures that required fields are filled out correctly during editing.
   
----
+- **Delete Post or Milestone**:  
+  - Users can permanently remove their posts or milestones by selecting the **Delete** option.
 
-### Edit and Delete Picture Page
-Users can update or delete their profile picture through the "Edit Picture" page. They can upload a new image from their system or choose from pre-defined avatars. If the picture is deleted, a default avatar will be applied.
+#### Usability:
+- The dropdown menu is accessed via a three-dot icon located on the post or milestone.
+- Only the content owner can see the options to edit or delete.
 
-- **User Story 26**: Users should be able to edit or delete their profile picture, with changes reflected in their profile.
+This feature ensures users have complete control over their shared memories while maintaining simplicity and ease of use.
 
-#### Edit Picture
-![Edit Picture Page](static/images/readme/features/edit-picture.png)
+> - **User Story 18**:  
+>   - **As a post owner**, I can edit my post title and description so that I can make corrections or update my post after it was created.  
+>   - Only the post owner can access the "Edit Post" option.  
+>   - Post owners can modify the title and description of their posts.  
+>   - Updated post information is saved and displayed upon submission.  
 
-#### Delete Picture
-![Delete Picture Page](static/images/readme/features/delete-picture.png)
+> - **User Story 33**:  
+>   - **As a user**, I can edit and delete milestones for my baby so that I can update or remove any records as needed.  
+>   - Only the milestone owner can access the **Edit** and **Delete** options for their milestones.  
+>   - Changes or deletions are saved instantly, and feedback is provided upon action completion.
 
----
+#### Edit or Delete Menu
 
-### Favourites Page
-The favourites page lists all posts the user has liked or favourited. Each post shows the title and excerpt. Users can quickly access posts they’ve saved.
+![Edit or Delete Menu](readme/features/edit-menu.png)
 
-- **User Story 27**: Users should have access to a list of their favourite posts via their profile page.
+#### Edit Post
 
-![Favourites Page](static/images/readme/features/favourites-page.png)
+![Edit Post](readme/features/edit-post.png)
 
----
+#### Edit Milestone
 
-### Comments Page
-The comments page provides a history of all the comments made by the user. It shows each comment, the date it was posted, and the blog post it was made on. Each comment is linked to the original comment in the blog post for easy navigation and when clicked it takes the user to that particular comment highlighting it.
+![Edit Milestone](readme/features/edit-milestone.png)
 
-- **User Story 28**: Users should be able to see their comment history in their profile.
 
-![Comments Page](static/images/readme/features/comments-page.png)
 
----
+### Comments
 
-### Delete Account
-Users have the option to permanently delete their account. This action removes all user data, including posts, favourites, and comments. Users must confirm account deletion, and once deleted, they are logged out and redirected to the homepage.
+The **Comments** feature allows users to engage in discussions or share their thoughts on posts. Below the post, users can add comments by typing into the provided input field and clicking the **Post** button. Posted comments appear instantly, showing the username, time of posting (relative timestamp), and the content of the comment. 
 
-- **User Story 29**: Users should be able to delete their account, which will permanently remove their data.
+Additional functionality includes:  
+- **Edit** and **Delete Options**: Users can edit or delete their own comments using the menu next to their comment.  
+- **Real-Time Updates**: Any modifications to comments, such as edits or deletions, are immediately reflected on the page without needing a refresh.  
+- **Avatar Display**: User avatars are displayed alongside their comments for easy identification.  
+- **Chronological Order**: Comments are displayed in chronological order, making it simple to follow the flow of conversation.  
 
-![Delete Account](static/images/readme/features/delete-account.png)
+This feature enhances interactivity and community engagement, fostering meaningful connections among users.
 
----
+> - **User Story 19**:  
+>   - **As a logged-in user**, I can add comments to a post so that I can share my thoughts about the post.  
+>   - Logged-in users can add comments to a post.  
+>   - Form validation checks for required fields.  
+>   - Comments appear immediately after submission.  
 
-### Header
-The header has a logo and  includes a navigation bar that allows users to access important sections of the blog, such as Home, About, Contact, Categories, Login, Register, Profile and Logout. It is present on every page and highlights the current page for easy navigation.
+> - **User Story 20**:  
+>   - **As a user**, I can see how long ago a comment was made so that I know how old a comment is.  
+>   - Each comment displays a relative timestamp (e.g., “2 hours ago”).  
+>   - Timestamps update dynamically to reflect time since posted.  
 
-- **User Story 5**: The navigation bar should be present at the top of every page and include links to key sections of the site.
+> - **User Story 21**:  
+>   - **As a user**, I can read comments on posts so that I can read what other users think about the posts.  
+>   - Users can read all comments under a post in chronological order.  
+>   - Comments section is easily accessible and visible on the post page.  
 
-![Header](static/images/readme/features/header.png)
+> - **User Story 22**:  
+>   - **As the owner of a comment**, I can delete my comment so that I can control its removal from the application.  
+>   - Only comment owners can see the **Delete** option.  
+>   - Confirmation prompt appears before a comment is deleted.  
+>   - Deleted comments are removed instantly from the page.  
 
----
+> - **User Story 23**:  
+>   - **As the owner of a comment**, I can edit my comment so that I can fix or update my existing comment.  
+>   - Only comment owners can see the **Edit** option.  
+>   - Comment owners can modify their comments.  
+>   - Updated comments appear immediately after submission.  
 
-### Footer
-The footer includes copyright information, social media links, and a "Back to Top" button for quick navigation. Social media links open the respective platforms in new tabs.
+![Comments](readme/features/comments-box.png)
 
-- **User Story 7**: The footer should provide copyright details, social media links, and a functional "Back to Top" button.
+### Like
 
-![Footer](static/images/readme/features/footer.png)
+The **Like Feature** enables users to interact with posts and milestones by expressing their appreciation. This feature provides a seamless way for users to engage with content and show their support for other users' memories.
 
----
+#### Key Features:
+- **Toggle Like**:  
+  - Logged-in users can like or unlike posts and milestones with a single click.
+  - A heart icon visually represents the like status:
+    - **Filled heart**: Indicates the user has liked the post or milestone.
+    - **Empty heart**: Indicates the user has not liked the content.
 
-### Restricted Features Notification
+- **Real-Time Updates**:  
+  - The like count updates dynamically without requiring a page refresh.
+  - The UI reflects the changes instantly to enhance the user experience.
 
-Certain features of the blog, such as commenting on posts and adding posts to favourites, are reserved for registered users. When a visitor attempts to access these features without being logged in, the system displays a prompt informing them that they need to either log in or sign up to proceed. This ensures that user-specific actions are secured and associated with the correct user account.
+- **Engagement Tracking**:  
+  - Users can see the number of likes on each post or milestone, fostering a sense of community and interaction.
 
-The notification provides a clear and friendly message, with links to the login and registration pages. Until the visitor logs in or registers, they are prevented from using these restricted features.
+- **Personalized Interaction**:  
+  - The feature is restricted to logged-in users, ensuring genuine engagement within the platform.
 
-- **User Story 13**: When attempting to use restricted features (e.g., commenting, favouriting), the system should notify the user to log in or sign up, and prevent access to these features until they are registered.
+This feature creates a social dynamic where users can connect with and appreciate the content shared by others, making the platform more engaging and interactive.
 
-![Restricted Feature](static/images/readme/features/restricted-notifications.png)
 
----
+> - **User Story 11**:  
+>   - **As a logged-in user**, I can like a post so that I can show my support for the posts that interest me.  
+>   - Only logged-in users can like posts or milestones.  
+>   - Users can toggle likes on and off.  
+>   - Liked posts or milestones visually indicate the "liked" status.  
+>   - Like count updates in real-time without requiring a page refresh.  
 
-### Sign Up
-Visitors can create an account through the registration form, which includes fields for email, username, and password. Validation ensures that all fields are properly formatted, and users must meet specific password requirements.
+> - **User Story 14**:  
+>   - **As a logged-in user**, I can view the posts I liked so that I can find the posts I enjoy the most.  
+>   - Logged-in users can access a list of posts or milestones they’ve liked.  
+>   - Content displays in reverse chronological order, with the most recently liked items appearing first.  
 
-- **User Story 14**: Visitors should be able to sign up for an account, providing valid credentials to register.
+![Likes](readme/features/like-and-comment.png)
 
-![Sign Up](static/images/readme/features/signup-page.png)
+### Infinite Scroll Feature
 
----
+The **Infinite Scroll Feature** enhances user experience by allowing continuous scrolling through posts and milestones without the need for manual pagination. This feature ensures that users can seamlessly browse content without interruptions, providing a smooth and engaging experience.
 
-### Email Verification
-Upon successful registration, users receive an email verification link. The user must confirm their email before accessing certain features. The verification email contains a link that confirms the account when clicked.
+#### Key Features:
+- **Automatic Loading**:  
+  - Additional posts or milestones load automatically as the user scrolls to the bottom of the page.
+  - Eliminates the need for "Next Page" or "Load More" buttons, making navigation intuitive.
 
-- **User Story 20**: Users should receive an email verification link after registration, which they must confirm to activate their account.
+- **Seamless Experience**:  
+  - Content loads dynamically without refreshing the page, ensuring uninterrupted browsing.
+  - Loading indicators briefly appear while fetching new data to inform the user.
 
-![Email Verification](static/images/readme/features/email-verification.png)
+- **Optimized Performance**:  
+  - Content is fetched in chunks to optimize server requests and minimize latency.
+  - Infinite scrolling is implemented efficiently to maintain smooth performance, even with a large volume of data.
 
----
+- **Consistent Flow Across Pages**:  
+  - Infinite scrolling is consistent across the home page, posts, and milestones pages, ensuring a uniform experience.
 
-### Log In
-Registered users can log in using their email/username and password. After successful login, they are redirected to their profile or homepage.
+This feature aligns with the platform's goal of creating an enjoyable and user-friendly interface, encouraging users to spend more time exploring and engaging with the content.
 
-- **User Story 15**: Users should be able to log in using their credentials and access their profile and blog features.
+> - **User Story 16**:  
+>   - **As a user**, I can keep scrolling through the images on the site, that are loaded for me automatically so that I don't have to click on "next page," etc.  
+>   - Posts and milestones are loaded automatically as users scroll down the page.  
+>   - Users can continue scrolling without clicking “Next Page” or similar navigation.  
+>   - Loading indicators are displayed when more content is being fetched.
 
-![Log in](static/images/readme/features/login-page.png)
+### Edit Profile Menu
 
----
+The **Edit Profile Menu** provides users with an intuitive and consolidated interface to manage their account settings and profile details. This menu offers quick access to essential account customization and privacy control features, enhancing user autonomy and security.
 
-### Log Out
-Users can securely log out of their accounts. Upon logging out, they are redirected to the homepage, and a confirmation message is displayed.
+![Edit Profile Menu](readme/features/edit-profile-menu.png)
 
-- **User Story 16**: Users should be able to log out from their account and secure their session.
+#### Key Features:
+- **Edit Profile**:  
+  - Users can update their profile information, such as their bio and profile picture, ensuring their profile reflects their current preferences.
 
-![Log out](static/images/readme/features/log-out-page.png)
+![Edit Profile](readme/features/edit-profile.png)
 
----
+- **Change Username**:  
+  - Allows users to update their username, making it easier to personalize or maintain consistency across platforms.
 
-### Forgot Password
-If a user forgets their password, they can request a password reset link through the "Forgot Password" link on the login page. An email is sent with instructions to reset their password.
+![Change Username](readme/features/change-username.png)
 
-- **User Story 21**: Users should be able to request a password reset link via email.
+- **Change Password**:  
+  - Enhances security by enabling users to update their passwords. Users are guided through secure validation steps to ensure password strength.
 
-![Forgot Password](static/images/readme/features/forgot-password.png)
+![Change Password](readme/features/change-password.png)
 
----
+- **Change Privacy**:  
+  - Empowers users to toggle their profile's privacy status between public and private.  
+  - Private profiles restrict access to approved followers, ensuring greater control over visibility.
+  - The default privacy status is set to public when a profile is created.
 
-### Reset Password
-Upon receiving the reset email, users can click the link to access a secure page where they can set a new password. The new password must meet security requirements before the user can log in.
+![Change Privacy](readme/features/change-privacy.png)
 
-- **User Story 22**: Users should be able to reset their password via the link sent in their email.
+- **Delete Profile**:  
+  - Users can permanently delete their profile and associated data, with a confirmation step to prevent accidental deletions.
 
-![Reset Password](static/images/readme/features/reset-password.png)
+![Delete Profile](readme/features/delete-profile.png)
 
----
+This menu is designed with user convenience and privacy in mind, giving users comprehensive control over their account from a single location.
 
-### Responsiveness
-The blog is fully responsive and works seamlessly across all devices, including desktops, tablets, and mobile phones. The layout, images, and interactive elements automatically adjust to fit the screen size, providing a consistent experience.
 
-- **User Story 11**: The blog should be responsive across all devices, ensuring smooth navigation and readability.
+> - **User Story 29**:  
+>   - **As a logged-in user**, I can edit my profile so that I can change my profile picture and bio.  
+>   - Only the profile owner can edit their profile.  
+>   - Users can change their profile picture and bio.  
+>   - Profile updates are saved and displayed immediately.  
 
-![Responsiveness](static/images/readme/features/responsive-design.png)
+> - **User Story 30**:  
+>   - **As a logged-in user**, I can update my username and password so that I can change my display name and keep my profile secure.  
+>   - Form validation ensures the new username is unique and the password is secure.  
+>   - Users receive a confirmation message upon successful update.  
 
----
+> - **User Story 31**:  
+>   - **As a user**, I can set my profile to public or private so that I have control over who can view my posts and information.  
+>   - Users can toggle between "Public" and "Private" profile modes.  
+>   - Setting changes persist across sessions.  
 
-### Displaying Messages for Successful and Unsuccessful Requests
-The system displays confirmation messages for actions such as logging in, logging out, commenting, favouriting posts, and more. Similarly, error messages are shown for unsuccessful requests (e.g., login failures, form validation errors).
+> - **User Story 32**:  
+>   - **As a logged-in user**, I can delete my profile and user account.  
+>   - A confirmation message is displayed before deletion.  
+>   - Only the profile owner can delete their account.  
 
-- **User Story 24, 26, 21, 16**: The system should show success messages after completing actions like favouriting posts, editing profiles, resetting passwords, and logging out.
+### No Results Found Page
 
-![Success message](static/images/readme/features/success-msg-1.png)
-![Success message](static/images/readme/features/success-msg-2.png)
-![Success message](static/images/readme/features/success-msg-3.png)
-![Success message](static/images/readme/features/success-msg-4.png)
-![Success message](static/images/readme/features/success-msg-5.png)
+The **No Results Found** page ensures a user-friendly experience even when users encounter invalid or unavailable pages. It uses an expressive and relatable illustration, paired with a clear message, to inform users that the requested page does not exist. This design minimizes frustration and keeps the experience light-hearted and visually engaging.
 
----
+#### Key Features:
+- **Illustration**:  
+  - A custom graphic of a crying baby with "No Results Found" text reinforces the theme of the platform and adds a touch of humor to the situation.
 
-### User Experience
-The design of the blog focuses on ease of use and enhancing the user experience. The site incorporates smooth animations, vibrant colors, and an intuitive interface to keep users engaged. Key actions such as commenting, browsing posts, and navigating through the blog are designed to be seamless and efficient.
+- **Error Message**:  
+  - The message, "Sorry, the page you're looking for doesn't exist," directly communicates the issue in simple and polite language.
 
-- **User Story 17**: The blog should include smooth animations and vibrant colors to enhance the overall user experience.
+- **Navigation Options**:  
+  - The persistent navigation bar at the top allows users to easily return to essential areas of the site, such as the Home page or Sign-In page, avoiding dead-end experiences.
 
-![User Experience](static/images/readme/features/user-experience.gif)
+- **Consistent Styling**:  
+  - The page maintains the platform’s dark theme and color palette, ensuring visual consistency.
 
----
+This feature enhances user experience by gracefully handling errors and maintaining the platform’s friendly, family-oriented vibe.
 
-### 404 and 500 Error Pages
+> - **User Story 2**:  
+>   - **As a user**, I can navigate through pages quickly so that I can view content seamlessly without page refresh.  
+>   - Error pages do not break navigation flow, and the navbar provides users with alternate navigation paths.
 
-Cradle Blog includes custom error pages to ensure that users are provided with a clear and helpful message when something goes wrong while navigating the site.
+#### No Results Found
+![No Results Found](readme/features/no-results-found-page.png)
 
-#### 404 Error Page (Page Not Found)
-When a user tries to access a page that doesn’t exist, they are redirected to a custom 404 error page. This page provides a friendly message, letting the user know that the page they are looking for cannot be found, along with helpful navigation options to return to the homepage or explore other sections of the site.
+#### No Posts Found
+![No posts Found](readme/features/no-posts-found.png)
 
-- **User Story 18**: As a visitor, I want to see a clear and helpful message when I try to access a page that doesn’t exist (404 error), so that I can understand the issue and navigate back to a useful part of the site.
+### Follow/Unfollow Button Feature
 
-![404](static/images/readme/features/404.png)
+The **Follow/Unfollow Button** feature enables users to effortlessly manage their connections with others on the platform. This feature is seamlessly integrated into user profiles and lists, ensuring users can interact with the community and control their social circle.
 
----
+#### Functionality:
+- **Follow Button**:  
+   - Allows a logged-in user to follow another user, adding their posts and milestones to the follower's feed.
+   - Upon clicking, the button dynamically updates to display "Requested" for private profiles or "Unfollow" for public profiles. Additionally, the "Following" count on your profile increases, while the "Followers" count on the profile you followed is also updated in real-time.
+   
+- **Unfollow Button**:  
+   - Enables a user to unfollow someone they are currently following, removing their content from the feed.
+   - Once clicked, the button reverts to "Follow," providing an intuitive toggle experience. Additionally, the "Following" count on your profile deccreases, while the "Followers" count on the profile you followed is also updated in real-time.
 
-#### 500 Error Page (Internal Server Error)
-If something goes wrong on the server-side, users are presented with a custom 500 error page. This page informs the user that there was an internal error and that the site administrators are working to fix the issue. The 500 error page prevents the default technical error page from being shown and ensures the user experience is preserved even during technical failures.
+- **Requested State**:  
+   - For private profiles, a "Requested" label appears after sending a follow request, ensuring clarity until the request is accepted or declined.
 
-- **User Story 19**: As a visitor, I want to see an informative message when there is an internal server error (500 error), so that I know the issue is being addressed and can still navigate to other parts of the site.
+- **Real-Time Updates**:  
+   - The button state dynamically updates without requiring a page refresh, providing a smooth user experience.
 
-![500](static/images/readme/features/500.png)
+- **Privacy Control**:  
+   - If a private profile declines a follow request, the button resets to "Follow," maintaining transparency for both parties.
 
----
+This feature fosters a sense of community while giving users full control over their social interactions.
 
-Both the 404 and 500 error pages help keep the user engaged and informed, even when errors occur, and provide a clear pathway to continue using the site.
+> - **User Story 27**:  
+  > - **As a logged-in user**, I can follow and unfollow other users so that I can see and remove posts by specific users in my feed.  
+  > - Logged-in users can toggle between following and unfollowing seamlessly.  
+  > - Followers’ posts are automatically added to the feed in real time.  
+  > - Follow/Unfollow actions immediately update the button's state for better clarity.
+
+![Follow/Unfollow Button](readme/features/follow-unfollow-button.png)
+
+### Most Followed Profiles
+
+The **Most Followed Profiles** feature provides users with a quick overview of the most popular accounts on the platform. This feature fosters community engagement by encouraging users to explore and follow other active members of the Memories community.  
+
+#### Key Features:
+- **Search Bar**:  
+  - A responsive search bar allows users to look for profiles by name effortlessly.  
+  - As users type, the list filters dynamically to show matching profiles.
+
+- **Profile List**:  
+  - Displays avatars and names of the most-followed users in descending order of their follower count.  
+  - Includes an **Unfollow** button for profiles the user already follows and a **Requested** button for pending follow requests.
+
+- **User Interactivity**:  
+  - Logged-in users can manage their follow relationships directly from this section by clicking on the **Unfollow** or **Requested** buttons without navigating to individual profiles.  
+
+- **Real-time Updates**:  
+  - Changes to follow status (follow/unfollow) reflect immediately in the list, maintaining consistency and accuracy.
+
+This feature enhances discoverability, strengthens the platform’s sense of community, and makes profile management seamless for users.
+
+> - **User Story 25**:  
+>   - **As a user**, I can see a list of the most-followed profiles so that I can discover popular accounts.  
+>   - Users can access a dynamically updated list of the most-followed profiles.  
+>   - Users can follow/unfollow directly from the list.
+
+![Most Followed Profiles](readme/features/most-followed-profiles.png)
+
+### Authentication Pages
+
+#### Sign-Up Page
+The **Sign-Up Page** provides a simple and intuitive interface for new users to register and create an account on **Memories**. The page includes fields for entering a **username**, **password**, and **confirmation password**. Upon successful submission, the user is registered and redirected to the homepage to start using the platform.
+
+Key features:
+- **Validation:** Ensures all required fields are completed and passwords match.
+- **Feedback:** Displays error messages for invalid inputs like duplicate usernames or weak passwords.
+- **Link to Sign-In:** Provides an option for users to navigate to the Sign-In page if they already have an account.
+
+![Sign-up](readme/features/sign-up-page.png)
+
+#### Sign-In Page
+The **Sign-In Page** is designed for returning users to access their accounts. Users are prompted to enter their **username** and **password**, and successful authentication redirects them to the homepage.
+
+Key features:
+- **Validation:** Ensures fields are filled correctly and provides error messages for incorrect credentials.
+- **Link to Sign-Up:** Offers easy navigation for new users who wish to create an account.
+
+![Sign-in](readme/features/sign-in-page.png)
+
+Both pages feature the Memories logo on the right, maintaining consistency and reinforcing brand identity.
+
+> - **User Story 3**:  
+  > - **As a user**, I can create a new account so that I can access all the features for signed-up users.  
+  > - Users can access a sign-up form with appropriate validations.  
+  > - Displays feedback for successful or failed account creation.  
+
+> - **User Story 4**:  
+  > - **As a user**, I can sign in to the app so that I can access functionality for logged-in users.  
+  > - Provides a secure and seamless login process with error handling for invalid credentials.  
+
+> - **User Story 5**:  
+  > - **As a user**, I can tell if I am logged in or not so that I can log in if I need to.  
+  > - Clear indication of logged-in status across the site.
 
 ### Admin Features
 
-The blog includes an administrative dashboard that allows the admin to manage the blog’s content and user interactions effectively. The admin has full control over creating, editing, and deleting blog posts, as well as managing user comments and reviewing inquiries submitted through the contact form. Additionally, the admin can view and delete user accounts if necessary.
+The **Admin Dashboard** in *Memories* is a robust feature that provides platform administrators with comprehensive tools to monitor, manage, and moderate user-generated content and user interactions. This dashboard ensures that the platform maintains a high standard of quality, safety, and user experience. The admin dashboard is accessible only to users with admin privileges, ensuring its functionality remains secure and restricted to authorized personnel.
 
-Key functionalities include:
-- **Manage Blog Posts**: Admins can create new blog posts, edit existing ones, and delete posts that are no longer relevant. Each post can be assigned a category and status (e.g., draft, published).
-- **Manage Comments**: Admins can approve or delete comments to ensure that discussions remain constructive and spam-free.
-- **View Contact Inquiries**: Admins can view user-submitted contact forms, including the sender's name, email, and message.
-- **Manage User Accounts**: Admins can view user profiles and delete accounts if needed, ensuring the integrity and safety of the platform.
+#### Key Functionalities:
+- **User and Profile Management**:  
+  The admin has access to all user profiles and can perform the following actions:
+  - View detailed user information, including username, email, and account status.
+  - Create, edit, and delete user profiles when necessary.
+  - Manage followers and follow requests for any profile.
 
-This robust set of admin tools ensures that the blog is consistently maintained and operates smoothly.
+- **Content Management**:  
+  The dashboard allows admins to oversee all content shared on the platform:
+  - View, edit, and delete posts and milestones.
+  - Moderate comments and likes, ensuring they adhere to community guidelines.
+  - Remove inappropriate or spam content to maintain the platform's integrity.
 
-- **User Story 28**: As an admin, I want to manage blog posts so that I can control the content that is published. Additionally, I want to manage comments, view contact inquiries, and delete user accounts as needed to maintain site integrity.
+- **Activity Monitoring**:  
+  Admins can monitor all activity related to a specific user, including:
+  - Posts and milestones created by the user.
+  - Comments posted or liked by the user.
+  - Follow and follower interactions associated with the user.
 
-![Admin Features](static/images/readme/features/admin-page.png)
+- **Navigation and Usability**:  
+  The dashboard is designed for ease of navigation, with clearly organized sections for managing:
+  - Profiles
+  - Users
+  - Posts
+  - Milestones
+  - Comments
+  - Likes
+  - Followers
+  - Follow Requests
 
----
+The admin tools not only empower platform managers to maintain a safe and respectful community but also ensure that inappropriate content or behavior is swiftly addressed, preserving the user experience for all members.
+
+> - **User Story 34**:  
+>   - **As an admin**, I can access an admin dashboard from which I can manage all user-generated content and user-related data, so that I can maintain the platform's quality and ensure proper moderation.  
+>   - Admin dashboard is accessible only to users with admin privileges.  
+>   - Admin dashboard includes navigation links to manage:  
+>     - Profiles  
+>     - Users  
+>     - Posts  
+>     - Milestones  
+>     - Comments  
+>     - Likes  
+>     - Followers  
+>     - Follow Requests  
+>   - Admin can view, create, edit, and delete:  
+>     - User profiles  
+>     - Posts  
+>     - Milestones  
+>     - Comments  
+>     - Likes  
+>   - Admin can view a list of all users with key information (e.g., username, email, role, account status).  
+>   - Admin can view all activity related to a specific user (posts, milestones, comments, likes, followers).
+
+![Admin](readme/features/admin-dashboard.png)
+
 
 # Technologies Used 
 
@@ -934,39 +1369,31 @@ This robust set of admin tools ensures that the blog is consistently maintained 
 * HTML
 * CSS
 * Javascript
-* Python
+* JSX
+* React
+* React Bootstrap
 
 ## Frameworks, libraries and programs used
-- [GitHub](https://github.com/vero-nika-2828/yasmin-jas-photography) - To save and store files and code for the website in a secure location 
-- [Gitpod](https://gitpod.io/workspaces) - A cloud based IDE used for version control, development of the code to build the website and to commit and push to GithHb
-- [Heroku](https://dashboard.heroku.com/) - was used as the deployment platform for this project
- simplifying the design process
-- [Am I Responsive](http://ami.responsivedesign.is/): was used to create the multi-device mock-up you can see at the start of this README.md file.
-- [WC3 Validator](https://validator.w3.org/), [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/), [JS validator](https://jshint.com/) and [PEP8](https://pep8ci.herokuapp.com/): were all used to validate the website.
-- [os](https://docs.python.org/3/library/os.html): python built-in modules.
-- [Bootstrap5](https://getbootstrap.com/docs/5.0/getting-started/introduction/): was used to create the front-end design.
-- [Coloors](https://coolors.co/): was used to create the color scheme.
-- [Cloudinary](https://cloudinary.com/): was used to host the static files and media.
-- [Gunicorn](https://gunicorn.org/): as the server for Heroku.
-- [Dj_database_url](https://pypi.org/project/dj-database-url/0.5.0/): to parse the database URL from the environment variables in Heroku.
-- [Psycopg2](https://pypi.org/project/psycopg2/): as an adaptor for Python and PostgreSQL databases.
-- [Allauth](https://allauth.org/): for authentication, registration, account management.
-- [Crispy Forms & Crispy Bootstrap5](https://django-crispy-forms.readthedocs.io/en/latest/): to style the forms.
-- [djrichtextfield](https://pypi.org/project/django-richtextfield/): for handling rich text content.
-- [django resized](https://pypi.org/project/django-resized/): Resizes image origin to specified size and save it in 'WEBP' format.
-- [dj-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/): to facilitates integration with Cloudinary.
-- [Django](https://www.djangoproject.com/start/): as a main python framework for my project.
-- [Jinja2 - templating language](https://jinja.palletsprojects.com/en/3.1.x/): was used to simplify dynamic content generation, enhance security, and promote code organization in project templates.
-- [App.diagram-online](https://app.diagrams.net/): was used to create the database schema.
-- [Microsoft Outlook - SMTP settings](https://support.microsoft.com/en-us/office/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040): was used to send email to user (scenario: forgot password).
-- [Miro-online](https://miro.com/): was used to create the wireframe of the site.
-- [Google Fonts](https://fonts.google.com/) - was used for the typography on the website
-- [Font Awesome](https://fontawesome.com/) - was used for the iconography on the website
-- Google Dev Tools - was used to troubleshoot and test features, solve issues with responsiveness and styling
-- [ChatGPT](https://chatgpt.com/) - was used to generate images for blog post and compress the pictures and convert it to webp
-- [Google Spreadsheet](https://docs.google.com/spreadsheets/) - was used to make the database scheme for the site.
-- [Google Slides](https://docs.google.com/presentation/) - was used to draw database relationship entity diagram.
-- [Google Drawio](https://app.diagrams.net/) - was used to draw Flowchart
+
+- [Am I Responsive](https://ui.dev/amiresponsive) To ensure the project looked good on various devices.
+- [React-BootStrap](https://react-bootstrap.netlify.app/) to provide key components such as the navbar, containers, media and cards.
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) as a constant tool for helping develop the site and its functionality.
+- [Cloudinary](https://cloudinary.com) to handle static images and files as well as to offer the User a front end method of uploading images.
+- CSS to provide custom styling in addition to Bootstrap.
+- [Django](https://www.djangoproject.com/) as a Python framework to develop the back-end API.
+- [Dj-rest-auth](https://dj-rest-auth.readthedocs.io/en/latest/) used to handle user authentication.
+- [Lucid Chart](https://www.lucidchart.com/) to develop the logic for the project.
+- [ElephantSQL](https://www.elephantsql.com/) to handle the PostgreSQL database.
+- [Miro](https://miro.com/) to assist with the planning phase of the project by drawing wireframes.
+- [Font Awesome](https://fontawesome.com/) to provide various icons for the site.
+- [Google Fonts](https://fonts.google.com/) for the fonts used site-wide.
+- [Gitpod](https://gitpod.io/) to use as workspace to load and push my code to Github.
+- [GitHub](https://github.com/) to create the repository for the project.
+- [Heroku](https://www.heroku.com/) to deploy the project.
+- [Google Drawio](https://app.diagrams.net/) to create the database schema.
+- [Google Fonts](https://fonts.google.com/) for the typography on the website
+- [ChatGPT](https://chatgpt.com/) to generate logo for the site.
+- [Meta AI](https://www.meta.ai/) to generate images for the site.
 
 
 # Testing
@@ -976,88 +1403,55 @@ Find the full testing documented in [TESTING.md](TESTING.md)
 
 ## Deployment
 
-1. A new repository was created using 'Code-Instutute-Org/ci-full-template'.
-2. A meaningful name was given to my new repository and I selected 'Create Repository'.
-3. Inside the created repo select the 'Code' button above the file list on the right hand side.
-4. Ensure HTTPS is selected and click the clipboard on the right of the URL to copy it.
-5. Open Gitpod, creat new project folder, open the terminal, On the terminal type "git clone", then paste the copied url and press 'Enter'.
-6. Version control was used throughout the project using the following commands in the terminal:
-    - git add . **OR** git add "file name" - to stage the changes and get them ready for being committed to the local repo.
-    - git commit -m "Description of the update" - to save the change and commit the change to the local repo
-    - git push origin main - to push all committed changes to the GitHub repo.
+#### **Deployment to Heroku**
+
+This project is hosted on [**_Heroku_**](https://www.heroku.com/). Below are the steps I took to deploy my project.
+
+1. Create a Procfile in the root project directory and add the following code:
+   - `web: serve -s build`
+2. Save all project files, and use the following commands to add, commit and push the changes to the GitHub repository:
+   - `git add .`
+   - `git commit -m "Initial commit"`
+   - `git push`
+3. On the Heroku Dashboard, create a new app. The app name must be unique.
+4. Set location as appropriate.
+5. Connect your Heroku account to your Github Repository following these steps:
+    - Click on the `Deploy` tab and choose `Github-Connect to Github`.
+    - Enter the GitHub repository name and click on `Search`.
+    - Choose the correct repository for your application and click on `Connect`.
+6. You can then choose to deploy the project manually or automatically, automatic deployment will generate a new application every time you push a change to Github, whereas manual deployment requires you to push the `Deploy Branch` button whenever you want a change made.
+7. Once you have chosen your deployment method and have clicked `Deploy Branch` your application will be built and you should now see the `View` button, click this to open your application.
 
 ### Forking
 
-1. Go to [the project repository](https://github.com/Yagavi1994/Cradle).
+1. Go to [the project repository](https://github.com/Yagavi1994/memories).
 2. In the right most top menu, click the "Fork" button.
 3. There will now be a copy of the repository in your own GitHub account.
 
 ### Cloning the repo & Running the project locally
 
-1. Go to the following repository on GitHub: <https://github.com/Yagavi1994/Cradle>.
+1. Go to the following repository on GitHub: <hhttps://github.com/Yagavi1994/memories>.
 2. At the top right of the screen, click the 'Code' button, and then click 'HTTPs'.
 3. Copy the link in this field.
 4. Open Gitpod, creat new project folder, open the terminal.
 5. On the terminal type "git clone", then paste the copied url and press 'Enter'.
 6. The clone process should now begin.
 
-### Deploying with Heroku
-
-I followed the below steps using the [Code Institute tutorial](https://docs.google.com/document/d/1CncA1F2JClME2S_K0w4XoV3edMjOl_HrOQoEs3h9LOo/edit#heading=h.hvy9tw74f1o0):
-
-The following command in the IDE will create the relevant files needed for Heroku to install your project dependencies `pip3 freeze --local > requirements.txt`.
-
-1. Go to [Heroku.com](https://dashboard.heroku.com/apps) and login, if you do not already have an account then you will need to create one.
-2. Click the `New` dropdown and select `Create New App`.
-3. Enter a name for your new project, all Heroku apps need to have a unique name, you will be prompted if you need to change it.
-4. Select the region you are working in.
-
-#### Heroku Settings  
-
-You will need to set your Environment Variables - this is a key step to ensuring your application is deployed properly.
-
-1. In the Settings tab, click on `Reveal Config Vars` and set the following variables:
-   #### Add the following keys and corresponding values to it.
-   ![Config Vars](static/images/readme/features/config-vars.png)
-   
-2. In your project:
-    - Create a file `env.py` and put it into `.gitignore`.
-    - Add the above keys and corresponding values mentioned in config vars in it, like DATABASE_URL, CLOUDINARY_URL and SECRET_KEY to `env.py`.
-    - Comment out the original DATABASE settings from `settings.py` and add default Database code.
-    - Run your migrations.
-
-#### Heroku Deployment
-
-In the Deploy tab:
-
-1. Connect your Heroku account to your Github Repository following these steps:
-    - Click on the `Deploy` tab and choose `Github-Connect to Github`.
-    - Enter the GitHub repository name and click on `Search`.
-    - Choose the correct repository for your application and click on `Connect`.
-2. You can then choose to deploy the project manually or automatically, automatic deployment will generate a new application every time you push a change to Github, whereas manual deployment requires you to push the `Deploy Branch` button whenever you want a change made.
-3. Once you have chosen your deployment method and have clicked `Deploy Branch` your application will be built and you should now see the `View` button, click this to open your application.
-4. Be sure to set `DEBUG` to `False` in your `settings.py` before deploying.
-
 # Credits
 
 ### Images
 
-Images were taken from Adobe Stock and Pixabay
-
-* Freepik
-   * [Picture used for Banner](https://www.freepik.com/free-photo/top-view-childhood-cancer-awareness-month-background-concepttoys_29015039.htm#fromView=search&page=1&position=41&uuid=7918f628-075c-4250-8108-ceea74803937)
-
 * Chat-GPT
-   * [Pictures used in the Blog Post](https://chatgpt.com/)
+   * [ChatGpt](https://chatgpt.com/) used to generate the logo for the website.
 
 * Meta-AI
-   * [Picture used in the Logo](https://www.meta.ai/)
+   * [Meta-AI](https://www.meta.ai/) used to generate images for the website.
 
 
 # Acknowledgement
 
 I would like to thank to following people who helped me along the way in completing this project:
-* Code-Institute for Full-stack development curriculum and "I Think Therefore I blog" walkthrough project which helped me to lay the basic foundation for my project.
-* My Code Institute mentor, Martina Terlevic, for her valuable advice and comprehensive guidance.
-* Tutors for helping me with solving few issues I had in the project.
+* Code-Institute for Advanced front-end curriculum and "Moments" walkthrough project which helped me to lay the basic foundation for my project.
+* My Code Institute mentor, Richard Wells, for his valuable advice and comprehensive guidance.
+* My cousin Pradeep for helping me with solving few bugs I had in the project.
 * My family and friends for giving me moral support and for taking time to test the final version of the project.
