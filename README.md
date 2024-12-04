@@ -5,14 +5,15 @@
 
 
 Link to the website: [Memories](https://memories-frontend-895c7e867e2e.herokuapp.com)
+Link to the backend API [Memories-backend](https://memories-backend-16d0ed87a1d2.herokuapp.com)
+Link to the backend repository [Memories-backend-repo](https://github.com/Yagavi1994/Memories-API)
 
 
 # Project Overview
 
-"Memories" aims at providing trustworthy, well-researched, and easy-to-understand information for parents, covering topics from newborn care to toddler years. As a first-time mom, I faced numerous hurdles—whether it was navigating the complexities of breastfeeding, figuring out formula feeding, or understanding the nuances of baby sleep patterns. Each stage brought its own set of challenges, and like many new parents, I often turned to the internet for guidance. However, I quickly realized that the vast sea of information out there could be overwhelming. With so many sources providing differing advice, I often found myself more confused than reassured.
+**Memories** is a specialized social media platform designed exclusively for parents to securely share and preserve their children's cherished moments. While many social media platforms allow parents to create profiles for their kids to share pictures and milestones, these platforms often expose such content to a wide and potentially unsafe audience. Recognizing the need for a safer, child-focused space, **Memories** was created.
 
-This experience sparked an idea. I began to wish for a single, reliable source where I could find all the information I needed—whether it was about a newborn’s sleep schedule, a toddler’s growth milestones, or even how to handle the teenage years. I envisioned a space where parents like me could find trustworthy, well-researched, and easy-to-understand information all in one place. That dream led to the creation of this blog.
-
+This platform not only allows parents to upload and share their children's photos but also provides a dedicated space to document significant milestones, such as their first steps, first smiles, or first words. With **Memories**, parents can safeguard these precious moments in a secure and private environment, making it easy to revisit and cherish them in the future.
 
 # Table of Content 
 
@@ -33,363 +34,468 @@ This experience sparked an idea. I began to wish for a single, reliable source w
 
 # Project objectives
 
-## User Goals
+## Site Aims
 
+- Develop a secure, vibrant, and user-friendly online platform for parents to share and cherish their children's memories exclusively.
+- Connect seamlessly to the Memories-API back-end, ensuring smooth data management and user interactions.
+- Offer parents an easy and intuitive way to register and log in to access the site's features.
+- Provide members of the community with full CRUD (Create, Read, Update, Delete) functionality for both posts and milestones.
+- Deliver a fully responsive and accessible site for users on desktop, tablet, and mobile devices.
+- Allow registered users to safely share their children's photos in a protected environment designed exclusively for kids' content with privacy feature.
+- Enable parents to document and save their children’s milestones, such as first steps, words, or smiles, to revisit and cherish in the future.
+- Inspire and engage parents by allowing them to view and interact with posts and milestones shared by others.
+- Enhance engagement by offering features like liking and commenting on posts or milestones shared by the community.
+- Provide tools for users to filter content based on liked posts, followed users, or specific milestones.
+- Integrate a search function for users to quickly find specific posts, milestones, or profiles.
+- Empower users to personalize their profiles by adding and editing details about themselves and their children.
 
-* Find reliable, well-researched, and easy-to-understand parenting information.
-* Connect with other parents who are experiencing similar challenges.
-* Gain guidance on various stages of child development, from newborns to toddlers.
-* Read practical tips and advice on topics like feeding, sleep, and behavior management.
-* Access expert insights on parenting challenges and solutions. 
 
 ---
 
-## Site Owner Goals
+## Target Audiences
 
-
-* Build a trusted community of parents seeking reliable information and support.
-* Offer a platform for parents to share their experiences and knowledge with others.
-* Encourage users to regularly engage with content through comments and saving their favorite posts in their profile.
-* Provide a seamless and user-friendly experience across all devices, making it easy to find and navigate content.
-* Encourage visitors to register and subscribe for additional features (future premium membership options).
-
----
+- Parents looking for a safe and private platform to share their children’s photos and milestones.
+- Parents who want to document and preserve significant moments in their children’s lives in an organized and dedicated space.
+- Parents concerned about the safety of sharing children’s photos on traditional social media platforms.
+- Families who want to connect with a like-minded community of parents for inspiration and support.
+- Parents interested in sharing and celebrating their parenting journey while engaging with other members of a close-knit community.
 
 # User Experience
 
-
 ## User Stories
 
-
-### Target user
-
-
-* People who wants to prepare themselve before planning for a child
-* People who are pregnant and going to have a baby soon
-* People who are parents of children from newborn to toddlers
+Here is the formatted list of all your user stories, following the markdown structure provided:
 
 ---
 
-### First Time Visitor Goals
+### Navigation & Authentication
 
-Here are all the user stories with their respective acceptance criteria in the structured format:
-
-Navigation & Authentication
-Navigation: Navbar
-* User Story 1: As a user, I can view a navbar from every page so that I can navigate easily between pages.
-* Acceptance Criteria:
-    1. Navbar is visible on every page.
-    2. Navbar includes links to all main pages (e.g., Home, Profile, Posts, Sign In, Sign Up).
-    3. Navbar updates to show relevant options based on the logged-in status (e.g., "Sign In" and "Sign Up" for logged-out users; "Profile" and "Logout" for logged-in users).
-    4. Navbar is responsive and adapts to various screen sizes.
-Routing: Seamless Navigation
-* User Story 2: As a user, I can navigate through pages quickly so that I can view content seamlessly without page refresh.
-* Acceptance Criteria:
-    1. Users can navigate between pages without a full page reload (via client-side routing).
-    2. Page transitions are smooth and quick, without any noticeable delays.
-    3. Browser history is correctly updated to support back and forward navigation.
-Authentication - Sign Up
-* User Story 3: As a user, I can create a new account so that I can access all the features for signed-up users.
-* Acceptance Criteria:
-    1. Users can access a sign-up form.
-    2. Form validation ensures required fields are filled with appropriate formats (e.g., valid email).
-    3. Error messages are shown for invalid input (e.g., duplicate email, weak password).
-    4. Successful sign-up redirects users to a welcome or home page.
-    5. Confirmation message is displayed upon successful account creation.
-Authentication - Sign In
-* User Story 4: As a user, I can sign in to the app so that I can access functionality for logged-in users.
-* Acceptance Criteria:
-    1. Users can access a sign-in form.
-    2. Form validation checks for required fields and provides error messages for invalid input.
-    3. Users with valid credentials are redirected to the home or designated page.
-    4. Error messages are displayed for incorrect credentials.
-Authentication - Logged-in Status
-* User Story 5: As a user, I can tell if I am logged in or not so that I can log in if I need to.
-* Acceptance Criteria:
-    1. Logged-in status is visually indicated on all pages (e.g., with user avatar or "Logout" option).
-    2. Logged-out status displays "Sign In" and "Sign Up" options instead.
-    3. Users can easily distinguish between logged-in and logged-out states.
-Authentication - Refreshing Access Tokens
-* User Story 6: As a user, I can maintain my logged-in status until I choose to log out so that my user experience is not compromised.
-* Acceptance Criteria:
-    1. Tokens automatically refresh before they expire, maintaining the user’s session.
-    2. Users do not experience interruptions during normal use.
-    3. Expired sessions redirect users to the login page with an appropriate message.
-    4. Security measures ensure that tokens are only refreshed for authenticated sessions.
-Navigation - Conditional Rendering
-* User Story 7: As a logged-out user, I can see sign-in and sign-up options so that I can sign in/sign up.
-* Acceptance Criteria:
-    1. Logged-out users see only "Sign In" and "Sign Up" options.
-    2. Logged-in users see user-specific options (e.g., "Profile," "Logout").
-    3. Navbar options dynamically update based on authentication status.
-Avatar
-* User Story 8: As a user, I can view user avatars so that I can easily identify users of the application.
-* Acceptance Criteria:
-    1. User avatars are displayed wherever applicable (e.g., navbar, comments, posts).
-    2. Default avatar is shown if a user has not set a custom avatar.
-    3. User avatars are updated across the app if changed.
-
-Adding & Liking Posts
-Create Posts
-* User Story 9: As a logged-in user, I can create posts so that I can share my images with the world.
-* Acceptance Criteria:
-    1. Only logged-in users can access the "Create Post" page.
-    2. Users can add images and captions to their posts.
-    3. Validation ensures all required fields are completed before submission.
-    4. Upon successful post creation, users are redirected to the post or main feed.
-    5. Users receive feedback or confirmation after successfully posting.
-View a Post
-* User Story 10: As a user, I can view the details of a single post so that I can learn more about it.
-* Acceptance Criteria:
-    1. Users can view details of a single post, including image, caption, likes, and comments.
-    2. Post information is displayed in a clear and organized manner.
-    3. Users can navigate back to the main feed easily.
-Like a Post
-* User Story 11: As a logged-in user, I can like a post so that I can show my support for the posts that interest me.
-* Acceptance Criteria:
-    1. Only logged-in users can like posts.
-    2. Users can toggle likes on and off.
-    3. Liked posts visually indicate the "liked" status.
-    4. Like count updates in real-time without requiring a page refresh.
-
-The Posts Page
-View Most Recent Posts
-* User Story 12: As a user, I can view all the most recent posts, ordered by most recently created first so that I am up to date with the newest content.
-* Acceptance Criteria:
-    1. Posts are displayed in order of most recent first.
-    2. Users can scroll through a list of posts from the main feed.
-    3. Each post displays key information (e.g., image, caption, like count).
-Search for Posts
-* User Story 13: As a user, I can search for posts with keywords so that I can find the posts and user profiles I am most interested in.
-* Acceptance Criteria:
-    1. A search bar is accessible on the posts page.
-    2. Users can enter keywords to find relevant posts or profiles.
-    3. Search results display in real-time or after submission.
-    4. Users can clear the search to view the main feed again.
-View Liked Posts
-* User Story 14: As a logged-in user, I can view the posts I liked so that I can find the posts I enjoy the most.
-* Acceptance Criteria:
-    1. Logged-in users can access a list of posts they’ve liked.
-    2. Liked posts display in order of most recently liked.
-    3. Users can navigate to each liked post directly from the list.
-View Posts of Followed Users
-* User Story 15: As a logged-in user, I can view content filtered by users I follow so that I can keep up to date with what they are posting about.
-* Acceptance Criteria:
-    1. Logged-in users can view posts filtered by the users they follow.
-    2. Posts are displayed in reverse chronological order.
-    3. Users can toggle between “All Posts” and “Followed Users” views.
-Infinite Scroll
-* User Story 16: As a user, I can keep scrolling through the images on the site, that are loaded for me automatically so that I don't have to click on "next page" etc.
-* Acceptance Criteria:
-    1. Posts are loaded automatically as users scroll down the page.
-    2. Users can continue scrolling without clicking “Next Page” or similar navigation.
-    3. Loading indicators are displayed when more content is being fetched.
-
-The Post Page
-View Post Page
-* User Story 17: As a user, I can view the post page so that I can read the comments about the post.
-* Acceptance Criteria:
-    1. Users can view a post page with all details, including comments and likes.
-    2. Users can easily navigate back to the main feed.
-Edit Post
-* User Story 18: As a post owner, I can edit my post title and description so that I can make corrections or update my post after it was created.
-* Acceptance Criteria:
-    1. Only the post owner can access the "Edit Post" option.
-    2. Post owners can modify the title and description of their posts.
-    3. Updated post information is saved and displayed upon submission.
-Create a Comment
-* User Story 19: As a logged-in user, I can add comments to a post so that I can share my thoughts about the post.
-* Acceptance Criteria:
-    1. Logged-in users can add comments to a post.
-    2. Form validation checks for required fields.
-    3. Comments appear immediately after submission.
-Comment Date
-* User Story 20: As a user, I can see how long ago a comment was made so that I know how old a comment is.
-* Acceptance Criteria:
-    1. Each comment displays a relative timestamp (e.g., “2 hours ago”).
-    2. Timestamps update dynamically to reflect time since posted.
-View Comments
-* User Story 21: As a user, I can read comments on posts so that I can read what other users think about the posts.
-* Acceptance Criteria:
-    1. Users can read all comments
-under a post in chronological order. 2. Comments section is easily accessible and visible on the post page.
-Delete Comment
-* User Story 22: As an owner of a comment, I can delete my comment so that I can control removal of my comment from the application.
-* Acceptance Criteria:
-    1. Only comment owners can see the "Delete" option.
-    2. Confirmation prompt appears before a comment is deleted.
-    3. Deleted comments are removed instantly from the page.
-Edit Comment
-* User Story 23: As an owner of a comment, I can edit my comment so that I can fix or update my existing comment.
-* Acceptance Criteria:
-    1. Only comment owners can see the "Edit" option.
-    2. Comment owners can modify their comments.
-    3. Updated comment appears immediately after submission.
-
-The Profile Page
-Profile Page
-* User Story 24: As a user, I can view other users’ profiles so that I can see their posts and learn more about them.
-* Acceptance Criteria:
-    1. Users can view other users’ profiles, including posts and bio.
-    2. Profiles display user information, post count, and other relevant details.
-Most Followed Profiles
-* User Story 25: As a user, I can see a list of the most followed profiles so that I can see which profiles are popular.
-* Acceptance Criteria:
-    1. Users can see a list of the most followed profiles on the app.
-    2. List displays in descending order based on the number of followers.
-User Profile - User Stats
-* User Story 26: As a user, I can view statistics about a specific user: bio, number of posts, follows, and users followed so that I can learn more about them.
-* Acceptance Criteria:
-    1. Profile pages display user statistics (e.g., bio, number of posts, followers, following).
-    2. Stats are updated in real-time when changes occur.
-Follow/Unfollow a User
-* User Story 27: As a logged-in user, I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed.
-* Acceptance Criteria:
-    1. Logged-in users can follow or unfollow other users.
-    2. Followed users’ posts appear in the follower’s feed.
-    3. Follower and following counts update immediately after action.
-View All Posts by a Specific User
-* User Story 28: As a user, I can view all the posts by a specific user so that I can catch up on their latest posts, or decide I want to follow them.
-* Acceptance Criteria:
-    1. Users can view a list of all posts by a specific user on their profile.
-    2. Posts display in reverse chronological order.
-Edit Profile
-* User Story 29: As a logged-in user, I can edit my profile so that I can change my profile picture and bio.
-* Acceptance Criteria:
-    1. Only the profile owner can edit their profile.
-    2. Users can change their profile picture and bio.
-    3. Profile updates are saved and displayed immediately.
-Update Username and Password
-* User Story 30: As a logged-in user, I can update my username and password so that I can change my display name and keep my profile secure.
-* Acceptance Criteria:
-    1. Logged-in users can access a form to update their username and password.
-    2. Form validation ensures the new username is unique and the password is secure.
-    3. Users receive a confirmation message upon successful update.
-    4. User session is maintained, or the user is prompted to re-authenticate if necessary.
-Profile privacy
-User Story 31: As a user, I can set my profile to public or private so that I have control over who can view my posts and information.
-Acceptance Criteria:
-1. Users can access a setting on their profile page to toggle between "Public" and "Private" profile modes.
-2. When set to "Public," any user (logged in or logged out) can view the profile and its posts.
-3. When set to "Private," only approved followers can view the profile and its posts; non-followers see a message indicating the profile is private.
-4. A notification or confirmation message appears to confirm the change in profile visibility.
-5. The setting change is saved immediately and persists across sessions.
-6. Followers receive a notification if a profile they follow becomes private (optional).
-7. If a private profile user unfollows someone, that user loses access to their profile and posts.
-Delete Profile
-User Story 32: As a logged-in user, I can delete my profile and user account.
-Acceptance Criteria:
-1. Only the profile owner can delete their profile and user account.
-2. A confirmation message should be displayed asking the user to confirm deletion or cancel it, before deleting their profile and user account.
-Milestones
-User Story 33:As a user, similar to posts, I can add milestones for my baby (e.g., first steps, first words) to their profile so that I can keep a record of important developmental moments. These milestones will be displayed on a separate "Milestones" page for easy viewing.
-Acceptance Criteria:
-1. Users can access a "Milestones" section from their profile to add, edit, and delete milestones.
-2. Milestone entries allow for fields such as milestone title (e.g., "First Steps"), date, and an optional description.
-3. Each milestone can include a photo or video to capture the moment.
-4. Milestones are displayed in chronological order on a dedicated "Milestones" page, separate from the "Posts" page.
-5. The "Milestones" page is accessible from the user’s profile, and visibility depends on the profile’s public/private setting.
-6. Users receive feedback upon successfully adding, editing, or deleting a milestone.
-7. Milestones are saved immediately and persist across sessions, viewable on the user’s profile.
-Admin Features
-User Story 34:As an admin, I can access an admin dashboard from which I can manage all user-generated content and user-related data, so that I can maintain the platform's quality and ensure proper moderation.
-Acceptance Criteria:
-* Access & Navigation:
-    * Admin dashboard is accessible only to users with admin privileges.
-    * Admin dashboard includes navigation links to manage:
-        * Profiles
-        * Users
-        * Posts
-        * Milestones
-        * Comments
-        * Likes
-        * Followers
-        * Follow Requests
-    * Admin can easily navigate between management sections using a sidebar or top navigation bar.
-* CRUD Functionality:
-    * Admin can view, create, edit, and delete:
-        * User profiles
-        * Posts
-        * Milestones
-        * Comments
-        * Likes
-    * Admin can view, add and remove followers and follow requests if necessary.
-* Data Visibility:
-    * Admin can view a list of all users with key information (e.g., username, email, role, account status).
-* User Management:
-    * Admin can:
-        * View all activity related to a specific user (posts, milestones, comments, likes, followers).
+#### Navigation: Navbar
+#### User Story 1:  
+**As a user**, I can view a navbar from every page so that I can navigate easily between pages.
+- Navbar is visible on every page.
+- Navbar includes links to all main pages (e.g., Home, Profile, Posts, Sign In, Sign Up).
+- Navbar updates to show relevant options based on the logged-in status (e.g., "Sign In" and "Sign Up" for logged-out users; "Profile" and "Logout" for logged-in users).
+- Navbar is responsive and adapts to various screen sizes.
 
 ---
 
-### Future Goals
+#### Routing: Seamless Navigation
+#### User Story 2:  
+**As a user**, I can navigate through pages quickly so that I can view content seamlessly without page refresh.
+- Users can navigate between pages without a full page reload (via client-side routing).
+- Page transitions are smooth and quick, without any noticeable delays.
+- Browser history is correctly updated to support back and forward navigation.
 
-- **Social Login Integration**: In the future, plan to implement Google and Facebook login options, allowing users to sign up and log in with their existing social media credentials, making the process quicker and more convenient.
-  
-- **Content Sharing Features**: Aim to add social sharing functionality, enabling parents to easily share blog posts, tips, and resources with their friends and family on various platforms like Facebook, Twitter, and WhatsApp.
-  
-- **Community Forum**: A future goal is to introduce a community forum where parents can interact, ask questions, and share their experiences with one another, creating a supportive space for learning and exchange.
+---
 
-- **Newsletter Subscription**: Plan to implement a newsletter subscription option, allowing users to receive curated content, parenting tips, and updates about new blog posts directly in their inbox.
+#### Authentication: Sign Up
+#### User Story 3:  
+**As a user**, I can create a new account so that I can access all the features for signed-up users.
+- Users can access a sign-up form.
+- Form validation ensures required fields are filled with appropriate formats (e.g., valid email).
+- Error messages are shown for invalid input (e.g., duplicate email, weak password).
+- Successful sign-up redirects users to a welcome or home page.
+- Confirmation message is displayed upon successful account creation.
 
-- **Mobile App Development**: As the blog continues to grow, would like to create a mobile app for iOS and Android, giving parents access to the platform on the go with a more streamlined and optimized experience.
+---
 
-- **Premium Membership**: In the long-term, envision introducing premium membership options that would offer exclusive content, personalized advice, and special resources for subscribers.
+#### Authentication: Sign In
+#### User Story 4:  
+**As a user**, I can sign in to the app so that I can access functionality for logged-in users.
+- Users can access a sign-in form.
+- Form validation checks for required fields and provides error messages for invalid input.
+- Users with valid credentials are redirected to the home or designated page.
+- Error messages are displayed for incorrect credentials.
 
-- **Advanced Search and Filtering**: Another future enhancement will be improving the search and filtering capabilities of the blog, allowing users to easily find content tailored to their child’s age, stage, or specific challenges.
+---
 
-These goals aim to continually improve the user experience, build a stronger community, and provide parents with more value as they navigate the challenges of raising children.
+#### Authentication: Logged-in Status
+#### User Story 5:  
+**As a user**, I can tell if I am logged in or not so that I can log in if I need to.
+- Logged-in status is visually indicated on all pages (e.g., with user avatar or "Logout" option).
+- Logged-out status displays "Sign In" and "Sign Up" options instead.
+- Users can easily distinguish between logged-in and logged-out states.
 
+---
+
+#### Authentication: Refreshing Access Tokens
+#### User Story 6:  
+**As a user**, I can maintain my logged-in status until I choose to log out so that my user experience is not compromised.
+- Tokens automatically refresh before they expire, maintaining the user’s session.
+- Users do not experience interruptions during normal use.
+- Expired sessions redirect users to the login page with an appropriate message.
+- Security measures ensure that tokens are only refreshed for authenticated sessions.
+
+---
+
+#### Navigation: Conditional Rendering
+#### User Story 7:  
+**As a logged-out user**, I can see sign-in and sign-up options so that I can sign in/sign up.
+- Logged-out users see only "Sign In" and "Sign Up" options.
+- Logged-in users see user-specific options (e.g., "Profile," "Logout").
+- Navbar options dynamically update based on authentication status.
+
+---
+
+#### Avatar
+#### User Story 8:  
+**As a user**, I can view user avatars so that I can easily identify users of the application.
+- User avatars are displayed wherever applicable (e.g., navbar, comments, posts).
+- Default avatar is shown if a user has not set a custom avatar.
+- User avatars are updated across the app if changed.
+
+---
+
+### Adding & Liking Posts
+
+#### Create Posts
+#### User Story 9:  
+**As a logged-in user**, I can create posts so that I can share my images with the world.
+- Only logged-in users can access the "Create Post" page.
+- Users can add images and captions to their posts.
+- Validation ensures all required fields are completed before submission.
+- Upon successful post creation, users are redirected to the post or main feed.
+- Users receive feedback or confirmation after successfully posting.
+
+---
+
+#### View a Post
+#### User Story 10:  
+**As a user**, I can view the details of a single post so that I can learn more about it.
+- Users can view details of a single post, including image, caption, likes, and comments.
+- Post information is displayed in a clear and organized manner.
+- Users can navigate back to the main feed easily.
+
+---
+
+#### Like a Post
+#### User Story 11:  
+**As a logged-in user**, I can like a post so that I can show my support for the posts that interest me.
+- Only logged-in users can like posts.
+- Users can toggle likes on and off.
+- Liked posts visually indicate the "liked" status.
+- Like count updates in real-time without requiring a page refresh.
+
+---
+
+#### View Most Recent Posts
+#### User Story 12:  
+ **As a user**, I can view all the most recent posts and milestones, ordered by most recently created first so that I am up to date with the newest content.  
+- Posts and Milestones are displayed in order of most recent first.
+- Users can scroll through a list of posts and milestones from the main feed.
+- Each post and milestone displays key information (e.g., image, caption, like count).
+---
+
+#### Search for Posts
+#### User Story 13:  
+**As a user**, I can search for posts and milestones with keywords so that I can find the posts, milestones and user profiles I am most interested in.  
+- A search bar is accessible on the home, posts and milestones page.
+- Users can enter keywords to find relevant posts, milestones or profiles.
+- Search results display in real-time or after submission.
+
+
+---
+
+#### View Liked Posts
+#### User Story 14:  
+**As a logged-in user**, I can view the posts I liked so that I can find the posts I enjoy the most.
+- Logged-in users can access a list of posts they’ve liked.
+- Liked posts display in order of most recently liked.
+- Users can navigate to each liked post directly from the list.
+
+---
+
+#### View Posts of Followed Users
+#### User Story 15:  
+**As a logged-in user**, I can view content filtered by users I follow so that I can keep up to date with what they are posting about.
+- Logged-in users can view posts filtered by the users they follow.
+- Posts are displayed in reverse chronological order.
+- Users can toggle between “All Posts” and “Followed Users” views.
+
+---
+
+#### Infinite Scroll
+#### User Story 16:  
+**As a user**, I can keep scrolling through the images on the site, that are loaded for me automatically so that I don't have to click on "next page" etc.
+- Posts are loaded automatically as users scroll down the page.
+- Users can continue scrolling without clicking “Next Page” or similar navigation.
+- Loading indicators are displayed when more content is being fetched.
+
+---
+### The Post Page
+
+#### View Post Page  
+#### User Story 17:  
+**As a user**, I can view the post page so that I can read the comments about the post.  
+- Users can view a post page with all details, including comments and likes.  
+- Users can easily navigate back to the main feed.
+
+---
+
+#### Edit Post  
+#### User Story 18:  
+**As a post owner**, I can edit my post title and description so that I can make corrections or update my post after it was created.  
+- Only the post owner can access the "Edit Post" option.  
+- Post owners can modify the title and description of their posts.  
+- Updated post information is saved and displayed upon submission.
+
+---
+
+#### Create a Comment  
+#### User Story 19:  
+**As a logged-in user**, I can add comments to a post so that I can share my thoughts about the post.  
+- Logged-in users can add comments to a post.  
+- Form validation checks for required fields.  
+- Comments appear immediately after submission.
+
+---
+
+#### Comment Date  
+#### User Story 20:  
+**As a user**, I can see how long ago a comment was made so that I know how old a comment is.  
+- Each comment displays a relative timestamp (e.g., “2 hours ago”).  
+- Timestamps update dynamically to reflect time since posted.
+
+---
+
+#### View Comments  
+#### User Story 21:  
+**As a user**, I can read comments on posts so that I can read what other users think about the posts.  
+- Users can read all comments under a post in chronological order.  
+- Comments section is easily accessible and visible on the post page.
+
+---
+
+#### Delete Comment  
+#### User Story 22:  
+**As an owner of a comment**, I can delete my comment so that I can control removal of my comment from the application.  
+- Only comment owners can see the "Delete" option.  
+- Confirmation prompt appears before a comment is deleted.  
+- Deleted comments are removed instantly from the page.
+
+---
+
+#### Edit Comment  
+#### User Story 23:  
+**As an owner of a comment**, I can edit my comment so that I can fix or update my existing comment.  
+- Only comment owners can see the "Edit" option.  
+- Comment owners can modify their comments.  
+- Updated comment appears immediately after submission.
+
+---
+
+### The Profile Page
+
+#### View Profile Page  
+#### User Story 24:  
+**As a user**, I can view other users’ profiles so that I can see their posts and learn more about them.  
+- Users can view other users’ profiles, including posts and bio.  
+- Profiles display user information, post count, and other relevant details.
+
+---
+
+#### View Most Followed Profiles  
+#### User Story 25:  
+**As a user**, I can see a list of the most followed profiles so that I can see which profiles are popular.  
+- Users can see a list of the most followed profiles on the app.  
+- List displays in descending order based on the number of followers.
+
+---
+
+#### User Profile Stats  
+#### User Story 26:  
+**As a user**, I can view statistics about a specific user: bio, number of posts, follows, and users followed so that I can learn more about them.  
+- Profile pages display user statistics (e.g., bio, number of posts, followers, following).  
+- Stats are updated in real-time when changes occur.
+
+---
+
+#### Follow/Unfollow Users  
+#### User Story 27:  
+**As a logged-in user**, I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed.  
+- Logged-in users can follow or unfollow other users.  
+- Followed users’ posts appear in the follower’s feed.  
+- Follower and following counts update immediately after action.
+
+---
+
+#### View All Posts by a Specific User  
+#### User Story 28:  
+**As a user**, I can view all the posts by a specific user so that I can catch up on their latest posts, or decide I want to follow them.  
+- Users can view a list of all posts by a specific user on their profile.  
+- Posts display in reverse chronological order.
+
+---
+
+#### Edit Profile  
+#### User Story 29:  
+**As a logged-in user**, I can edit my profile so that I can change my profile picture and bio.  
+- Only the profile owner can edit their profile.  
+- Users can change their profile picture and bio.  
+- Profile updates are saved and displayed immediately.
+
+---
+
+#### Update Username and Password  
+#### User Story 30:  
+**As a logged-in user**, I can update my username and password so that I can change my display name and keep my profile secure.  
+- Logged-in users can access a form to update their username and password.  
+- Form validation ensures the new username is unique and the password is secure.  
+- Users receive a confirmation message upon successful update.  
+- User session is maintained, or the user is prompted to re-authenticate if necessary.
+
+---
+
+#### Profile Privacy  
+#### User Story 31:  
+**As a user**, I can set my profile to public or private so that I have control over who can view my posts and information.  
+- Users can access a setting on their profile page to toggle between "Public" and "Private" profile modes.  
+- When set to "Public," any user (logged in or logged out) can view the profile and its posts.  
+- When set to "Private," only approved followers can view the profile and its posts; non-followers see a message indicating the profile is private.  
+- A notification or confirmation message appears to confirm the change in profile visibility.  
+- The setting change is saved immediately and persists across sessions.
+
+---
+
+#### Delete Profile  
+#### User Story 32:  
+**As a logged-in user**, I can delete my profile and user account.  
+- Only the profile owner can delete their profile and user account.  
+- A confirmation message should be displayed asking the user to confirm deletion or cancel it before deleting their profile and user account.
+
+---
+
+### Milestones
+
+#### Add and Manage Milestones  
+#### User Story 33:  
+**As a user**, I can add milestones for my baby (e.g., first steps, first words) to their profile so that I can keep a record of important developmental moments.  
+- Users can access a "Milestones" section from their profile to add, edit, and delete milestones.  
+- Milestone entries allow for fields such as milestone title (e.g., "First Steps"), date, and an optional description.  
+- Each milestone can include a photo or video to capture the moment.  
+- Milestones are displayed in chronological order on a dedicated "Milestones" page, separate from the "Posts" page.  
+- The "Milestones" page is accessible from the user’s profile, and visibility depends on the profile’s public/private setting.  
+- Users receive feedback upon successfully adding, editing, or deleting a milestone.  
+
+---
+
+### Admin Features
+
+#### Admin Dashboard  
+#### User Story 34:  
+**As an admin**, I can access an admin dashboard from which I can manage all user-generated content and user-related data, so that I can maintain the platform's quality and ensure proper moderation.  
+- Admin dashboard is accessible only to users with admin privileges.  
+- Admin dashboard includes navigation links to manage:  
+  - Profiles  
+  - Users  
+  - Posts  
+  - Milestones  
+  - Comments  
+  - Likes  
+  - Followers  
+  - Follow Requests  
+- Admin can view, create, edit, and delete:  
+  - User profiles  
+  - Posts  
+  - Milestones  
+  - Comments  
+  - Likes  
+- Admin can view a list of all users with key information (e.g., username, email, role, account status).  
+- Admin can view all activity related to a specific user (posts, milestones, comments, likes, followers).
+
+---
+
+### Future Goals for Memories
+
+#### 1. **Mobile Application**
+- Develop a mobile app for iOS and Android to enhance accessibility and provide a seamless experience on the go.
+
+#### 2. **Social Sharing Integration**
+- Allow users to share specific posts or milestones directly to social media platforms like Instagram, Facebook, and WhatsApp (optional for private accounts).
+
+#### 3. **Advanced Privacy Controls**
+- Introduce granular privacy settings where users can control visibility for each post or milestone individually.
+
+#### 4. **Notification System**
+- Implement real-time notifications for:
+  - New comments or likes on posts or milestones.
+  - Follower requests for private profiles.
+  - Updates from followed users.
+
+#### 5. **Milestone Templates**
+- Provide customizable templates for common milestones (e.g., "First Steps," "First Day of School") with design elements like icons and captions.
+
+#### 6. **Data Export and Printing**
+- Enable users to download all their posts and milestones as a digital scrapbook or printable document.
+
+#### 7. **Community Groups**
+- Create group functionalities where parents can join or create groups based on shared interests (e.g., age groups, hobbies, or parenting topics).
+
+#### 8. **Search and Tagging Enhancements**
+- Add tagging functionality for posts and milestones.
+- Enable users to search using tags or filter content by categories like "Firsts," "School," or "Family Trips."
+
+#### 9. **Content Moderation Tools**
+- Implement AI-powered moderation to automatically detect and flag inappropriate content for admin review, ensuring a safe community.
+
+#### 10. **Memories Timeline**
+- Introduce a visually engaging timeline view where users can see posts and milestones chronologically, creating a digital memory board.
+
+These goals aim to enhance functionality, improve user engagement, and solidify **Memories** as a trusted, feature-rich platform for preserving and sharing children’s memories.
 ---
 
 # Design
 
 ## Design Choices
 
-The design of Cradle Blog was crafted to be vibrant and playful, reflecting the theme of parenting and children. Since the blog caters to parents, many of whom are often overwhelmed with the responsibilities of raising a child, the design aims to inject a sense of fun and energy into their browsing experience. The goal was to create a space that feels lighthearted and colorful, offering parents a refreshing and engaging atmosphere.
+The design of **Memories** embraces a dark theme, carefully selected to make the colorful and vibrant photos of children stand out prominently against the backdrop. This choice not only enhances the visual appeal but also provides a soothing and comfortable viewing experience for users, especially during extended browsing sessions, compared to a traditional light theme.
+
+---
 
 ## Color Scheme
 
-The color palette for Cradle Blog was inspired by my twin girls' favorite colors—pink and purple. These personal elements were integrated into the blog to honor the role my daughters played in inspiring its creation. The main colors used are **pink**, **purple**, **yellow**, and **dark grey**:
-- **Pink and purple** are the core colors throughout the blog, representing joy and connection.
-- **Yellow** serves as the background for the pages, inspired by the bright banner image that features yellow. It brings a cheerful and lively tone to the website.
-- **Dark grey** was chosen for the header and footer to provide a strong contrast with the lighter, more playful colors, ensuring readability and structure.
-- **Dark pink** is used for accents such as underlines and borders, offering a cohesive and stylish contrast against the rest of the color scheme.
+The color palette for **Memories** is centered around creating a modern, dark aesthetic while ensuring accessibility and visual balance. The website prominently features four key colors: **black**, **dark grey**, **gold**, and **white**.
 
-![Color Scheme](static/images/readme/colors-and-font/colours.png)
+- **Black**: Used as the primary background color, providing a rich and dramatic base for the content.
+- **Dark Grey**: Applied to content sections such as posts, profiles, and milestones, creating a subtle contrast against the black background.
+- **Gold**: Selected for buttons, hover effects, and accents, adding a touch of elegance and drawing attention to interactive elements.
+- **White**: Used for text and buttons to ensure clarity, readability, and a clean, polished appearance.
+
+This thoughtfully chosen color scheme ensures that the platform remains visually engaging while highlighting the personal and meaningful content shared by users.
+
+![Color Scheme](readme/features/colour-palette.png)
 
 ## Typography
 
-The blog utilizes a mix of fonts from Google Fonts to enhance readability and emphasize key areas of the website. The selected fonts bring a balance of fun and clarity to the blog's aesthetic:
-- **Salsa** is used for headings, giving a playful and distinct appearance to titles and headers.
-- **Handlee** is applied to blog excerpts, adding a personal and handwritten feel that complements the blog’s warm tone.
-- **Nunito Sans** is used for the rest of the content, including buttons, links, and forms, offering a clean and modern look that ensures legibility across all devices.
+The website uses a single font, **Poppins**, with font-weight 300 throughout to maintain consistency and simplicity in its design. **Poppins** was chosen for its modern and clean aesthetic, which complements the sleek and professional look of the platform. 
 
-### Salsa
-![Font Salsa](static/images/readme/colors-and-font/salsa.png)
+Its versatility ensures:
+- **Readability**: Clear and easy-to-read text across all devices and screen sizes.
+- **Consistency**: A unified appearance throughout the website, aligning with the platform’s design goals.
+- **Modern Appeal**: A contemporary style that resonates with the target audience and enhances the overall user experience. 
 
-### Handlee
-![Font Handlee](static/images/readme/colors-and-font/handlee.png)
-
-### Nunito
-![Font Nunito](static/images/readme/colors-and-font/nunito.png)
-
-## Imagery
-
-The imagery for Cradle Blog is designed to evoke warmth and personalization. The home page banner features a background image sourced from Freepik, with a personal touch—a picture of my twin girls placed on top of the background. Their presence on the site reminds me of the inspiration behind this blog. Other images used in the blog posts and avatars were generated using ChatGPT, providing a cohesive visual experience throughout the site.
+Using a single font helps streamline the design, creating a cohesive and visually harmonious interface.
+### Poppins
+![Font Poppins](readme/features/font.png)
 
 ## Logo
 
-The logo was designed with my twin daughters in mind. Since their picture is featured in the banner, I wanted to continue that theme with the logo. It features two baby girls sleeping inside a cradle, symbolizing the core inspiration for the blog. The logo is not only a representation of Cradle Blog’s mission but also a personal homage to the journey of parenthood that led to its creation.
+## Logo
 
-![Logo](static/images/readme/features/logo.png)
+The logo for **Memories** was thoughtfully crafted to embody the essence of the platform—a safe and cherished space for preserving children's milestones and moments. The design features a sleek, minimalist camera symbol in **gold**, reflecting the idea of capturing memories. The dark background complements the platform’s overall theme, ensuring the logo stands out prominently.
+
+The camera signifies the core functionality of the platform—sharing and preserving precious moments. The clean and elegant design not only represents the brand's modern aesthetic but also emphasizes its mission to provide parents with a secure and meaningful way to document their children's journeys.
+
+![Logo](readme/features/logo.png)
 
 # Agile Methodology
 
 Agile methodology is a flexible and iterative approach to software development that emphasizes collaboration, adaptability, and customer feedback. It allows teams to respond to changing requirements and deliver valuable features incrementally. In this project, we follow Agile principles to enhance productivity and ensure successful project delivery.
 
-- **User Stories and Github Issues**: I utilized Github issues to create detailed user stories for my project. Each user story included essential components such as story points and acceptance criteria.These user stories were tracked either on the Kanban board or within the issues themselves.
+- **User Stories and Github Issues**: I utilized Github issues to create detailed user stories for my project. Each user story included essential components such as story points and acceptance criteria. These user stories were tracked either on the Kanban board or within the issues themselves.
 - **Kanban Board for Prioritization**: The Github Kanban board played a crucial role in managing my project. User stories were assigned to specific issues, allowing me to define clear goals and priorities.
+- **Milestones**: I divided the project into three distinct phases, each with its own set of goals and deadlines. This structured approach allowed me to stay organized and focused, ensuring steady progress. By working phase by phase within the set deadlines, I was able to stay motivated and successfully complete the project on time.
 
 #### Project Sections: My project was organized into the following sections:
 
@@ -397,165 +503,146 @@ Agile methodology is a flexible and iterative approach to software development t
 - In-progress: Ongoing work.
 - Done: Completed tasks.
 
-To review the Kanban board for the project, please click [HERE](https://github.com/users/Yagavi1994/projects/3)
+To review the Kanban board for the project, please click [HERE](https://github.com/users/Yagavi1994/projects/5)
+
+![Kanban-board](readme/features/kanban-board.png)
 
 
 # Database Scheme & User Journey
 
-## User Journey
-
-![User journey flowchart](static/images/readme/data-scheme-and-flow-chart/flowchart.webp)
-
 ## Database Scheme 
 
-- Post has many Comments and Favourites, is linked to one Category, and is authored by one User.
-- Category can have many Posts.
-- Comment is linked to one Post and one User.
-- Profile is linked to one User.
-- Favourite links a User to a Post.
+This entity-relationship diagram shows a well-structured design for a Memories, allowing for efficient management of posts, milestones, comments, liked, followers and user profiles while ensuring smooth interaction between these entities.
 
-This entity-relationship diagram shows a well-structured design for a blog platform, allowing for efficient management of posts, comments, user profiles, and favorites, while ensuring smooth interaction between these entities.
-
-![Database Scheme](static/images/readme/data-scheme-and-flow-chart/data-relationship-entity-diagram.png)
+![Database Scheme]()
 
 
 # Wireframes
-<details>
-<summary>Register</summary>
-<br>
+Since I took the moments walthrough website as my inspiration, I used it itself as a wireframe for my project. So I made wireframes only few of the important pages, others I used the same outlook of the moments web application.
 
 ### Mobile
-![Register](static/images/readme/wireframes/sign-up-mobile.png)
-### Tablet
-![Register](static/images/readme/wireframes/sign-up-tablet.png)
-### Laptop
-![Register](static/images/readme/wireframes/sign-up-laptop.png)
-</details>
+#### Sign-in Page
+![Sign-in](readme/wireframe/sign-in-mobile.png)
 
-<details>
-<summary>Log In </summary>
-<br>
+#### Home Page
+![Home](readme/wireframe/home-mobile.png)
 
-### Mobile
-![Log in](static/images/readme/wireframes/sign-in-mobile.png)
-### Tablet
-![Log in](static/images/readme/wireframes/sign-in-tablet.png)
-### Laptop
-![Log in](static/images/readme/wireframes/sign-in-laptop.png)
+#### Post Page
+![Post](readme/wireframe/post-mobile.png)
 
-</details>
+#### Profile Page
+![Profile](readme/wireframe/profile-mobile.png)
 
-<details>
-<summary>Home</summary>
-<br>
+### Desktop
+#### Sign-in Page
+![Sign-in](readme/wireframe/sign-in-desktop.png)
 
-### Mobile
-![Home](static/images/readme/wireframes/landing-page-mobile.png)
-### Tablet
-![Home](static/images/readme/wireframes/landing-page-tablet.png)
-### Laptop
-![Home](static/images/readme/wireframes/landing-page-laptop.png)
-</details>
+#### Home Page
+![Home](readme/wireframe/home-desktop.png)
 
-<details>
-<summary>Blog Post</summary>
-<br>
-
-### Mobile
-![Blog Post](static/images/readme/wireframes/blog-post-mobile.png)
-### Tablet
-![Blog Post](static/images/readme/wireframes/blog-post-tablet.png)
-### Laptop
-![Blog Post](static/images/readme/wireframes/blog-post-laptop.png)
-</details>
-
-<details>
-<summary>Search Page/ Category Page</summary>
-<br>
-
-### Mobile
-![Search Page](static/images/readme/wireframes/search-page-mobile.png)
-### Tablet
-![Search Page](static/images/readme/wireframes/search-page-tablet.png)
-### Laptop
-![Search Page](static/images/readme/wireframes/search-laptop.png)
-</details>
-
-<details>
-<summary>Profile Page</summary>
-<br>
-
-### Mobile
-![Profile Page](static/images/readme/wireframes/profile-page-mobile.png)
-### Tablet
-![Profile Page](static/images/readme/wireframes/profile-page-tablet.png)
-### Laptop
-![Profile Page](static/images/readme/wireframes/profile-page-laptop.png)
-</details>
-
-<details>
-<summary>Favourites</summary>
-<br>
-
-### Mobile
-![Favourites](static/images/readme/wireframes/favourites-mobile.png)
-### Tablet
-![Favourites](static/images/readme/wireframes/favourites-tablet.png)
-### Laptop
-![Favourites](static/images/readme/wireframes/favourites-laptop.png)
-</details>
-
-<details>
-<summary>Comments</summary>
-<br>
-
-### Mobile
-![Comments](static/images/readme/wireframes/comments-mobile.png)
-### Tablet
-![Comments](static/images/readme/wireframes/comments-tablet.png)
-### Laptop
-![Comments](static/images/readme/wireframes/comments-laptop.png)
-</details>
-
-<details>
-<summary>400 Error</summary>
-<br>
-
-### Mobile
-![400 Error](static/images/readme/wireframes/404-mobile.png)
-### Tablet
-![400 Error](static/images/readme/wireframes/404-tablet.png)
-### Laptop
-![400 Error](static/images/readme/wireframes/404-laptop.png)
-</details>
-
-<details>
-<summary>Log Out</summary>
-<br>
-
-### Mobile
-![Log out](static/images/readme/wireframes/sign-out-mobile.png)
-### Tablet
-![Log out](static/images/readme/wireframes/sign-out-tablet.png)
-### Laptop
-![Log out](static/images/readme/wireframes/sign-out-laptop.png)
-</details>
-
+#### Profile Page
+[Profile](readme/wireframe/profile-desktop.png)
 
 # Features
 
-Here is the detailed content for the features you requested, with relevant **User Stories** quoted under each feature, formatted for a `README.md` file:
+## Navbar
+
+The **Memories** navbar is designed to be fully responsive, providing seamless navigation across desktop, tablet, and mobile devices. It combines functionality and aesthetics, ensuring an intuitive user experience regardless of the screen size.
+
+### Key Features:
+
+1. **Dynamic Navigation Options**:
+   - Links to **Home**, **Feed**, **Liked**, **Requests**, **Profile**, and **Sign Out** are organized clearly on the right.
+   - Dropdown menus for **Feed** and **Liked** provide easy access to **Posts** and **Milestones**, allowing users to filter and explore content effortlessly.
+
+2. **Action Buttons**:
+   - Quick access to **Add Post** and **Add Milestone** links is prominently displayed on the left, enabling users to contribute new content with a single click.
+
+3. **Logo Integration**:
+   - The **Memories** logo is positioned on the left, doubling as a clickable link to the homepage for easy navigation.
+
+4. **Responsiveness**:
+   - **Desktop View**: Displays all options inline for maximum visibility and ease of access.
+   - **Tablet View**: Adjusts the layout to accommodate medium-sized screens while maintaining full functionality.
+   - **Mobile View**: Simplifies the design by consolidating navigation items into a responsive dropdown menu, optimizing the space for smaller screens.
+
+5. **User Interaction**:
+   - The profile picture is visible in the navbar, serving as a quick link to the user's profile page.
+   - A **Requests** link allows private profile users to manage follow requests efficiently.
+
+6. **Interactive Design**:
+   - Buttons and links use **gold** highlights for hover effects, enhancing the interactive experience while maintaining the dark theme's elegance.
+
+This responsive navbar ensures smooth and efficient navigation while preserving the platform's minimalist and user-centric design.
+
+> - #### User Story 1:  
+> - **As a user**, I can view a navbar from every page so that I can navigate easily between pages.
+> - Navbar is visible on every page.
+> - Navbar includes links to all main pages (e.g., Home, Profile, Posts, Sign In, Sign Up).
+> - Navbar updates to show relevant options based on the logged-in status (e.g., "Sign In" and "Sign Up" for logged-out users; "Profile" and "Logout" for logged-in users).
+> - Navbar is responsive and adapts to various screen sizes.
+
+#### Navbar Mobile
+![Navbar-mobile](readme/features/nav-bar-mobile.png)
+#### Navbar Tablet
+![Navbar-tablet](readme/features/nav-bar-tablet.png)
+#### Navbar Desktop
+![Navbar-desktop](readme/features/nav-bar-desktop.png)
 
 ---
 
-## Features
+## Home Page
 
-### Home Page
-The homepage has a banner on top with a welcome message and displays the latest blog posts in a clean and user-friendly format. Each post shows the title, a short excerpt, the author's name and the published date. Posts are ordered by the most recent first, providing users with fresh content at the top.
+The **Home Page** serves as the central hub of the **Memories** platform, offering a clean and user-friendly interface for users to browse posts, discover milestones, and engage with the community.
 
-- **User Story 1**: The homepage should display a list of the latest blog posts with links to view the full content.
+### Key Features:
 
-![Home Page](static/images/readme/features/home-page.png)
+1. **Search Functionality**:
+   - A **universal search bar** is prominently displayed at the top of the page, allowing users to search for specific posts and milestones with ease.
+   - Another dedicated **profile search bar** is available in the sidebar to quickly find user profiles.
+
+2. **Posts and Milestones Feed**:
+   - Displays posts and milestones from followed users, ordered by the most recent first.
+   - Each post and milestone includes:
+     - **User avatar and name** for easy identification.
+     - **Timestamp** to show when the post was created.
+     - **Caption** or milestone description for context.
+     - **Interactive options**: Users can like or comment directly from the feed.
+
+3. **Posts and Milestones Integration**:
+   - Posts and milestones are seamlessly integrated into the feed, allowing users to view and celebrate important memories alongside regular posts.
+
+4. **Most Followed Profiles**:
+   - The sidebar highlights the **most followed profiles**, providing users with suggestions to connect with popular community members.
+   - Includes **follow/unfollow** buttons for quick interaction, encouraging users to expand their network.
+
+5. **Responsive Design**:
+   - The layout adapts gracefully across devices, ensuring optimal viewing and navigation on desktops, tablets, and mobile devices.
+
+6. **Visual Content Focus**:
+   - A dark theme enhances the visibility of vibrant and colorful pictures, making posts stand out.
+   - The streamlined layout ensures that user-generated content remains the primary focus.
+
+> - **User Story 12**:  
+  > - **As a user**, I can view all the most recent posts and milestones, ordered by most recently created first so that I am up to date with the newest content.  
+  > - Posts and Milestones are displayed in order of most recent first.
+  > - Users can scroll through a list of posts and milestones from the main feed.
+  > - Each post and milestone displays key information (e.g., image, caption, like count).
+
+> - **User Story 13**:  
+  > - **As a user**, I can search for posts and milestones with keywords so that I can find the posts, milestones and user profiles I am most interested in.  
+  > - A search bar is accessible on the home, posts and milestones page.
+  > - Users can enter keywords to find relevant posts, milestones or profiles.
+  > - Search results display in real-time or after submission.
+
+> - **User Story 25**:  
+  > - **As a user**, I can see a list of the most followed profiles so that I can see which profiles are popular.  
+  > - Users can see a list of the most followed profiles on the app.
+  > - List displays in descending order based on the number of followers.
+
+The **Home Page** provides users with an engaging and efficient way to explore content, connect with others, and celebrate shared memories.
+
+![Home Page](readme/features/home-page.png)
 
 ---
 
