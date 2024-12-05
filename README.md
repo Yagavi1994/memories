@@ -736,6 +736,8 @@ The **Liked Page** enhances user engagement by providing a convenient way to rev
   > - Logged-in users can access a list of posts or milestones they’ve liked.
   > - Content displays in reverse chronological order, with the most recently liked items appearing first.
 
+---
+
 ### Requests Page
 
 The **Requests Page** is a dedicated section where users with private profiles can manage follow requests. When a user sets their profile to private, others who wish to follow them must send a follow request. These requests are displayed on the **Requests Page**, allowing the user to accept or decline them, ensuring full control over their privacy and connections.
@@ -771,6 +773,8 @@ The **Requests Page** enhances user privacy and security, ensuring that private 
   > - Accepted requests grant the requester access to the user's private profile.
 
 ![Requests Page](readme/features/follow-request.png)
+
+---
 
 ### Profile Page
 
@@ -817,6 +821,54 @@ The **Profile Page** is an essential feature that combines personal expression, 
 
 ![Profile Page](readme/features/profile-page.png)
 
+---
+
+### Private Profile Page
+
+The **Private Profile Page** ensures that users have control over their content and audience by offering a secure and customizable space for private interactions.
+
+### Key Features:
+
+1. **Private Profile Indicator**:
+   - Displays a **"This Profile is Private"** message to users who are not approved followers of the profile.
+   - Ensures that posts, milestones, and other user details remain hidden from unauthorized viewers.
+
+2. **Follow Request Button**:
+   - Non-followers see a **"Follow"** button to request access to the private profile.
+   - Upon clicking, the button updates to show **"Requested"**, confirming that a follow request has been sent.
+
+3. **Controlled Access**:
+   - Only approved followers can view the posts and milestones of a private profile.
+   - Unauthorized users are restricted from accessing any content within the profile.
+
+4. **Notification System**:
+   - Profile owners receive notifications for each follow request, which can be managed in the **Requests Page**.
+   - Once a request is accepted, the user gains access to the private profile’s content.
+
+5. **Dynamic Privacy Toggle**:
+   - Profile owners can easily switch between **Public** and **Private** modes from the **Edit Privacy Settings** menu.
+   - Changes are applied instantly and persist across sessions.
+
+6. **Responsive Design**:
+   - The page adapts to various devices, maintaining functionality and ease of navigation on desktops, tablets, and mobile devices.
+
+> - **User Story 31**:  
+  > - **As a user**, I can set my profile to public or private so that I have control over who can view my posts and information.  
+  > - Users can access a setting on their profile page to toggle between "Public" and "Private" profile modes.  
+  > - When set to "Public," any user can view the profile and its posts.  
+  > - When set to "Private," only approved followers can view the profile and its posts.  
+  > - A notification confirms the change in profile visibility.  
+  > - The privacy setting persists across sessions.  
+
+> - **User Story 8**:  
+  > - **As a user**, I can view user avatars so that I can easily identify users of the application.  
+  > - User avatars are displayed on private profiles, while other content remains hidden from unauthorized viewers.  
+  > - Default avatars are shown if a user has not set a custom avatar.
+
+![Private Profile Page](readme/features/private-profile.png)
+
+---
+
 ### Add Post Page
 
 The **Add Post Page** allows users to create and share their cherished memories with the community. This page provides an intuitive interface for uploading images and adding content, making it simple for users to contribute to the platform.
@@ -853,6 +905,8 @@ The **Add Post Page** empowers users to document and share their memories effort
   > - Users receive feedback or confirmation after successfully posting.  
 
 ![Add Post Page](readme/features/add-post.png)
+
+---
 
 ### Add Milestone Page
 
@@ -900,6 +954,8 @@ The **Add Milestone Page** provides a structured and personalized way to documen
   > - Feedback is provided upon successful milestone creation.  
 
 ![Add Milestone Page](readme/features/add-milestone.png)
+
+---
 
 ### Post and Milestone Page
 
@@ -968,6 +1024,8 @@ experience and keeping interactions seamless.
 #### Milestone Page
 ![Milestone Page](readme/features/milestone-page.png)
 
+---
+
 ### Edit and Delete Post or Milestone Feature
 
 The **Edit and Delete Post or Milestone** feature provides users with the ability to manage their own content. This functionality is seamlessly integrated into each post and milestone, allowing users to update or remove their content directly from the platform.
@@ -998,6 +1056,8 @@ This feature ensures users have complete control over their shared memories whil
 >   - Only the milestone owner can access the **Edit** and **Delete** options for their milestones.  
 >   - Changes or deletions are saved instantly, and feedback is provided upon action completion.
 
+---
+
 #### Edit or Delete Menu
 
 ![Edit or Delete Menu](readme/features/edit-menu.png)
@@ -1010,7 +1070,7 @@ This feature ensures users have complete control over their shared memories whil
 
 ![Edit Milestone](readme/features/edit-milestone.png)
 
-
+---
 
 ### Comments
 
@@ -1054,6 +1114,8 @@ This feature enhances interactivity and community engagement, fostering meaningf
 
 ![Comments](readme/features/comments-box.png)
 
+---
+
 ### Like
 
 The **Like Feature** enables users to interact with posts and milestones by expressing their appreciation. This feature provides a seamless way for users to engage with content and show their support for other users' memories.
@@ -1092,6 +1154,8 @@ This feature creates a social dynamic where users can connect with and appreciat
 
 ![Likes](readme/features/like-and-comment.png)
 
+---
+
 ### Infinite Scroll Feature
 
 The **Infinite Scroll Feature** enhances user experience by allowing continuous scrolling through posts and milestones without the need for manual pagination. This feature ensures that users can seamlessly browse content without interruptions, providing a smooth and engaging experience.
@@ -1119,6 +1183,8 @@ This feature aligns with the platform's goal of creating an enjoyable and user-f
 >   - Posts and milestones are loaded automatically as users scroll down the page.  
 >   - Users can continue scrolling without clicking “Next Page” or similar navigation.  
 >   - Loading indicators are displayed when more content is being fetched.
+
+---
 
 ### Edit Profile Menu
 
@@ -1178,6 +1244,8 @@ This menu is designed with user convenience and privacy in mind, giving users co
 >   - A confirmation message is displayed before deletion.  
 >   - Only the profile owner can delete their account.  
 
+---
+
 ### No Results Found Page
 
 The **No Results Found** page ensures a user-friendly experience even when users encounter invalid or unavailable pages. It uses an expressive and relatable illustration, paired with a clear message, to inform users that the requested page does not exist. This design minimizes frustration and keeps the experience light-hearted and visually engaging.
@@ -1206,6 +1274,8 @@ This feature enhances user experience by gracefully handling errors and maintain
 
 #### No Posts Found
 ![No posts Found](readme/features/no-posts-found.png)
+
+---
 
 ### Follow/Unfollow Button Feature
 
@@ -1239,6 +1309,8 @@ This feature fosters a sense of community while giving users full control over t
 
 ![Follow/Unfollow Button](readme/features/follow-unfollow-button.png)
 
+---
+
 ### Most Followed Profiles
 
 The **Most Followed Profiles** feature provides users with a quick overview of the most popular accounts on the platform. This feature fosters community engagement by encouraging users to explore and follow other active members of the Memories community.  
@@ -1266,6 +1338,8 @@ This feature enhances discoverability, strengthens the platform’s sense of com
 >   - Users can follow/unfollow directly from the list.
 
 ![Most Followed Profiles](readme/features/most-followed-profiles.png)
+
+---
 
 ### Authentication Pages
 
@@ -1302,6 +1376,8 @@ Both pages feature the Memories logo on the right, maintaining consistency and r
 > - **User Story 5**:  
   > - **As a user**, I can tell if I am logged in or not so that I can log in if I need to.  
   > - Clear indication of logged-in status across the site.
+
+---
 
 ### Admin Features
 
@@ -1362,6 +1438,7 @@ The admin tools not only empower platform managers to maintain a safe and respec
 
 ![Admin](readme/features/admin-dashboard.png)
 
+---
 
 # Technologies Used 
 
