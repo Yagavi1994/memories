@@ -1369,7 +1369,6 @@ Both pages feature the Memories logo on the right, maintaining consistency and r
 - [Gitpod](https://gitpod.io/) to use as workspace to load and push my code to Github.
 - [GitHub](https://github.com/) to create the repository for the project.
 - [Heroku](https://www.heroku.com/) to deploy the project.
-- [Google Drawio](https://app.diagrams.net/) to create the database schema.
 - [Google Fonts](https://fonts.google.com/) for the typography on the website
 - [ChatGPT](https://chatgpt.com/) to generate logo for the site.
 - [Meta AI](https://www.meta.ai/) to generate images for the site.
