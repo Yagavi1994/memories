@@ -376,32 +376,6 @@ This platform not only allows parents to upload and share their children's photo
 
 ---
 
-### Admin Features
-
-#### Admin Dashboard  
-#### User Story 34:  
-**As an admin**, I can access an admin dashboard from which I can manage all user-generated content and user-related data, so that I can maintain the platform's quality and ensure proper moderation.  
-- Admin dashboard is accessible only to users with admin privileges.  
-- Admin dashboard includes navigation links to manage:  
-  - Profiles  
-  - Users  
-  - Posts  
-  - Milestones  
-  - Comments  
-  - Likes  
-  - Followers  
-  - Follow Requests  
-- Admin can view, create, edit, and delete:  
-  - User profiles  
-  - Posts  
-  - Milestones  
-  - Comments  
-  - Likes  
-- Admin can view a list of all users with key information (e.g., username, email, role, account status).  
-- Admin can view all activity related to a specific user (posts, milestones, comments, likes, followers).
-
----
-
 ### Future Goals for Memories
 
 #### 1. **Mobile Application**
@@ -1365,67 +1339,6 @@ Both pages feature the Memories logo on the right, maintaining consistency and r
 > - **User Story 5**:  
   > - **As a user**, I can tell if I am logged in or not so that I can log in if I need to.  
   > - Clear indication of logged-in status across the site.
-
----
-
-### Admin Features
-
-The **Admin Dashboard** in *Memories* is a robust feature that provides platform administrators with comprehensive tools to monitor, manage, and moderate user-generated content and user interactions. This dashboard ensures that the platform maintains a high standard of quality, safety, and user experience. The admin dashboard is accessible only to users with admin privileges, ensuring its functionality remains secure and restricted to authorized personnel.
-
-#### Key Functionalities:
-- **User and Profile Management**:  
-  The admin has access to all user profiles and can perform the following actions:
-  - View detailed user information, including username, email, and account status.
-  - Create, edit, and delete user profiles when necessary.
-  - Manage followers and follow requests for any profile.
-
-- **Content Management**:  
-  The dashboard allows admins to oversee all content shared on the platform:
-  - View, edit, and delete posts and milestones.
-  - Moderate comments and likes, ensuring they adhere to community guidelines.
-  - Remove inappropriate or spam content to maintain the platform's integrity.
-
-- **Activity Monitoring**:  
-  Admins can monitor all activity related to a specific user, including:
-  - Posts and milestones created by the user.
-  - Comments posted or liked by the user.
-  - Follow and follower interactions associated with the user.
-
-- **Navigation and Usability**:  
-  The dashboard is designed for ease of navigation, with clearly organized sections for managing:
-  - Profiles
-  - Users
-  - Posts
-  - Milestones
-  - Comments
-  - Likes
-  - Followers
-  - Follow Requests
-
-The admin tools not only empower platform managers to maintain a safe and respectful community but also ensure that inappropriate content or behavior is swiftly addressed, preserving the user experience for all members.
-
-> - **User Story 34**:  
->   - **As an admin**, I can access an admin dashboard from which I can manage all user-generated content and user-related data, so that I can maintain the platform's quality and ensure proper moderation.  
->   - Admin dashboard is accessible only to users with admin privileges.  
->   - Admin dashboard includes navigation links to manage:  
->     - Profiles  
->     - Users  
->     - Posts  
->     - Milestones  
->     - Comments  
->     - Likes  
->     - Followers  
->     - Follow Requests  
->   - Admin can view, create, edit, and delete:  
->     - User profiles  
->     - Posts  
->     - Milestones  
->     - Comments  
->     - Likes  
->   - Admin can view a list of all users with key information (e.g., username, email, role, account status).  
->   - Admin can view all activity related to a specific user (posts, milestones, comments, likes, followers).
-
-![Admin](readme/features/admin-dashboard.png)
 
 ---
 

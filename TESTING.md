@@ -3,7 +3,6 @@
 * [Lighthouse Testing](#lighthouse-testing)
 * [Validator Testing](#validator-testing)
 * [Responsiveness Testing](#responsiveness-testing)
-* [C.R.U.D Testing](#crud-testing)
 * [Manual Testing](#manual-testing)
 * [Fixed Bugs](#fixed-bugs)
 * [Unfixed Bug](#unfixed-bug)
@@ -66,40 +65,6 @@ No errors or warnings were found when the deployed URL was passed through the W3
 | Profile page - responsiveness  | Size site up to 1920px  | all elements stay on screen | ✅         |
 | Requests Page - responsiveness | Size site down to 320px | all elements stay on screen | ✅         |
 | Requests page - responsiveness | Size site up to 1920px  | all elements stay on screen | ✅         |
-
-## C.R.U.D Testing
-
-| **TEST**          | **ACTION**             | **EXPECTATION**          | **RESULT** |
-| ----------------- | ---------------------- | ------------------------ | ---------- |
-| Post | Create | Successfully created new posts | ✅ |
-| Post | Read | Posts display correctly on the Post page | ✅ |
-| Post | Update | Post edits reflect accurately | ✅ |
-| Post | Delete | Post removed successfully | ✅ |
-| Milestone | Create | Successfully created new milestone | ✅ |
-| Milestone | Read | Milestone display correctly on the Milestone page | ✅ |
-| Milestone | Update | Milestone edits reflect accurately | ✅ |
-| Milestone | Delete | Milestone removed successfully | ✅ |
-| Profile | Create | New Instance created in database | ✅ |
-| Profile | Read | Instances and data visible in Profile Page  | ✅ |
-| Profile | Update | Modifications saved & visible in the Profile Page | ✅ |
-| Profile | Delete | Instance removed from database with all its data and other instances that have relation with it (Comments and Profile Picture) | ✅         |
-| Comments | Create | Comment created | ✅ |
-| Comments | Read | Comment visible in Post page and Milestone page | ✅ |
-| Comments | Update | Comment edits reflect accurately | ✅ |
-| Comments | Delete | Comment removed successfully | ✅ |
-| Likes | Create | Likes added to User Profile | ✅ |
-| Likes | Read | Likes visible in Users Post or Milestone | ✅ |
-| Likes | Delete | Likes removed successfully | ✅ |
-| Followers | Create | Followers created | ✅ |
-| Followers | Read | Followers count visible in User Profile's page | ✅ |
-| Followers | Update | Followers update reflect accurately | ✅ |
-| Followers | Delete | Followers removed successfully | ✅ |
-| Follow Requests | Create | Follow Requests created | ✅ |
-| Follow Requests | Read | Follow Requests visible in Requests page | ✅ |
-| Follow Requests | Update | Follow Requests update reflect accurately | ✅ |
-| Follow Requests | Delete | Follow Requests removed successfully | ✅ |
-
----
 
 ## Manual Testing
 
