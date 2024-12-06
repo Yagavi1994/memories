@@ -110,14 +110,14 @@ const Milestone = (props) => {
           <Card.Img src={image} alt={title} className={styles.Image} />
         </Link>
       </div>
-      <Card.Body className={`text-left ${styles.HeartBullets}`}>
+      <Card.Body className={`text-left`}>
         <div>
           <table style={{ width: "100%" }}>
             <tbody>
               {title && (
                 <tr>
                   <td>
-                    <i className="fa-solid fa-heart fa-2xs"></i>
+                    <i className={`fa-solid fa-heart fa-2xs ${styles.HeartBullets}`}></i>
                   </td>
                   <td className={styles.Font}><strong>Milestone</strong></td>
                   <td>: {title}</td>
@@ -126,7 +126,7 @@ const Milestone = (props) => {
               {milestone_date && (
                 <tr>
                   <td>
-                    <i className="fa-solid fa-heart fa-2xs"></i>
+                    <i className={`fa-solid fa-heart fa-2xs ${styles.HeartBullets}`}></i>
                   </td>
                   <td className={styles.Font}><strong>Date</strong></td>
                   <td>: {formattedDate}</td>
@@ -135,7 +135,7 @@ const Milestone = (props) => {
               {(age_years || age_months) && (
                 <tr>
                   <td>
-                    <i className="fa-solid fa-heart fa-2xs"></i>
+                    <i className={`fa-solid fa-heart fa-2xs ${styles.HeartBullets}`}></i>
                   </td>
                   <td className={styles.Font}><strong>Age</strong></td>
                   <td>
@@ -147,7 +147,7 @@ const Milestone = (props) => {
               {height && (
                 <tr>
                   <td>
-                    <i className="fa-solid fa-heart fa-2xs"></i>
+                    <i className={`fa-solid fa-heart fa-2xs ${styles.HeartBullets}`}></i>
                   </td>
                   <td className={styles.Font}><strong>Height</strong></td>
                   <td>: {height} cm</td>
@@ -156,7 +156,7 @@ const Milestone = (props) => {
               {weight && (
                 <tr>
                   <td>
-                    <i className="fa-solid fa-heart fa-2xs"></i>
+                    <i className={`fa-solid fa-heart fa-2xs ${styles.HeartBullets}`}></i>
                   </td>
                   <td className={styles.Font}><strong>Weight</strong></td>
                   <td>: {weight} kg</td>
@@ -165,7 +165,7 @@ const Milestone = (props) => {
               {milestone_category && (
                 <tr>
                   <td>
-                    <i className="fa-solid fa-heart fa-2xs"></i>
+                    <i className={`fa-solid fa-heart fa-2xs ${styles.HeartBullets}`}></i>
                   </td>
                   <td className={styles.Font}><strong>Category</strong></td>
                   <td>
@@ -177,7 +177,7 @@ const Milestone = (props) => {
               {content && (
                 <tr>
                   <td>
-                    <i className="fa-solid fa-heart fa-2xs"></i>
+                    <i className={`fa-solid fa-heart fa-2xs ${styles.HeartBullets}`}></i>
                   </td>
                   <td className={styles.Font}><strong>Description</strong></td>
                   <td style={{ textAlign: "justify" }}>: {content}</td>

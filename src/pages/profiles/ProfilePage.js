@@ -193,7 +193,7 @@ function ProfilePage() {
               {!profile?.can_view_posts && !profile?.can_view_milestones && (
                 <Container className="text-center mt-3 mb-3">
                   <hr />
-                  <i className="fa-solid fa-lock fa-bounce"></i>
+                  <i className={`fa-solid fa-lock fa-bounce ${styles.Lock}`}></i>
                   <h5 className="mt-4 mb-4">This profile is private.</h5>
                 </Container>
               )}

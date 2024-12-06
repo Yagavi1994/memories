@@ -6,6 +6,7 @@
     color: #d2cb7d;
     background-color: #2d2d2d;
     transition: color ease-in-out 0.3s;
+    border: 2px solid #d2cb7d;
 }
 
 .Icon {

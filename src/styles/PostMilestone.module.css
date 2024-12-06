@@ -18,6 +18,14 @@
     overflow: hidden; 
   }
 
+  .HeartBullets {
+    cursor: default !important;
+ }
+
+  .HeartBullets:hover {
+    color: #fff !important;
+  }
+
   .Name:hover {
     color: #d2cb7d;
   }
@@ -71,9 +79,3 @@
   .HeartOutline:hover {
     color: #d2cb7d;
   }
-
-  /* @media (max-width: 768px) {
-    .ImageContainer {
-      max-height: 200px;
-    }
-  } */

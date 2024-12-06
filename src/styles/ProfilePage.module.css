@@ -16,6 +16,14 @@
     gap: 2px;
   }
 
+  .Lock {
+    cursor: default !important;
+  }
+
+  .Lock:hover {
+    color: #fff !important;
+  }
+
   a {
     font-weight: 400;
   }
