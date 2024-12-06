@@ -22,7 +22,6 @@ This platform not only allows parents to upload and share their children's photo
 - [User Experience](#user-experience) 
 - [Design](#design)  
 - [Agile Methodology](#agile-methodology)
-- [Database Scheme](#database-scheme)
 - [Wireframes](#wireframes)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
@@ -503,16 +502,6 @@ Agile methodology is a flexible and iterative approach to software development t
 To review the Kanban board for the project, please click [HERE](https://github.com/users/Yagavi1994/projects/5)
 
 ![Kanban-board](readme/features/kanban-board.png)
-
-
-# Database Scheme & User Journey
-
-## Database Scheme 
-
-This entity-relationship diagram shows a well-structured design for a Memories, allowing for efficient management of posts, milestones, comments, liked, followers and user profiles while ensuring smooth interaction between these entities.
-
-![Database Scheme]()
-
 
 # Wireframes
 
