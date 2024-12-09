@@ -84,7 +84,7 @@ function App() {
             path="/home"
             component={() => (
               <HomePage
-                message="Adjust the search keyword or follow a user."
+                message="Follow a user to view their posts and milestones."
                 filter={`owner__followed__owner__profile=${profile_id}&`}
               />
             )}

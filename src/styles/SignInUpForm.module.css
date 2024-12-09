@@ -54,3 +54,11 @@
 .alert-warning {
     color: red !important;
   }
+
+.CustomAlert {
+  background-color: #d2cb7d !important;
+  color: #171717 !important;
+  border: 2px solid #d2cb7d !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  font-weight: 400;
+}

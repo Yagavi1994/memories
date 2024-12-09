@@ -9,9 +9,8 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
-
 import { Link, useHistory } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
@@ -21,7 +20,8 @@ import { setTokenTimestamp } from "../../utils/utils";
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
   useRedirect("loggedIn");
-
+  const location = useLocation();
+  const [message, setMessage] = useState(location.state?.successMessage || "");
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
@@ -38,17 +38,17 @@ function SignInForm() {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       // Save token and user info
       setTokenTimestamp(data);
-  
+
       // Fetch user data after login
       const { data: user } = await axiosReq.get("/dj-rest-auth/user/");
       setCurrentUser(user);
-  
+
       history.push("/home"); // Redirect to posts page after login
     } catch (err) {
       setErrors(err.response?.data);
     }
   };
-  
+
   const handleChange = (event) => {
     setSignInData({
       ...signInData,
@@ -60,7 +60,12 @@ function SignInForm() {
     <Row className={styles.Row}>
       <Col className="my-auto p-0 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>sign in</h1>
+          {message && (
+            <Alert variant="success" className={styles.CustomAlert} onClose={() => setMessage("")} dismissible>
+              {message}
+            </Alert>
+          )}
+          <h1 className={styles.Header}>Sign In</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
