@@ -79,7 +79,7 @@ export const ProfileEditDropdown = ({ id }) => {
         </Dropdown.Item>
         <Dropdown.Item className={styles.DropdownItem}
           onClick={() => {
-          history.push(`/profiles/${id}/edit/deleteprofile`)}}
+            history.push(`/profiles/${id}/edit/deleteprofile`);}}
           aria-label="delete-profile"
         >
           <i className={`fa-solid fa-trash ${styles.Icon}`} />

@@ -30,7 +30,6 @@ const NavBar = () => {
         const { data } = await axios.get("/follow-requests/count/");
         setFollowRequestCount(data.count);
       } catch (err) {
-        console.error("Failed to fetch follow request count", err);
       }
     };
 
@@ -46,13 +45,12 @@ const NavBar = () => {
       removeTokenTimestamp();
       history.push("/");
     } catch (err) {
-      console.error("Sign out failed", err);
     }
   };
 
   const navItemSelect = () => {
     setExpanded(false);
-  }
+  };
 
   // Determine active state for dropdowns
   const isFeedActive = ["/posts", "/milestones"].includes(location.pathname);
@@ -95,7 +93,7 @@ const NavBar = () => {
         title={
           <span
             className={`${styles.dropdownText} d-sm-inline-column ${isFeedActive ? styles.Active : ""
-              }`}
+            }`}
           >
             <i className="fa-solid fa-bars-staggered"></i>{" "}
             <span className="d-md-none d-xl-inline">Feed</span>
@@ -125,7 +123,7 @@ const NavBar = () => {
         title={
           <span
             className={`${styles.dropdownText} d-sm-inline-column ${isLikedActive ? styles.Active : ""
-              }`}
+            }`}
           >
             <i className="fas fa-heart"></i>{" "}
             <span className="d-md-none d-xl-inline">Liked</span>
@@ -156,7 +154,7 @@ const NavBar = () => {
         to="/followrequests"
         onClick={navItemSelect}
       >
-        <i className={`fa-solid fa-user pr-0`}></i>
+        <i className={"fa-solid fa-user pr-0"}></i>
         {followRequestCount > 0 && (
           <sup className={` ${styles.NotificationBadge}`}>{followRequestCount}</sup>
         )}

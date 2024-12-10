@@ -24,22 +24,22 @@ const FollowButton = ({ profile }) => {
         followState === "unfollow"
           ? btnStyles.Gold
           : followState === "request_sent"
-          ? btnStyles.Disabled
-          : btnStyles.White
+            ? btnStyles.Disabled
+            : btnStyles.White
       }
       className={`${btnStyles.Button} ${
         followState === "unfollow"
           ? btnStyles.Gold
           : followState === "request_sent"
-          ? btnStyles.Disabled
-          : btnStyles.White
+            ? btnStyles.Disabled
+            : btnStyles.White
       }`}
     >
       {followState === "unfollow"
         ? "Unfollow"
         : followState === "request_sent"
-        ? "Requested"
-        : "Follow"}
+          ? "Requested"
+          : "Follow"}
     </Button>
   );
 };
