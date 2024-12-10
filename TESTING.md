@@ -27,7 +27,13 @@ Google Lighthouse in Chrome Developer Tools was used to test the application wit
 
 No errors or warnings were found when the deployed URL was passed through the W3C CSS Validation checker.
 
-![CSS testing](https://res.cloudinary.com/ddsrnz9la/image/upload/v1697796073/css_test_uvo8px.png)
+![CSS testing](readme/validator/css.png)
+
+### ESLint Validator [ESLint](https://eslint.org/)
+
+No errors or warnings were found when the src folder was passed through the ESLint Validation checker.
+
+![ESLint testing](readme/validator/eslint.png)
 
 ## Responsiveness Testing
 
