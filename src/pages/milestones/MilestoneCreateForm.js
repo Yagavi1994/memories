@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -9,13 +8,10 @@ import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 import { useRedirect } from "../../hooks/useRedirect";
 import Asset from "../../components/Asset";
-
 import Upload from "../../assets/upload.png";
-
 import styles from "../../styles/PostMilestoneCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -34,8 +30,8 @@ function MilestoneCreateForm() {
     weight: "",
     milestone_category: "",
   });
+  
   const { title, content, image, milestone_date, age_months, age_years, height, weight, milestone_category } = milestoneData;
-
   const imageInput = useRef(null);
   const history = useHistory();
 

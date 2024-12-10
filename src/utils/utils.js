@@ -19,7 +19,6 @@ export const fetchMoreData = async (resource, setResource) => {
       ],
     }));
   } catch (err) {
-    console.error("Error fetching more data:", err);
   }
 };
 
@@ -77,7 +76,6 @@ export const setTokenTimestamp = (data) => {
     const refreshTokenTimestamp = jwtDecode(data.refresh_token).exp;
     localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
   } else {
-    console.warn("No refresh token provided to setTokenTimestamp");
   }
 };
 

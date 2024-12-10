@@ -68,13 +68,6 @@ i:hover, .NavLink:hover, #dropdownMenu:hover {
   transform: scale(1.1); 
 }
 
-@media (max-width: 600px) {
-  .navbar a {
-    padding: 5px; /* Adjust padding to reduce spacing */
-    margin: 0 5px; /* Adjust margin to fit items inline */
-  }
-}
-
 .navbar {
   display: flex;
   align-items: center;
@@ -82,4 +75,11 @@ i:hover, .NavLink:hover, #dropdownMenu:hover {
   flex-wrap: nowrap !important;
   padding: 5px 10px;
   white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .navbar a {
+    padding: 5px; /* Adjust padding to reduce spacing */
+    margin: 0 5px; /* Adjust margin to fit items inline */
+  }
 }

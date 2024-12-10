@@ -3,15 +3,12 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
 import Post from "../posts/Post";
 import Milestone from "../milestones/Milestone";
 import Asset from "../../components/Asset";
-
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsMilestonesPage.module.css";
 import { axiosRes, axiosReq } from "../../api/axiosDefaults";
-
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
@@ -48,7 +45,7 @@ const HomePage = ({ message }) => {
         const combinedFeed = [
           ...filteredPosts.map((post) => ({ ...post, type: "post" })),
           ...filteredMilestones.map((milestone) => ({ ...milestone, type: "milestone" })),
-        ]
+        ];
 
         const sortedFeed = combinedFeed.sort(
           (a, b) => new Date(b.created_at) - new Date(a.created_at)
@@ -56,7 +53,6 @@ const HomePage = ({ message }) => {
     
         setFeed({ results: sortedFeed });
       } catch (err) {
-        console.error("Error fetching the feed:", err);
       } finally {
         setHasLoaded(true);
       }

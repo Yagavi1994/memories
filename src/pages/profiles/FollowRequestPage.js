@@ -16,7 +16,6 @@ const FollowRequestsPage = () => {
         const { data } = await axiosRes.get("/follow-requests/");
         setFollowRequests(data.results || []); // Ensure results is defined
       } catch (err) {
-        console.error("Error fetching follow requests:", err);
         setErrors("Failed to load follow requests.");
       }
     };
@@ -33,7 +32,6 @@ const FollowRequestsPage = () => {
         prevRequests.filter((request) => request.id !== requestId)
       );
     } catch (err) {
-      console.error("Error accepting follow request:", err);
       setErrors("Failed to accept follow request.");
     }
   };
@@ -47,7 +45,6 @@ const FollowRequestsPage = () => {
         prevRequests.filter((request) => request.id !== requestId)
       );
     } catch (err) {
-      console.error("Error declining follow request:", err);
       setErrors("Failed to decline follow request.");
     }
   };

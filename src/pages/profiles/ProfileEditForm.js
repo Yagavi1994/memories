@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
@@ -8,13 +7,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-
 import { axiosReq } from "../../api/axiosDefaults";
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
-
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
@@ -24,14 +21,12 @@ const ProfileEditForm = () => {
   const { id } = useParams();
   const history = useHistory();
   const imageFile = useRef();
-
   const [profileData, setProfileData] = useState({
     name: "",
     content: "",
     image: "",
   });
   const { name, content, image } = profileData;
-
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -84,7 +79,7 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
-      <Form.Label><h5 className="mt-2">Bio</h5><hr /></Form.Label>
+        <Form.Label><h5 className="mt-2">Bio</h5><hr /></Form.Label>
         <Form.Control
           as="textarea"
           value={content}

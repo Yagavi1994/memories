@@ -14,14 +14,14 @@
     margin-top: 10px;
   }
 
-  @media screen and (max-width: 1024px) {
-    .SearchBar {
-      margin-top: 10px;
-    }
-  }
-
   @media screen and (min-width: 600px) {
     .SearchBar {
      width: 80%;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .SearchBar {
+      margin-top: 10px;
     }
   }

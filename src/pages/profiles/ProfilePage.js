@@ -25,13 +25,10 @@ function ProfilePage() {
   const [profileMilestones, setProfileMilestones] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const { id } = useParams();
-
   const { setProfileData } = useSetProfileData();
   const { pageProfile } = useProfileData();
-
   const [profile] = pageProfile.results || [];
   const isOwner = currentUser?.username === profile?.owner;
-
   const [activeTab, setActiveTab] = useState(
     localStorage.getItem("activeTab") || "posts"
   );
@@ -62,7 +59,6 @@ function ProfilePage() {
         setProfileMilestones(fetchedMilestones);
         setHasLoaded(true);
       } catch (err) {
-        console.error("Error fetching profile data:", err);
       }
     };
 

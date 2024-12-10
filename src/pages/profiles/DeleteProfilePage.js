@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { axiosRes } from "../../api/axiosDefaults";
-import { removeTokenTimestamp } from '../../utils/utils'
+import { removeTokenTimestamp } from "../../utils/utils";
 import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Form.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -16,7 +16,6 @@ const DeleteProfilePage = () => {
   const [errors, setErrors] = useState({});
   const history = useHistory();
   const { id } = useParams();
-
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 

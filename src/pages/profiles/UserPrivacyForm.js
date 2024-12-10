@@ -12,7 +12,6 @@ import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
-
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
@@ -21,7 +20,6 @@ const UserPrivacyForm = () => {
   const [errors, setErrors] = useState({});
   const history = useHistory();
   const { id } = useParams();
-
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
@@ -37,7 +35,6 @@ const UserPrivacyForm = () => {
           history.push("/posts"); // Redirect unauthorized users
         }
       } catch (err) {
-        console.error("Error fetching privacy status:", err.response?.data);
       }
     };
 
@@ -64,7 +61,6 @@ const UserPrivacyForm = () => {
 
       history.goBack(); // Navigate back after successful update
     } catch (err) {
-      console.error("Error updating privacy:", err.response?.data);
       setErrors(err.response?.data);
     }
   };

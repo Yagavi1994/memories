@@ -67,7 +67,6 @@ const Milestone = (props) => {
         }),
       }));
     } catch (err) {
-      console.error(err);
     }
   };
 
@@ -110,7 +109,7 @@ const Milestone = (props) => {
           <Card.Img src={image} alt={title} className={styles.Image} />
         </Link>
       </div>
-      <Card.Body className={`text-left`}>
+      <Card.Body className={"text-left"}>
         <div>
           <table style={{ width: "100%" }}>
             <tbody>
@@ -186,7 +185,7 @@ const Milestone = (props) => {
             </tbody>
           </table>
         </div>
-        <div className={`mt-3 text-center`}>
+        <div className={"mt-3 text-center"}>
           {is_owner ? (
             <OverlayTrigger
               placement="top"

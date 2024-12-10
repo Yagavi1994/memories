@@ -54,14 +54,6 @@
     align-items: center;
     justify-content: center;
   }
-
-  /* Responsive adjustments */
-  @media screen and (max-width: 600px) {
-    .Post {
-      width: 90%;
-      height: auto;
-    }
-  }
   
   .Post figure,
   h5 {
@@ -79,3 +71,11 @@
   .HeartOutline:hover {
     color: #d2cb7d;
   }
+
+ /* Responsive adjustments */
+ @media screen and (max-width: 600px) {
+  .Post {
+    width: 90%;
+    height: auto;
+  }
+}

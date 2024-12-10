@@ -73,7 +73,7 @@ const Post = (props) => {
   return (
     <Card className={styles.Post}>
       <Card.Body>
-        <Media className={`align-items-center justify-content-between`}>
+        <Media className={"align-items-center justify-content-between"}>
           <Link to={`/profiles/${profile_id}`} className={styles.Name}>
             <Avatar src={profile_image} height={55} />
             {owner}
@@ -99,7 +99,7 @@ const Post = (props) => {
       </div>
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
-        <div className={`mt-3 text-center`}>
+        <div className={"mt-3 text-center"}>
           {is_owner ? (
             <OverlayTrigger
               placement="top"

@@ -6,9 +6,8 @@ import btnStyles from "../../styles/Button.module.css";
 
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
-
   const [formContent, setFormContent] = useState(content);
-
+  
   const handleChange = (event) => {
     setFormContent(event.target.value);
   };
@@ -24,10 +23,10 @@ function CommentEditForm(props) {
         results: prevComments.results.map((comment) => {
           return comment.id === id
             ? {
-                ...comment,
-                content: formContent.trim(),
-                updated_at: "now",
-              }
+              ...comment,
+              content: formContent.trim(),
+              updated_at: "now",
+            }
             : comment;
         }),
       }));
@@ -48,7 +47,7 @@ function CommentEditForm(props) {
         />
       </Form.Group>
       <div className="text-right">
-      <button
+        <button
           className={`${styles.Button}`}
           disabled={!content.trim()}
           type="submit"

@@ -62,11 +62,11 @@
   }
 
   .Disabled {
-    background-color: #555555 !important; /* Dark grey background */
-    color: #ffffff !important; /* White text for contrast */
-    border: 1px solid white !important; /* No border */
-    opacity: 0.7 !important; /* Slight transparency for disabled effect */
-    padding: 5px 8px !important; /* Adjust padding */
+    background-color: #555555 !important; 
+    color: #ffffff !important;
+    border: 1px solid white !important;
+    opacity: 0.7 !important;
+    padding: 5px 8px !important;
   }
 
   .Disabled:hover:active {
