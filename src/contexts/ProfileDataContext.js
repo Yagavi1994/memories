@@ -8,7 +8,6 @@ const SetProfileDataContext = createContext();
 
 export const useProfileData = () => useContext(ProfileDataContext);
 export const useSetProfileData = () => useContext(SetProfileDataContext);
-
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
     pageProfile: { results: [] },
@@ -40,7 +39,6 @@ export const ProfileDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      console.error(`Error following profile ${clickedProfile.id}:`, err.response?.data || err.message);
     }
   };
 
@@ -65,7 +63,6 @@ export const ProfileDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      console.error(`Error unfollowing profile ${clickedProfile.id}:`, err.response?.data || err.message);
     }
   };
 
@@ -92,7 +89,6 @@ export const ProfileDataProvider = ({ children }) => {
           popularProfiles: data,
         }));
       } catch (err) {
-        console.error("Error fetching popular profiles:", err.response?.data || err.message);
       }
     };
 
