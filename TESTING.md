@@ -17,13 +17,13 @@ Google Lighthouse in Chrome Developer Tools was used to test the application wit
 
 ## Validator Testing
 
-### HTML Validator [W3C](https://validator.w3.org/)
+### HTML Validator [W3C - HTML](https://validator.w3.org/)
 
  No errors were found when the deployed URL was passed through W3C HTML validation checker.
 
 ![HTML testing](readme/validator/html.png)
 
-### CSS Validator [W3C - Jigsaw CSS](https://jigsaw.w3.org/css-validator/)
+### CSS Validator [W3C - CSS](https://jigsaw.w3.org/css-validator/)
 
 No errors or warnings were found when the deployed URL was passed through the W3C CSS Validation checker.
 
@@ -31,7 +31,7 @@ No errors or warnings were found when the deployed URL was passed through the W3
 
 ### ESLint Validator [ESLint](https://eslint.org/)
 
-No errors or warnings were found when the src folder was passed through the ESLint Validation checker.
+No errors or warnings were found when the "**src**" folder was passed through the ESLint Validation checker.
 
 ![ESLint testing](readme/validator/eslint.png)
 
