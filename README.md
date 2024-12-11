@@ -5,6 +5,7 @@
 
 
 - Link to the website: [Memories](https://memories-frontend-895c7e867e2e.herokuapp.com)
+- Link to TESTING.md of Memories: [Testing.md](TESTING.md)
 - Link to the backend API [Memories-backend](https://memories-backend-16d0ed87a1d2.herokuapp.com)
 - Link to the backend repository [Memories-backend-repo](https://github.com/Yagavi1994/Memories-API)
 
@@ -90,7 +91,7 @@ This platform not only allows parents to upload and share their children's photo
 - Users can access a sign-up form.
 - Form validation ensures required fields are filled with appropriate formats (e.g., valid email).
 - Error messages are shown for invalid input (e.g., duplicate email, weak password).
-- Successful sign-up redirects users to a welcome or home page.
+- Successful sign-up redirects users to a sign in page.
 - Confirmation message is displayed upon successful account creation.
 
 ---
@@ -413,6 +414,7 @@ This platform not only allows parents to upload and share their children's photo
 - Introduce a visually engaging timeline view where users can see posts and milestones chronologically, creating a digital memory board.
 
 These goals aim to enhance functionality, improve user engagement, and solidify **Memories** as a trusted, feature-rich platform for preserving and sharing children’s memories.
+
 ---
 
 # Design
