@@ -93,7 +93,7 @@ No errors or warnings were found when the "**src**" folder was passed through th
 |-----------------------|----------------------------------------------|---------------------------------------------------|------------|
 | Sign in Page            | Click “Sign in” in the navigation bar          | Redirected to the Sign in form                      | ✅         |
 | Sign in with Valid Credentials | Enter valid username and password           | User is successfully logged in and redirected to homepage | ✅         |
-| Sign in with Invalid Credentials | Enter incorrect username or password        | Error message displayed indicating incorrect login | ✅         |
+| Sign in with Invalid Credentials | Enter incorrect username or password        | Error message displayed indicating incorrect login credentials | ✅         |
 
 ---
 
@@ -374,4 +374,4 @@ The session token occasionally expires in the middle of an active session while 
 Refreshing the page resolves the issue by refreshing the session token, allowing the user to continue without further interruptions.
 
 **Note**:  
-This issue is also observed in the **Moments Walkthrough app**, indicating it may be related to the underlying session token management mechanism in both applications.
+This issue is also observed in the **Moments Walkthrough**, indicating it may be related to the underlying session token management mechanism in both applications.

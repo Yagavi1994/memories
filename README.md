@@ -3,12 +3,10 @@
 
 ![Overview](readme/features/responsive-image.png)
 
-
-- Link to the website: [Memories](https://memories-frontend-895c7e867e2e.herokuapp.com)
-- Link to TESTING.md of Memories: [Testing.md](TESTING.md)
-- Link to the backend API [Memories-backend](https://memories-backend-16d0ed87a1d2.herokuapp.com)
-- Link to the backend repository [Memories-backend-repo](https://github.com/Yagavi1994/Memories-API)
-
+- Link to the website: <a href="https://memories-frontend-895c7e867e2e.herokuapp.com" target="_blank" rel="noopener noreferrer">Memories</a>
+- Link to TESTING.md of Memories: <a href="TESTING.md" target="_blank" rel="noopener noreferrer">Testing.md</a>
+- Link to the backend API: <a href="https://memories-backend-16d0ed87a1d2.herokuapp.com" target="_blank" rel="noopener noreferrer">Memories-backend</a>
+- Link to the backend repository: <a href="https://github.com/Yagavi1994/Memories-API" target="_blank" rel="noopener noreferrer">Memories-backend-repo</a>
 
 # Project Overview
 
